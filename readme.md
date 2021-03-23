@@ -23,13 +23,21 @@ Once Tom gets to the zoo he spends a day working though about half of the animal
 ## 3.	What are the major features of the solution? List the features.
 - Lists every animal at the zoo
 - Points to every animal / building in the zoo so one can find them
-- Provides an audio tour description of each animal and building. 
+- Provides an audio tour description of each notable animal and building. 
 - Provides fast links to learn all current academic information on each animal at Encyclopedia of Life and Wikipedia
 
 ## 4.	How is this solution unique? How does it relate to existing solutions on the market? What are three solutions similar or related to what you want to do in the Google Play Store? Do the research and know that you are probably not reinventing the wheel! Present these three solutions, a description and how they compare to yours. Provide screenshots of the existing solutions.
 I am absolutely sure there is no existant audioguide for the Bronx Zoo. Naturally, there are countless app audioguides for various musuems and parks.  
 
-Obviously many audioguides exist for museums in the 
+The MET and MoMA both have mobile websites instead of mobile apps to provide audio tours. The MET does it in an extremely basic way, hosting a playlist off of Soundcloud for each of their exhibits. Users have to follow the tour in order of the playlist, and its quite tricky to navigate.
+
+MoMA gives visiters more flexability than the MET, by using a system where users can enter numbers online to listen to audio information. This makes it so users to can enjoy the exhibits out of order. It also makes the tour easier to find. 
+
+Rick Steve's, a famous tour guide, has a audio tour for Europe which is offered as an android app. Pictures are below:
+
+![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/1.png)
+![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/2.png) 
+![Screenshot 3](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/3.png)
 
 ## 5.	What technologies, APIs etc will you be using to develop this solution? Provide links and explanations.
 - Some kind of database solution (probably XML)

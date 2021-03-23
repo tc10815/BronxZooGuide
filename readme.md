@@ -18,7 +18,7 @@ Tom is a curious young adult who enjoys going to museums with his girlfriend on 
 
 Thankfully Tom and his date are nerds and have heard of the Unofficial Bronx Zoo Audio Guide. Tom installs the audio guide on his android, and takes 2 bluetooth headsets for him and his date on the trip. Tom has a limit of 2gb per month of 4G, so he installed the app at home before he left.
 
-Once Tom gets to the zoo he spends a day working though about half of the animals until he gets tired and it starts to get late. Tom was currious about the population distribution of the American Bison in case he wants to see one in the wild, and was able to quickly look it up using the Encyclopedia of Life link in the app. He also  see's that the app saves check marks next to all the animals he has already visited, so he knows he won't have to take notes to keep from repeating himself the next time he visits. 
+Once Tom gets to the zoo he spends a day working though about half of the animals until he gets tired and it starts to get late. Tom is curious about the population distribution of American Bison in case he wants to see one in the wild, and is able to quickly look it up using the Encyclopedia of Life link in the app. He also sees that the app saves check marks next to all the animals he has already visited, so he knows he won't have to take notes to keep from repeating himself the next time he visits. 
 
 Tom and his date have a peaceful drive home talking about all the interesting animal facts they learned.
 

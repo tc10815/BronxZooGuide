@@ -38,7 +38,7 @@ MoMA gives visiters more flexability than the MET, by using a system where users
 ![Screenshot 3](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/moma1.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/moma2.png) 
 
-Rick Steve's, a famous tour guide, has a audio tour for Europe which is offered as an android app. Pictures are below:
+Rick Steves, a famous tour guide, has a audio tour for Europe which is offered as an android app. Pictures are below:
 ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/1.png)
 ![Screenshot 3](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/0.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/2.png) 

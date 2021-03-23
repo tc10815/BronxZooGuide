@@ -51,5 +51,5 @@ Our app would offer a smarter interface than any of these three apps. By using G
 - Some kind of data management solution (probably XML)
   - Probably not Firebase because Firebase wants to be paid for real life usage, and this is a free app. 
 - Some kind of tracking (probably Google Analytics)
-- A Map API of some kind (for compasses and/or map
+- A Map API of some kind (for compasses and/or map)
 - Sound Playing API (could be Soundcloud)

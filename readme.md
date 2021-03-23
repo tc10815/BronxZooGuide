@@ -29,7 +29,7 @@ Tom and his date have a peaceful drive home talking about all the interesting an
 - Provides fast links to learn all current academic information on each animal at Encyclopedia of Life and Wikipedia
 
 ## 4.	How is this solution unique? How does it relate to existing solutions on the market? What are three solutions similar or related to what you want to do in the Google Play Store? Do the research and know that you are probably not reinventing the wheel! Present these three solutions, a description and how they compare to yours. Provide screenshots of the existing solutions.
-I am absolutely sure there is no existant audioguide for the Bronx Zoo. Naturally, there are countless app audioguides for various musuems and parks.  
+There are no existant audio guides for the Bronx Zoo. Naturally, there are countless app audioguides for various musuems and parks.  
 
 The MET and MoMA both have mobile websites instead of mobile apps to provide audio tours. The MET does it in an extremely basic way, hosting a playlist off of Soundcloud for each of their exhibits. Users have to follow the tour in order of the playlist, and its quite tricky to navigate.
 ![The met](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/met1.png)

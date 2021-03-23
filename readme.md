@@ -34,9 +34,8 @@ The MET and MoMA both have mobile websites instead of mobile apps to provide aud
 MoMA gives visiters more flexability than the MET, by using a system where users can enter numbers online to listen to audio information. This makes it so users to can enjoy the exhibits out of order. It also makes the tour easier to find. 
 
 Rick Steve's, a famous tour guide, has a audio tour for Europe which is offered as an android app. Pictures are below:
-
-![Screenshot 3](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/0.png)
 ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/1.png)
+![Screenshot 3](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/0.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/2.png) 
 
 ## 5.	What technologies, APIs etc will you be using to develop this solution? Provide links and explanations.

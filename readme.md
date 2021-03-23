@@ -6,11 +6,11 @@ The Bronx Zoo doesn’t have an Audio Tour or anything like it (closest thing is
 
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/drawing2.jpg) ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/drawing1.jpg)
 
-###1.	What is/are the problem/s you want to solve? Please provide background based on research. 
+## 1.	What is/are the problem/s you want to solve? Please provide background based on research. 
 
 There are currently no audiotours (or modern physical guides) to the Bronx Zoo.  Audio guides makes sightseeing much more rewarding. 
 
-###2.	Who are the users you are targeting? Please use a Persona to describe your users and draw a picture of your target user. 
+## 2.	Who are the users you are targeting? Please use a Persona to describe your users and draw a picture of your target user. 
 
 Persona: Tom Soncook
 
@@ -20,18 +20,18 @@ Thankfully Tom and his date are nerds and have heard of the Unofficial Bronx Zoo
 
 Once Tom gets to the zoo he spends a day working though about half of the animals until he gets tired and it starts to get late. He see's that the app saves check marks next to all the animals he has already visited, so he knows he won't have to take notes to keep from repeating himself the next time he visits. 
 
-###3.	What are the major features of the solution? List the features.
+## 3.	What are the major features of the solution? List the features.
 - Lists every animal at the zoo
 - Points to every animal / building in the zoo so one can find them
 - Provides an audio tour description of each animal and building. 
 - Provides fast links to learn all current academic information on each animal at Encyclopedia of Life and Wikipedia
 
-###4.	How is this solution unique? How does it relate to existing solutions on the market? What are three solutions similar or related to what you want to do in the Google Play Store? Do the research and know that you are probably not reinventing the wheel! Present these three solutions, a description and how they compare to yours. Provide screenshots of the existing solutions.
+## 4.	How is this solution unique? How does it relate to existing solutions on the market? What are three solutions similar or related to what you want to do in the Google Play Store? Do the research and know that you are probably not reinventing the wheel! Present these three solutions, a description and how they compare to yours. Provide screenshots of the existing solutions.
 I am absolutely sure there is no existant audioguide for the Bronx Zoo. Naturally, there are countless app audioguides for various musuems and parks.  
 
 Obviously many audioguides exist for museums in the 
 
-###5.	What technologies, APIs etc will you be using to develop this solution? Provide links and explanations.
+## 5.	What technologies, APIs etc will you be using to develop this solution? Provide links and explanations.
 - Some kind of database solution (probably XML)
 - Some kind of tracking (probably Google Anaylitics)
 - A Map API of some kind (for compasses and/or map

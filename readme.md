@@ -43,7 +43,7 @@ Rick Steves, a famous tour guide, has a audio tour for Europe which is offered a
 ![Screenshot 3](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/0.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/2.png) 
 
-Rick's Steves' tours are an Android app and offer downloading the audio to your phone before leaving. This is  hugely helpful for Americans in Europe, who typically won't have 4G on their phones. The content is absolutely top notch, but the implementation of the tour is very basic. There are no interactive maps or GPS features at all, so it's essentially just an MP3 player that allows you to preload playlists with tours. 
+Rick Steves' tours are an Android app and offer downloading the audio to your phone before leaving. This is  hugely helpful for Americans in Europe, who typically won't have 4G on their phones. The content is absolutely top notch, but the implementation of the tour is very basic. There are no interactive maps or GPS features at all, so it's essentially just an MP3 player that allows you to preload playlists with tours. 
 
 Our app would offer a smarter interface than any of these three apps. By using GPS and pointing with a compass, navigation should be easier and less restrictive. Links to the Encyclopedia of Life and Wikipedia also offer a much deeper dive than the other three audio guide solutions.  
 

@@ -45,7 +45,7 @@ Rick Steves, a famous tour guide, has a audio tour for Europe which is offered a
 
 Rick's Steves' tours are an Android app and offer downloading the audio to your phone before leaving. This is  hugely helpful for Americans in Europe, who typically won't have 4G on their phones. The content is absolutely top notch, but the implementation of the tour is very basic. There are no interactive maps or GPS features at all, so it's essentially just an MP3 player that allows you to preload playlists with tours. 
 
-Our app would offer a smarter interface than any of these three apps. By using GPS and pointing with a compass, navigation should be easier and less restrictive. Links to the Encyclopedia of Life and Wikipedia also offer a much deeper dive than the other 3 audiotour solutions.  
+Our app would offer a smarter interface than any of these three apps. By using GPS and pointing with a compass, navigation should be easier and less restrictive. Links to the Encyclopedia of Life and Wikipedia also offer a much deeper dive than the other three audio guide solutions.  
 
 ## 5.	What technologies, APIs etc will you be using to develop this solution? Provide links and explanations.
 - Some kind of data management solution (probably XML)

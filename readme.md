@@ -20,7 +20,7 @@ Thankfully Tom and his date are nerds and have heard of the Unofficial Bronx Zoo
 
 Once Tom gets to the zoo he spends a day working though about half of the animals until he gets tired and it starts to get late. Tom is curious about the population distribution of American Bison in case he wants to see one in the wild, and is able to quickly look it up using the Encyclopedia of Life link in the app. He also sees that the app saves check marks next to all the animals he has already visited, so he knows he won't have to take notes to keep from repeating himself the next time he visits. 
 
-Tom and his date have a peaceful drive home talking about all the interesting animal facts they learned.
+Tom and his date have a peaceful drive home talking about all the interesting animal facts they have learned.
 
 ## 3.	What are the major features of the solution? List the features.
 - Lists every animal at the zoo

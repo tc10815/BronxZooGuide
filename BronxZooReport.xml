@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This XML document describes a digital technical report about the Bronx Zoo -->
 <report>
-	<title>Technical Report for Biologists and Laypeople on the Fauna
-	and Structures comprising the Bronx Zoo</title>
 	<bestiary>
 		<animal id="1">
 			<zooname>Southern Pudu</zooname>

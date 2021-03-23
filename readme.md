@@ -2,13 +2,13 @@
 
 Many museums have cheap digital audio tours where you use an app or device where you enter numbers at stations to listen to more info about what you’re looking at. In NYC the Met (https://www.metmuseum.org/visit/audio-guide) and MoMA have great ones; also in France there are bunch of great ones in the Loire Valley.
 
-The Bronx Zoo doesn’t have an Audio Tour or anything like it (closest thing is founder William Temple Hornaday’s 1899 Guide to the New York Zoological Park; read here  https://babel.hathitrust.org/cgi/pt?id=uc1.c045667025 ). We’d like our Audio Tours to include both historical information about the park (which is weirdly hard to find except in primary sources like newspaper archives and Hornaday’s book; possibly because of scandals in its history – they did lots of things that wouldn’t be okay by today’s standards although they were progressive at the time) and information about the animals taken from the Encyclopedia of Life (eol.org) and Wikipedia (their information isn’t always reliable but it’s not copyrighted and worth using as long as you double check)
+The Bronx Zoo doesn’t have an Audio Tour or anything like it (closest thing is founder William Temple Hornaday’s 1899 Guide to the New York Zoological Park; read here  https://babel.hathitrust.org/cgi/pt?id=uc1.c045667025 ). We’d like our audio guide to include both historical information about the park (which is weirdly hard to find except in primary sources like newspaper archives and Hornaday’s book; possibly because of scandals in its history – they did lots of things that wouldn’t be okay by today’s standards although they were progressive at the time) and information about the animals taken from the Encyclopedia of Life (eol.org) and Wikipedia (their information isn’t always reliable but it’s not copyrighted and worth using as long as you double check)
 
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/drawing2.jpg) ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/drawing1.jpg)
 
 ## 1.	What is/are the problem/s you want to solve? Please provide background based on research. 
 
-There are currently no audiotours (or modern physical guides) to the Bronx Zoo.  Audio guides make sightseeing much more rewarding. 
+There are currently no audio guides (or modern physical guides) to the Bronx Zoo.  Audio guides make sightseeing much more rewarding. 
 
 ## 2.	Who are the users you are targeting? Please use a Persona to describe your users and draw a picture of your target user. 
 
@@ -16,7 +16,7 @@ Persona: Tom Soncook
 
 Tom is a curious young adult who enjoys going to museums with his girlfriend on weekends; a much needed respite from his stressful job. Tom goes to the zoo with his girlfriend one weekend; he's interested in the animals at the Bronx zoo but he finds the educational plaques to be overwhelming in quantity and distracting from the animals. Tom would rather be looking at animals than reading plaques all day. Also, he finds that there's not enough information on many of the plaques.
 
-Thankfully Tom and his date are nerds and have heard of the Unofficial Bronx Zoo Audioguide. Tom installs the audioguide on his android, and takes 2 bluetooth headsets for him and his date on the trip. Tom has a limit of 2gb per month of 4G, so he installed the app at home before he left.
+Thankfully Tom and his date are nerds and have heard of the Unofficial Bronx Zoo Audio Guide. Tom installs the audio guide on his android, and takes 2 bluetooth headsets for him and his date on the trip. Tom has a limit of 2gb per month of 4G, so he installed the app at home before he left.
 
 Once Tom gets to the zoo he spends a day working though about half of the animals until he gets tired and it starts to get late. Tom was currious about the population distribution of the American Bison in case he wants to see one in the wild, and was able to quickly look it up using the Encyclopedia of Life link in the app. He also  see's that the app saves check marks next to all the animals he has already visited, so he knows he won't have to take notes to keep from repeating himself the next time he visits. 
 
@@ -46,6 +46,7 @@ Our app would offer a smarter interface than any of these three apps. By using G
 
 ## 5.	What technologies, APIs etc will you be using to develop this solution? Provide links and explanations.
 - Some kind of database solution (probably XML)
-- Some kind of tracking (probably Google Anaylitics)
+- - Probably not Firebase because Firebase wants to be paid for real life usage, and this is a free app. 
+- Some kind of tracking (probably Google Analytics)
 - A Map API of some kind (for compasses and/or map
-- Sound Playing / storing API (could be Soundcloud)
+- Sound Playing API (could be Soundcloud)

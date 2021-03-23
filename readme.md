@@ -1,6 +1,6 @@
 # Unofficial Bronx Zoo Audio Tour
 
-Many museums have cheap digital audio tours where you use an app or device where you enter numbers at stations to listen to more info about what you’re looking at. In NYC the Met (https://www.metmuseum.org/visit/audio-guide) and MoMA have great ones; also in France there are bunch of great ones in the Loire Valley..
+Many museums have cheap digital audio tours where you use an app or device where you enter numbers at stations to listen to more info about what you’re looking at. In NYC the Met (https://www.metmuseum.org/visit/audio-guide) and MoMA have great ones; also in France there are bunch of great ones in the Loire Valley.
 
 The Bronx Zoo doesn’t have an Audio Tour or anything like it (closest thing is founder William Temple Hornaday’s 1899 Guide to the New York Zoological Park; read here  https://babel.hathitrust.org/cgi/pt?id=uc1.c045667025 ). We’d like our Audio Tours to include both historical information about the park (which is weirdly hard to find except in primary sources like newspaper archives and Hornaday’s book; possibly because of scandals in its history – they did lots of things that wouldn’t be okay by today’s standards although they were progressive at the time) and information about the animals taken from the Encyclopedia of Life (eol.org) and Wikipedia (their information isn’t always reliable but it’s not copyrighted and worth using as long as you double check)
 
@@ -8,7 +8,7 @@ The Bronx Zoo doesn’t have an Audio Tour or anything like it (closest thing is
 
 ## 1.	What is/are the problem/s you want to solve? Please provide background based on research. 
 
-There are currently no audiotours (or modern physical guides) to the Bronx Zoo.  Audio guides makes sightseeing much more rewarding. 
+There are currently no audiotours (or modern physical guides) to the Bronx Zoo.  Audio guides make sightseeing much more rewarding. 
 
 ## 2.	Who are the users you are targeting? Please use a Persona to describe your users and draw a picture of your target user. 
 
@@ -37,6 +37,10 @@ Rick Steve's, a famous tour guide, has a audio tour for Europe which is offered 
 ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/1.png)
 ![Screenshot 3](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/0.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/2.png) 
+
+Rick's Steve's tours are an Android app and offer downloading the audio to your phone before leaving. This is  hugely helpful for American's in Europe, who typically won't have 4G on their phones. The content is absolutely top notch, but the implementation of the tour is very basic. There are no maps or GPS features at all, so it's essentially just an MP3 player that allows you to preload playlists with tours. 
+
+Our app would offer a smarter interface than any of these three apps. By using GPS and pointing with a compass, navigation should be easier and less restrictive. Links to the Encyclopedia of Life and Wikipedia also offer a much deeper dive than the other 3 audiotour solutions.  
 
 ## 5.	What technologies, APIs etc will you be using to develop this solution? Provide links and explanations.
 - Some kind of database solution (probably XML)

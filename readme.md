@@ -45,8 +45,8 @@ Rick's Steves' tours are an Android app and offer downloading the audio to your 
 Our app would offer a smarter interface than any of these three apps. By using GPS and pointing with a compass, navigation should be easier and less restrictive. Links to the Encyclopedia of Life and Wikipedia also offer a much deeper dive than the other 3 audiotour solutions.  
 
 ## 5.	What technologies, APIs etc will you be using to develop this solution? Provide links and explanations.
-- Some kind of database solution (probably XML)
-- - Probably not Firebase because Firebase wants to be paid for real life usage, and this is a free app. 
+- Some kind of datab solution (probably XML)
+  - Probably not Firebase because Firebase wants to be paid for real life usage, and this is a free app. 
 - Some kind of tracking (probably Google Analytics)
 - A Map API of some kind (for compasses and/or map
 - Sound Playing API (could be Soundcloud)

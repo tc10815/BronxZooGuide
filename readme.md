@@ -18,7 +18,9 @@ Tom is a curious young adult who enjoys going to museums with his girlfriend on 
 
 Thankfully Tom and his date are nerds and have heard of the Unofficial Bronx Zoo Audioguide. Tom installs the audioguide on his android, and takes 2 bluetooth headsets for him and his date on the trip. Tom has a limit of 2gb per month of 4G, so he installed the app at home before he left.
 
-Once Tom gets to the zoo he spends a day working though about half of the animals until he gets tired and it starts to get late. He see's that the app saves check marks next to all the animals he has already visited, so he knows he won't have to take notes to keep from repeating himself the next time he visits. 
+Once Tom gets to the zoo he spends a day working though about half of the animals until he gets tired and it starts to get late. Tom was currious about the population distribution of the American Bison in case he wants to see one in the wild, and was able to quickly look it up using the Encyclopedia of Life link in the app. He also  see's that the app saves check marks next to all the animals he has already visited, so he knows he won't have to take notes to keep from repeating himself the next time he visits. 
+
+Tom and his date have a peaceful drive home talking about all the interesting animal facts they learned.
 
 ## 3.	What are the major features of the solution? List the features.
 - Lists every animal at the zoo
@@ -38,7 +40,7 @@ Rick Steve's, a famous tour guide, has a audio tour for Europe which is offered 
 ![Screenshot 3](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/0.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/2.png) 
 
-Rick's Steve's tours are an Android app and offer downloading the audio to your phone before leaving. This is  hugely helpful for American's in Europe, who typically won't have 4G on their phones. The content is absolutely top notch, but the implementation of the tour is very basic. There are no maps or GPS features at all, so it's essentially just an MP3 player that allows you to preload playlists with tours. 
+Rick's Steves' tours are an Android app and offer downloading the audio to your phone before leaving. This is  hugely helpful for American's in Europe, who typically won't have 4G on their phones. The content is absolutely top notch, but the implementation of the tour is very basic. There are no maps or GPS features at all, so it's essentially just an MP3 player that allows you to preload playlists with tours. 
 
 Our app would offer a smarter interface than any of these three apps. By using GPS and pointing with a compass, navigation should be easier and less restrictive. Links to the Encyclopedia of Life and Wikipedia also offer a much deeper dive than the other 3 audiotour solutions.  
 

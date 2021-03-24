@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This XML document describes a digital technical report about the Bronx Zoo -->
-<report>
+<!-- This is Bronx Zoo Audio Tour Guide data version 0.2 last updated 3/24/2021  -->
+<guide>
 	<bestiary>
 		<animal id="1">
 			<zooname>Southern Pudu</zooname>
@@ -73,10 +73,11 @@
 						<link>https://www.iucnredlist.org/species/18848/22164089</link>
 					</readmore>
 				</readinglist>
+				<parentstructure>0</parentstructure>
 		</animal>
 		<animal id="2">
 			<zooname>Giraffe</zooname>
-			<binomialnomenclature>Giraffa</binomialnomenclature>
+			<binomialnomenclature>Giraffa camelopardalis</binomialnomenclature>
 			<family>Giraffidae</family>
 			<class>Mammalia</class>
 			<IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
@@ -134,6 +135,7 @@
 						<link>https://www.iucnredlist.org/species/9194/136266699</link>
 					</readmore>
 				</readinglist>
+				<parentstructure>0</parentstructure>
 		</animal>
 		<animal id="3">
 			<zooname>Common Ostrich</zooname>
@@ -182,6 +184,7 @@
 						</link>
 					</readmore>
 				</readinglist>
+				<parentstructure>0</parentstructure>
 		</animal>
 		<animal id="4">
 			<zooname>African Wild Dogs</zooname>
@@ -234,6 +237,7 @@
 						<link>https://www.iucnredlist.org/species/12436/166502262</link>
 					</readmore>
 			</readinglist>
+			<parentstructure>0</parentstructure>
 		</animal>
 	</bestiary>
 	<structures>
@@ -331,4 +335,4 @@
 					https://www.dippindots.com/about/faq.html
 		</structure>
 	</structures>
-</report>
+</guide>

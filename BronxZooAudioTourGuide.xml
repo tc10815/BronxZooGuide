@@ -4,7 +4,7 @@
 	<bestiary>
 		<animal id="1">
 			<zooname>Southern Pudu</zooname>
-			<pictureurl></pictureurl>
+			<pictureurl>https://raw.githubusercontent.com/jrandtc/UnofficialBronxZooAudioTour/master/images/a1.jpg</pictureurl>
 			<commonname id="1">Chilean Pudu</commonname>
 			<binomialnomenclature>Pudu puda</binomialnomenclature>
 			<family>Cervidae</family>
@@ -78,7 +78,7 @@
 		</animal>
 		<animal id="2">
 			<zooname>Giraffe</zooname>
-			<pictureurl></pictureurl>
+			<pictureurl>https://raw.githubusercontent.com/jrandtc/UnofficialBronxZooAudioTour/master/images/a2.jpg</pictureurl>
 			<binomialnomenclature>Giraffa camelopardalis</binomialnomenclature>
 			<family>Giraffidae</family>
 			<class>Mammalia</class>
@@ -141,7 +141,7 @@
 		</animal>
 		<animal id="3">
 			<zooname>Common Ostrich</zooname>
-			<pictureurl></pictureurl>
+			<pictureurl>https://raw.githubusercontent.com/jrandtc/UnofficialBronxZooAudioTour/master/images/a3.jpg</pictureurl>
 			<commonname id="1">African Ostrich</commonname>
 			<binomialnomenclature>Struthio camelus</binomialnomenclature>
 			<family>Struthionidae</family>
@@ -191,7 +191,7 @@
 		</animal>
 		<animal id="4">
 			<zooname>African Wild Dogs</zooname>
-			<pictureurl></pictureurl>
+			<pictureurl>https://raw.githubusercontent.com/jrandtc/UnofficialBronxZooAudioTour/master/images/a4.jpg</pictureurl>
 			<binomialnomenclature>Lycaon pictus</binomialnomenclature>
 			<commonname id="1">African Hunting Dog</commonname>
 			<family>Canidae</family>
@@ -247,7 +247,7 @@
 	<structures>
 		<structure id="1">
 			<stucttitle>Fountain of Youth</stucttitle>
-			<pictureurl></pictureurl>
+			<pictureurl>https://raw.githubusercontent.com/jrandtc/UnofficialBronxZooAudioTour/master/images/s1.jpg</pictureurl>
 			<originalcontent>
 				<information>
 				<paragraph>Legend has it that in Pompeii, a city in
@@ -296,7 +296,7 @@
 		</structure>
 		<structure id="2">
 			<stucttitle>Dippin Dots</stucttitle>
-			<pictureurl></pictureurl>
+			<pictureurl>https://raw.githubusercontent.com/jrandtc/UnofficialBronxZooAudioTour/master/images/s2.jpg</pictureurl>
 			<originalcontent>
 				<information>
 					<paragraph>Dippin' Dots is an ice cream snack invented by Curt

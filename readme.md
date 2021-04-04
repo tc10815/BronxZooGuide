@@ -12,7 +12,7 @@ When the app opens, the user is presented with a scrollable list of nearby anima
 
 If the user taps one of the 7 structures containing animals in the first list (e.g. Mouse House, World of Birds, Reptile World), a second list of all the animals inside that structure will appear in order of where they are found in the building, from entrance to exit. A stub of these animals can be clicked for limited additional information (no custom content, but links and a picture) 
 
-Finally, there will be a little search bar on top of the first list (screenshot 1, not pictured), that will allow users to find specific animals they are looking for, but any criteria hard coded in the XML, such as names, family, class or binomial nomenclature. When text is added to the search box, the list automatically filters to only include animals, structures or structures containing the animals matching the new filter.
+Finally, there will be a little search bar on top of the first list (screenshot 1, not pictured), that will allow users to find specific animals they are looking for, by any criteria hard coded in the XML, such as names, family, class or binomial nomenclature. When text is added to the search box, the list automatically filters to only include animals, structures or structures containing the animals matching the new filter.
 
 ## 1.	What is/are the problem/s you want to solve? Please provide background based on research. 
 

@@ -38,7 +38,7 @@ Although not a "Audio Tour Guide" app, the Bronx zoo does have a mobile website 
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/bz2.png) 
 ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/bz3.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/bz4.png)
-Although the logistical information the Bronx Zoo mobile webiste gives is helpful, it has no information about the animals.
+Although the logistical information the Bronx Zoo mobile website gives is helpful, it has no information about the animals.
 
 The MET and MoMA also have mobile websites instead of mobile apps, but they actually do provide audio tours. The MET does it in an extremely basic way, hosting a playlist off of Soundcloud for each of their exhibits. Users have to follow the tour in order of the playlist, and its quite tricky to navigate.
 ![The met](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/met1.png)
@@ -57,8 +57,9 @@ Rick Steves' tours are an Android app and offer downloading the audio to your ph
 Our app would offer a smarter interface than any of these three apps. By using GPS and pointing with a compass, navigation should be easier and less restrictive. Links to the Encyclopedia of Life and Wikipedia also offer a much deeper dive than the other three audio guide solutions.  
 
 ## 5.	What technologies, APIs etc will you be using to develop this solution? Provide links and explanations.
-- Some kind of data management solution (probably XML)
-  - Probably not Firebase because Firebase wants to be paid for real life usage, and this is a free app. 
+- Animal data will be stored locally and included in APK as an XML file
+- Images and audio files will be included in APK, although highly compressed
 - Some kind of tracking (probably Google Analytics)
 - A Map API of some kind (for compasses and/or map)
-- Sound Playing API (could be Soundcloud)
+- Sound Playing API
+- Intents will be used to launch web browsers for sources and email if users want to submit information

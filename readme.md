@@ -24,14 +24,23 @@ Tom and his date have a peaceful drive home talking about all the interesting an
 
 ## 3.	What are the major features of the solution? List the features.
 - Lists every animal at the zoo
+- Provides an audio tour description of every outside animal and many structures. 
+- Includes buildings with animals inside (e.g. Reptile house) that users can click to expand, where users can see animals with pictures and links, but no audio/text guide.
 - Points to every animal / building in the zoo so one can find them
-- Provides an audio tour description of each notable animal and building. 
+- Provides a search feature to find specific animals
 - Provides fast links to learn all current academic information on each animal at Encyclopedia of Life and Wikipedia
 
 ## 4.	How is this solution unique? How does it relate to existing solutions on the market? What are three solutions similar or related to what you want to do in the Google Play Store? Do the research and know that you are probably not reinventing the wheel! Present these three solutions, a description and how they compare to yours. Provide screenshots of the existing solutions.
-There are no existent audio guides for the Bronx Zoo. Naturally, there are countless app audio guides for various musuems and parks.  
+There are no existent audio guides for the Bronx Zoo. Naturally, there are countless app audio guides for various musuems and parks. 
 
-The MET and MoMA both have mobile websites instead of mobile apps to provide audio tours. The MET does it in an extremely basic way, hosting a playlist off of Soundcloud for each of their exhibits. Users have to follow the tour in order of the playlist, and its quite tricky to navigate.
+Although not a "Audio Tour Guide" app, the Bronx zoo does have a mobile website which gives users some logistical information about the park, and the location of a few animals.
+![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/bz1.png)
+![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/bz2.png) 
+![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/bz3.png)
+![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/bz4.png)
+Although the logistical information the Bronx Zoo mobile webiste gives is helpful, it has no information about the animals.
+
+The MET and MoMA also have mobile websites instead of mobile apps, but they actually do provide audio tours. The MET does it in an extremely basic way, hosting a playlist off of Soundcloud for each of their exhibits. Users have to follow the tour in order of the playlist, and its quite tricky to navigate.
 ![The met](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/met1.png)
 
 MoMA gives visiters more flexability than the MET, by using a system where users can enter numbers online to listen to audio information. This makes it so users to can enjoy the exhibits out of order. It also makes the tour easier to find. 

@@ -6,6 +6,14 @@ The Bronx Zoo doesn’t have an audio tour or anything like it (closest thing is
 
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/drawing2.jpg) ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/drawing1.jpg)
 
+## Design ##
+
+When the app opens, the user is presented with a scrollable list of nearby animals and structures with arrows pointing towards them, as pictured above in screenshot 1.  If the user taps an animal or empty structure, they go to an information page with detailed information about the animal/structure with audio they can listen to about it, as pictured in screenshot 2.  
+
+If the user taps one of the 7 structures containing animals in the first list (e.g. Mouse House, World of Birds, Reptile World), a second list of all the animals inside that structure will appear in order of where they are found in the building, from entrance to exit. A stub of these animals can be clicked for limited additional information (no custom content, but links and a picture) 
+
+Finally, there will be a little search bar on top of the first list (screenshot 1, not pictured), that will allow users to find specific animals they are looking for, but any criteria hard coded in the XML, such as names or binomial nomenclature. 
+
 ## 1.	What is/are the problem/s you want to solve? Please provide background based on research. 
 
 There are currently no audio guides (or modern physical guides) to the Bronx Zoo.  Audio guides make sightseeing much more rewarding. 

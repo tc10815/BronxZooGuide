@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Unofficial Bronx Zoo Audio Tour Guide</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string-array name="programming_languages">
+        <item>C++</item>
+        <item>C#</item>
+        <item>Java</item>
+        <item>Javascript</item>
+        <item>Kotlin</item>
+        <item>Python</item>
+        <item>Ruby</item>
+        <item>Swift</item>
+        <item>TypeScript</item>
+        <item>VisualStudio</item>
+    </string-array>
+    <string-array name="description">
+        <item>This language I want to learn but probaby aint useful</item>
+        <item>Another shiny language that my be good for games</item>
+        <item>I know this one like the back of my hand</item>
+        <item>I really like this one although lots of nerds hate it</item>
+        <item>Very curious about this, but skeptical</item>
+        <item>Sounds like kid stuff but not sure</item>
+        <item>I dont understand this one at all</item>
+        <item>I think this might be a web thing as well</item>
+        <item>Absolutely know clue this is. Related to LaTEX?</item>
+        <item>I think this is crap but times may have changed</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

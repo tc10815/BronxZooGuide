@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<guide>
+    <resources>
+        <bestiary>
+            <animal id="1">
+                <zooname>Southern Pudu</zooname>
+                <commonname id="1">Chilean Pudu</commonname>
+                <binomialnomenclature>Pudu puda</binomialnomenclature>
+                <family>Cervidae</family>
+                <class>Mammalia</class>
+                <IUCNConservationStatus>Near Threatened</IUCNConservationStatus>
+                <naturallocation>
+                    Central Chile and along the adjacent Argentine
+                    border
+                </naturallocation>
+                <originalcontent>
+                        <paragraph>Southern Pudu are the smallest
+                            deer on earth, measuring from 0.6 to 0.825
+                            meters long. They're found in nature in
+                            the temperate zone of Southern Chile
+                            and in Argentina in the adjacent region. Their
+                            native climate is on average warmer and wetter
+                            than New York, but is still considered
+                            temporate rather than tropical. Their maximum lifespan in
+                            captivity is thought to be about 18, and in nature about
+                            10 years. They eat
+                            fallen fruit, ferns, vines and small
+                            tree foliage. These animals get most of liquid from their
+                            food, and are
+                            only occasionally seen drinking water.</paragraph>
+                        <paragraph>Baby Chilean Pudu have white spots on their coat.
+                            Males have short (less than 10 cm) spike antlers. Pudu
+                            mate in the fall
+                            and give birth in the spring (bare in
+                            mind in Chile the seasons are
+                            opposite). Usually only one fawn
+                            is born per year. It takes three
+                            months for a fawn to
+                            become full sized, six months for a female to
+                            reach
+                            sexual maturity and eighteen months for males.</paragraph>
+                        <paragraph>Chilean Pudu, being super cute, have been captured
+                            in the wild for use as
+                            pets, contributing to their
+                            declining population. It's speculated that the reason
+                            they have evolved to be
+                            so small is to be able to
+                            more easily slip though the dense
+                            undergrowth and
+                            bamboo thinkets in their native environment.</paragraph>
+                </originalcontent>
+                <viewingpoints>
+                    <viewingpoint id="1">
+                        <latitude>40.848938</latitude>
+                        <longitude>-73.879588</longitude>
+                    </viewingpoint>
+                </viewingpoints>
+                <readinglist>
+                    <readmore id="1">
+                        <type>eol</type>
+                        <link>https://eol.org/pages/129574</link>
+                    </readmore>
+                    <readmore id="2">
+                        <type>wikipedia</type>
+                        <link>https://en.wikipedia.org/wiki/Pud%C3%BA</link>
+                        <comment>The article covers both the southern and north pudu
+                        </comment>
+                    </readmore>
+                    <readmore id="3">
+                        <type>IUCN Red List</type>
+                        <link>https://www.iucnredlist.org/species/18848/22164089</link>
+                    </readmore>
+                </readinglist>
+                <parentstructure>0</parentstructure>
+            </animal>
+            <animal id="2">
+                <zooname>Giraffe</zooname>
+                <binomialnomenclature>Giraffa camelopardalis</binomialnomenclature>
+                <family>Giraffidae</family>
+                <class>Mammalia</class>
+                <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
+                <naturallocation>
+                    Africa, especially towards the south
+                </naturallocation>
+                <originalcontent>
+                        <paragraph>This is a giraffe, the tallest living terrestrial animal
+                            which has facinated humanity for millenia. 2016 estimates
+                            indicate that there are around 100 thousand of
+                            these animals in the wild, with more than 1500 in zoos.
+                            Although giraffe are traditionally considered one
+                            species, research in mitochondrial and nuclear DNA
+                            reveals that there are actually eight species. Giraffe
+                            are members of of the Giraffidae family, along with their
+                            closest living relative, the endangered okapi (which you
+                            can also find not far from here). Giraffe are found
+                            in the wild in various pockets, mostly in southern half of
+                            Africa.</paragraph>
+                        <paragraph>Giraffes usually inhabit savannahs and woodlands.
+                            Their food source is leaves, fruits and flowers of
+                            woody plants, which they can get to easier than any
+                            of the competition thanks to their long necks. They
+                            are preyed upon lions, leopards, spotted hyenas and
+                            African wild dogs (all of which you can see here
+                            nearby except for African leopards).</paragraph>
+                        <paragraph>Giraffes live in herds of related females and
+                            their offspring, or in bachelor herds of unrelated
+                            males. Giraffes are very social and sometimes
+                            these herds hang out together. Males establish
+                            social hierarchies through "necking", where they
+                            combat using their necks as weapons. Dominant
+                            males gain access to females, who do all the
+                            child rearing.</paragraph>
+                </originalcontent>
+                <viewingpoints>
+                    <viewingpoint id="1">
+                        <latitude>40.847847</latitude>
+                        <longitude>-73.880372</longitude>
+                    </viewingpoint>
+                </viewingpoints>
+                <readinglist>
+                    <readmore id="1">
+                        <type>eol</type>
+                        <link>https://eol.org/pages/38813</link>
+                    </readmore>
+                    <readmore id="2">
+                        <type>wikipedia</type>
+                        <link>https://en.wikipedia.org/wiki/Giraffe</link>
+                    </readmore>
+                    <readmore id="3">
+                        <type>IUCN Red List</type>
+                        <link>https://www.iucnredlist.org/species/9194/136266699</link>
+                    </readmore>
+                </readinglist>
+                <parentstructure>0</parentstructure>
+            </animal>
+            <animal id="3">
+                <zooname>Common Ostrich</zooname>
+                <commonname id="1">African Ostrich</commonname>
+                <binomialnomenclature>Struthio camelus</binomialnomenclature>
+                <family>Struthionidae</family>
+                <class>Aves</class>
+                <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
+                <naturallocation>
+                    Africa, at the southern end and central
+                </naturallocation>
+                <originalcontent>
+                        <paragraph>Ostriches are unmistakeable: They are Huge
+                            (stands 2 m tall), terrestrial bird. Males are black
+                            and white, females gray brown. They can weight 90 to 130 kg
+                            or 200 to 300 pounds, or as much as two adult humans.
+                            Their lifespan is up to 40–45 years. </paragraph>
+                        <paragraph> Ostriches were almost wiped out in the 18th
+                            century due to hunting for feathers. By the middle of the
+                            19th century, the practice of farming ostriches began to spread.
+                            This enabled ostriches to be domesticated and plucked, instead
+                            of being hunted and killed. Currently, the demand for ostrich
+                            feathers has lessened greatly, and ostriches seem to have a
+                            secure population.</paragraph>
+                </originalcontent>
+                <viewingpoints>
+                    <viewingpoint id="1">
+                        <latitude>40.8477944</latitude>
+                        <longitude>-73.8804833</longitude>
+                    </viewingpoint>
+                </viewingpoints>
+                <readinglist>
+                    <readmore id="1">
+                        <type>eol</type>
+                        <link>https://eol.org/pages/45513749</link>
+                    </readmore>
+                    <readmore id="2">
+                        <type>wikipedia</type>
+                        <link>https://en.wikipedia.org/wiki/Common_ostrich</link>
+                    </readmore>
+                    <readmore id="3">
+                        <type>IUCN Red List</type>
+                        <link>https://www.iucnredlist.org/species/45020636/132189458
+                        </link>
+                    </readmore>
+                </readinglist>
+                <parentstructure>0</parentstructure>
+            </animal>
+            <animal id="4">
+                <zooname>Pretend animal</zooname>
+                <binomialnomenclature>Animalus pretendus</binomialnomenclature>
+                <commonname id="1">Fake creature</commonname>
+                <family>FakeFamily</family>
+                <class>Mammal</class>
+                <IUCNConservationStatus>Nonexistent</IUCNConservationStatus>
+                <naturallocation>
+                    No where can it be found
+                </naturallocation>
+                <originalcontent>
+                        <paragraph>Moderation itself can be a kind of extreme</paragraph>
+                        <paragraph>I should write more but I'm too lazy</paragraph>
+                </originalcontent>
+                <viewingpoints>
+                    <viewingpoint id="1">
+                        <latitude>40.847453</latitude>
+                        <longitude>-73.880658</longitude>
+                    </viewingpoint>
+                </viewingpoints>
+                <readinglist>
+                    <readmore id="1">
+                        <type>eol</type>
+                        <link>https://eol.org/pages/328697</link>
+                    </readmore>
+                    <readmore id="2">
+                        <type>wikipedia</type>
+                        <link>https://en.wikipedia.org/wiki/African_wild_dog</link>
+                    </readmore>
+                    <readmore id="3">
+                        <type>IUCN Red List</type>
+                        <link>https://www.iucnredlist.org/species/12436/166502262</link>
+                    </readmore>
+                </readinglist>
+                <parentstructure>0</parentstructure>
+            </animal>
+            <animal id="5">
+                <zooname>Pretend animal2</zooname>
+                <binomialnomenclature>Animalus pretendus</binomialnomenclature>
+                <commonname id="1">Fake creature</commonname>
+                <family>FakeFamily</family>
+                <class>Mammal</class>
+                <IUCNConservationStatus>Nonexistent</IUCNConservationStatus>
+                <naturallocation>
+                    No where can it be found
+                </naturallocation>
+                <originalcontent>
+                    <paragraph>Moderation itself can be a kind of extreme</paragraph>
+                    <paragraph>I should write more but I'm too lazy</paragraph>
+                </originalcontent>
+                <viewingpoints>
+                    <viewingpoint id="1">
+                        <latitude>40.847453</latitude>
+                        <longitude>-73.880658</longitude>
+                    </viewingpoint>
+                </viewingpoints>
+                <readinglist>
+                    <readmore id="1">
+                        <type>eol</type>
+                        <link>https://eol.org/pages/328697</link>
+                    </readmore>
+                    <readmore id="2">
+                        <type>wikipedia</type>
+                        <link>https://en.wikipedia.org/wiki/African_wild_dog</link>
+                    </readmore>
+                    <readmore id="3">
+                        <type>IUCN Red List</type>
+                        <link>https://www.iucnredlist.org/species/12436/166502262</link>
+                    </readmore>
+                </readinglist>
+                <parentstructure>0</parentstructure>
+            </animal>
+            <animal id="6">
+                <zooname>Pretend animal4</zooname>
+                <binomialnomenclature>Animalus pretendus</binomialnomenclature>
+                <commonname id="1">Fake creature</commonname>
+                <family>FakeFamily</family>
+                <class>Mammal</class>
+                <IUCNConservationStatus>Nonexistent</IUCNConservationStatus>
+                <naturallocation>
+                    No where can it be found
+                </naturallocation>
+                <originalcontent>
+                    <paragraph>Moderation itself can be a kind of extreme</paragraph>
+                    <paragraph>I should write more but I'm too lazy</paragraph>
+                </originalcontent>
+                <viewingpoints>
+                    <viewingpoint id="1">
+                        <latitude>40.847453</latitude>
+                        <longitude>-73.880658</longitude>
+                    </viewingpoint>
+                </viewingpoints>
+                <readinglist>
+                    <readmore id="1">
+                        <type>eol</type>
+                        <link>https://eol.org/pages/328697</link>
+                    </readmore>
+                    <readmore id="2">
+                        <type>wikipedia</type>
+                        <link>https://en.wikipedia.org/wiki/African_wild_dog</link>
+                    </readmore>
+                    <readmore id="3">
+                        <type>IUCN Red List</type>
+                        <link>https://www.iucnredlist.org/species/12436/166502262</link>
+                    </readmore>
+                </readinglist>
+                <parentstructure>0</parentstructure>
+            </animal>
+            <animal id="7">
+                <zooname>Pretend animal 6</zooname>
+                <binomialnomenclature>Animalus pretendus</binomialnomenclature>
+                <commonname id="1">Fake creature</commonname>
+                <family>FakeFamily</family>
+                <class>Mammal</class>
+                <IUCNConservationStatus>Nonexistent</IUCNConservationStatus>
+                <naturallocation>
+                    No where can it be found
+                </naturallocation>
+                <originalcontent>
+                    <paragraph>Moderation itself can be a kind of extreme</paragraph>
+                    <paragraph>I should write more but I'm too lazy</paragraph>
+                </originalcontent>
+                <viewingpoints>
+                    <viewingpoint id="1">
+                        <latitude>40.847453</latitude>
+                        <longitude>-73.880658</longitude>
+                    </viewingpoint>
+                </viewingpoints>
+                <readinglist>
+                    <readmore id="1">
+                        <type>eol</type>
+                        <link>https://eol.org/pages/328697</link>
+                    </readmore>
+                    <readmore id="2">
+                        <type>wikipedia</type>
+                        <link>https://en.wikipedia.org/wiki/African_wild_dog</link>
+                    </readmore>
+                    <readmore id="3">
+                        <type>IUCN Red List</type>
+                        <link>https://www.iucnredlist.org/species/12436/166502262</link>
+                    </readmore>
+                </readinglist>
+                <parentstructure>0</parentstructure>
+            </animal>
+            <animal id="8">
+                <zooname>Pretend animal</zooname>
+                <binomialnomenclature>Animalus pretendus</binomialnomenclature>
+                <commonname id="1">Fake creature</commonname>
+                <family>FakeFamily</family>
+                <class>Mammal</class>
+                <IUCNConservationStatus>Nonexistent</IUCNConservationStatus>
+                <naturallocation>
+                    No where can it be found
+                </naturallocation>
+                <originalcontent>
+                    <paragraph>Moderation itself can be a kind of extreme</paragraph>
+                    <paragraph>I should write more but I'm too lazy</paragraph>
+                </originalcontent>
+                <viewingpoints>
+                    <viewingpoint id="1">
+                        <latitude>40.847453</latitude>
+                        <longitude>-73.880658</longitude>
+                    </viewingpoint>
+                </viewingpoints>
+                <readinglist>
+                    <readmore id="1">
+                        <type>eol</type>
+                        <link>https://eol.org/pages/328697</link>
+                    </readmore>
+                    <readmore id="2">
+                        <type>wikipedia</type>
+                        <link>https://en.wikipedia.org/wiki/African_wild_dog</link>
+                    </readmore>
+                    <readmore id="3">
+                        <type>IUCN Red List</type>
+                        <link>https://www.iucnredlist.org/species/12436/166502262</link>
+                    </readmore>
+                </readinglist>
+                <parentstructure>0</parentstructure>
+            </animal>
+
+        </bestiary>
+        <structures>
+            <structure id="1">
+                <stucttitle>Fountain of Youth</stucttitle>
+                <originalcontent>
+                        <paragraph>Legend has it that in Pompeii, a city in
+                            ancient Rome preserved by a vulcanic eruption, there was a
+                            fountain, fed by the waters of Mount Vesuvius. All those
+                            who drank from it would be gifted with superhuman
+                            health, wealth and looks. The fountain went dry
+                            after Mount Vesuvius erupted and the citizens of Pompeii
+                            lost their superhuman blessings.</paragraph>
+                        <paragraph>In 1943, Hyman Gould visited and brought a 12 inch lead
+                            pipe which proportedly once carried the waters of Mount
+                            Vesuvius, back home to the Bronx as a souvineer. He reached
+                            out to the Bronx Chamber of Commerce who came up with an
+                            idea: They were going to build a drinking fountain on
+                            Fordham road for the citizens of New York with water
+                            flowing through the same pipe, probably to get people
+                            to visit the Bronx.</paragraph>
+                        <paragraph>This is what remains of that idea and the pipe that runs
+                            through the fountain. You can't drink from it today, but
+                            that's okay since drinking water from old lead pipes is
+                            generally frowned upon by modern health experts.
+                            If you know more about this landmark, have first hand
+                            information or have primary sources feel free to
+                            reachout to me at twcookson@gmail.com</paragraph>
+                </originalcontent>
+                <viewingpoints>
+                    <viewingpoint id="1">
+                        <latitude>40.853906</latitude>
+                        <longitude>-73.878149</longitude>
+                    </viewingpoint>
+                </viewingpoints>
+                <secondaryresourcelist>
+                    <secondarysource id="1">
+                        <sourcetitle>Atlas Obscura: Bronx Zoo 'Fountain of Youth'</sourcetitle>
+                        <link>https://www.atlasobscura.com/places/bronx-zoo-fountain-of-youth</link>
+                    </secondarysource>
+                </secondaryresourcelist>
+                <primaryresourcelist>
+                    <primaryresource id="1">
+                        <sourcetitle>The Daily Banner,Greencastle, Putnam County, 6 October 1952</sourcetitle>
+                        <link>https://tinyurl.com/y9hfrw3y</link>
+                    </primaryresource>
+                </primaryresourcelist>
+            </structure>
+            <structure id="2">
+                <stucttitle>Dippin Dots</stucttitle>
+                <originalcontent>
+                        <paragraph>Dippin' Dots is an ice cream snack invented by Curt
+                            Jones in 1988, created by flash freezing ice cream mix
+                            in liquid nitrogen. Dippin' Dots is based in Paducah,
+                            Kentucky and is sold in 14 different countries. You can't
+                            buy Dippin Dots in most grocery stories because it
+                            requires temperature below -40 degrees Fahrenheit, -40
+                            degrees celsius, to store. Although they're not cheap,
+                            if you've never had Dippin' Dots before you'll really
+                            only find them in places like this (theme parks, zoos,
+                            and aquariums) and they filed for Chapter 11 backruptsy
+                            protection in 2011, so it's hard to say if they'll be
+                            around forever.</paragraph>
+                        <paragraph>Dippin Dot's was invented in Illinois, when Curt
+                            Jones, who specialized in cryogenics, was trying to
+                            create more efficient fodder for farm animals in his
+                            parents garage. Because of the ultra cold freezers
+                            the company uses for the product, sparked interest when
+                            vaccines were developed for COVID-19 that required
+                            storage at -94° F (-70° C). Pharmacists and distributors
+                            of those vaccines reached out for those freezers.</paragraph>
+                </originalcontent>
+                <viewingpoints>
+                    <viewingpoint id="1">
+                        <latitude>40.848181</latitude>
+                        <longitude>-73.879611</longitude>
+                    </viewingpoint>
+                </viewingpoints>
+                <secondaryresourcelist>
+                    <secondarysource id="1">
+                        <sourcetitle>Wikipedia entry for Dippin' Dots'</sourcetitle>
+                        <link>https://en.wikipedia.org/wiki/Dippin%27_Dots</link>
+                    </secondarysource>
+                </secondaryresourcelist>
+                <primaryresourcelist>
+                    <primaryresource id="1">
+                        <sourcetitle>Dippin' Dots official FAQ on website</sourcetitle>
+                        <link>https://www.dippindots.com/about/faq.html</link>
+                    </primaryresource>
+                </primaryresourcelist>
+            </structure>
+        </structures>
+    </resources>
+</guide>

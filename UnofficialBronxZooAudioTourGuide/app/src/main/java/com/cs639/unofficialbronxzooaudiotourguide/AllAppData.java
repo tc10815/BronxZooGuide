@@ -83,8 +83,18 @@ public class AllAppData extends ViewModel {
     }
 
     public void compassViewClicked(int numberClicked){
-        currentlySelectedAnimal = animals.get(numberClicked);
-        compassList.launchAnimalFrag();
+        Log.i("TOMDEBUG","Number clicked is " + numberClicked + ". Animals size is " + animals.size());
+
+        if(numberClicked < animals.size()) {
+            Log.i("TOMDEBUG","Animal clicked");
+
+            currentlySelectedAnimal = animals.get(numberClicked);
+            compassList.launchAnimalActivity(numberClicked);
+        } else {
+            Log.i("TOMDEBUG","Structure clicked");
+            int structureNum = numberClicked - animals.size();
+            compassList.launchStructureActivity(structureNum);
+        }
     }
     public CompassListFragment getCompassList() {
         return compassList;

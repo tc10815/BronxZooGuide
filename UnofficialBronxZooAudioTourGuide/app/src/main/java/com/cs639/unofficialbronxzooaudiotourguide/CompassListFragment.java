@@ -1,5 +1,6 @@
 package com.cs639.unofficialbronxzooaudiotourguide;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,7 +10,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,17 +31,18 @@ public class CompassListFragment extends Fragment {
             R.drawable.s2};
     RecyclerView recyclerView;
     protected OutdoorRecycleAdapter mAdapter;
-
+    View rootView;
+    AllAppData userModel;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
 
     ) {
-        View rootView = inflater.inflate(R.layout.fragment_first, container, false);
+        rootView = inflater.inflate(R.layout.fragment_first, container, false);
         // Inflate the layout for this fragment
         recyclerView = rootView.findViewById(R.id.OutdoorRecyclerView);
-        AllAppData userModel = new ViewModelProvider(requireActivity()).get(AllAppData.class);
+        userModel = new ViewModelProvider(requireActivity()).get(AllAppData.class);
         int width = userModel.getScreenSize();
         userModel.setCompassList(this);
         s1 = buildNameList(userModel.getAnimals(), userModel.getStructures());
@@ -87,12 +88,21 @@ public class CompassListFragment extends Fragment {
         return ret;
     }
 
-    public void launchAnimalFrag(){
-        AnimalFragment nextFrag= new AnimalFragment();
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.parentLayout, nextFrag)
-                .commit();
-
+    public void launchAnimalActivity(int animalNumber){
+        Intent intent = new Intent(rootView.getContext(), AnimalActivity.class);
+        intent.putExtra("animalnumber", animalNumber);
+        Log.i("TOMDEBUG", "Launching animal");
+        startActivity(intent);
     }
 
+    public void launchStructureActivity(int structureNumber){
+        Intent intent = new Intent(rootView.getContext(), StructureActivity.class);
+        Log.i("TOMDEBUG", "Launching structure");
+        intent.putExtra("structurenumber", structureNumber);
+        startActivity(intent);
+    }
+    public void launchAnimalsStructureActivity(int structureNumber){
+        Intent intent = new Intent(rootView.getContext(), AnimalActivity.class);
+        startActivity(intent);
+    }
 }

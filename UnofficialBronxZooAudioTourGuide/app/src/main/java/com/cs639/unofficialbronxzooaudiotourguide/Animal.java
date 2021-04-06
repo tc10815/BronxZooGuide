@@ -3,6 +3,7 @@ package com.cs639.unofficialbronxzooaudiotourguide;
 import android.location.Location;
 import android.net.Uri;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Animal {

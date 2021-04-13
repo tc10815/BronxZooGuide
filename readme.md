@@ -78,4 +78,4 @@ Our app would offer a smarter interface than any of these three apps. By using G
 - Some kind of tracking (probably Google Analytics)
 - A Map API of some kind (for compasses and/or map)
 - Sound Playing API  
-- Intents will be used to launch web browsers for sources and email if users want to submit information
+- Intents will be used to launch web browsers for sources and email if users want to submit information.

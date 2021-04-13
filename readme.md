@@ -77,5 +77,5 @@ Our app would offer a smarter interface than any of these three apps. By using G
 - Images and audio files will be included in APK, although highly compressed
 - Some kind of tracking (probably Google Analytics)
 - A Map API of some kind (for compasses and/or map)
-- Sound Playing API  
-- Intents will be used to launch web browsers for sources and email if users want to submit information.
+- Sound Playing API...
+- Intents will be used to launch web browsers for sources and email if users want to submit information

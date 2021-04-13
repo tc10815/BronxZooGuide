@@ -56,6 +56,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class MainActivity extends AppCompatActivity {
     ArrayList<Animal> animals;
     ArrayList<Structure> structures;
+    ArrayList<AnimalContainerStructure> animalContainerStructures;
 
     public int ScreenWidth;
 
@@ -130,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
     private void XmlParseProcessor(Document guide) {
         animals = new ArrayList<Animal>();
         structures = new ArrayList<Structure>();
+        animalContainerStructures  = new ArrayList<AnimalContainerStructure>();
         NodeList nList = guide.getElementsByTagName("animal");
         for (int i = 0; i < nList.getLength(); i++) {
             Node nNode = nList.item(i);
@@ -284,6 +286,29 @@ public class MainActivity extends AppCompatActivity {
                 }
                 myStructure.setViewingPoints(locArray);
                 structures.add(myStructure);
+
+                //Code to load animal containing structures
+                NodeList nListContainers = guide.getElementsByTagName("animalcontainingstructure");
+                for (int x = 0; x < nListContainers.getLength(); x++) {
+                    Node nListContainer = nListContainers.item(x);
+                    AnimalContainerStructure animalContainerStructure = new AnimalContainerStructure();
+                    Element elemContainer = (Element) nListContainer;
+                    Log.i("TOMDEBUG", "gets this far" + elemContainer.getAttribute("name"));
+                    animalContainerStructure.setId(Integer.parseInt(elemContainer.getAttribute("id")));
+                    animalContainerStructure.setContainerName(elemContainer.getAttribute("name"));
+                    String myLong = elemContainer.getElementsByTagName("longitude").item(0).getTextContent();
+                    String myLat = elemContainer.getElementsByTagName("latitude").item(0).getTextContent();
+                    Location myLocation = new Location("");
+                    myLocation.setLatitude(Double.parseDouble(myLat));
+                    myLocation.setLongitude(Double.parseDouble(myLong));
+                    animalContainerStructure.setViewingPoints(myLocation);
+                    animalContainerStructures.add(animalContainerStructure);
+//                    Log.i("TOMDEBUG", "structcontainer id:" + animalContainerStructure.getId());
+//                    Log.i("TOMDEBUG", "structcontainer name:" + animalContainerStructure.getContainerName());
+//                    Log.i("TOMDEBUG", "structcontainer location:" + animalContainerStructure.getViewingPoints());
+
+
+                }
 
                 //                Log.i("TOMDEBUG", "struct id:" + myStructure.getId());
 //                Log.i("TOMDEBUG", "structname " + myStructure.getStructureName());

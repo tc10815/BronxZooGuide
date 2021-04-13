@@ -6,7 +6,7 @@ The Bronx Zoo doesn’t have an audio tour or anything like it (closest thing is
 
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/drawing2.jpg) ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/drawing1.jpg)
 Screenshot 1                                                  Screenshot 2
-## Design ##
+## App Flow ##
 
 When the app opens, the user is presented with a scrollable list of nearby animals and structures with arrows pointing towards them, as pictured above in screenshot 1.  If the user taps an animal or empty structure, they go to an information page with detailed information about the animal/structure with audio they can listen to about it, as pictured in screenshot 2.  
 
@@ -42,22 +42,28 @@ Tom and his date have a peaceful drive home talking about all the interesting an
 There are no existent audio guides for the Bronx Zoo. Naturally, there are countless app audio guides for various musuems and parks. 
 
 Although not a "Audio Tour Guide" app, the Bronx zoo does have a mobile website which gives users some logistical information about the park, and the location of a few animals.
+
 ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/bz1.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/bz2.png) 
+
 ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/bz3.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/bz4.png)
+
 Although the logistical information the Bronx Zoo mobile website gives is helpful, it has no information about the animals.
 
 The MET and MoMA also have mobile websites instead of mobile apps, but they actually do provide audio tours. The MET does it in an extremely basic way, hosting a playlist off of Soundcloud for each of their exhibits. Users have to follow the tour in order of the playlist, and its quite tricky to navigate.
 ![The met](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/met1.png)
 
 MoMA gives visiters more flexability than the MET, by using a system where users can enter numbers online to listen to audio information. This makes it so users to can enjoy the exhibits out of order. It also makes the tour easier to find. 
+
 ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/moma1.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/moma2.png) 
 
 Rick Steves, a famous tour guide, has a audio tour for Europe which is offered as an android app. Pictures are below:
+
 ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/1.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/0.png)
+
 ![Screenshot 3](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/2.png) 
 
 Rick Steves' tours are an Android app and offer downloading the audio to your phone before leaving. This is  hugely helpful for Americans in Europe, who typically won't have 4G on their phones. The content is absolutely top notch, but the implementation of the tour is very basic. There are no interactive maps or GPS features at all, so it's essentially just an MP3 player that allows you to preload playlists with tours. 

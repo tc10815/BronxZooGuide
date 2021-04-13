@@ -18,6 +18,15 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class XMLDataGetter {
     ArrayList<Animal> animals;
     ArrayList<Structure> structures;
+
+    public ArrayList<AnimalContainerStructure> getAnimalContainerStructures() {
+        return animalContainerStructures;
+    }
+
+    public void setAnimalContainerStructures(ArrayList<AnimalContainerStructure> animalContainerStructures) {
+        this.animalContainerStructures = animalContainerStructures;
+    }
+
     ArrayList<AnimalContainerStructure> animalContainerStructures;
 
     Activity parent;

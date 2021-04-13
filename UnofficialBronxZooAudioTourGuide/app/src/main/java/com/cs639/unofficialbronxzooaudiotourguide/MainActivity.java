@@ -79,9 +79,10 @@ public class MainActivity extends AppCompatActivity {
         DisplayMetrics myMetric = new DisplayMetrics();
         getDisplay().getRealMetrics(myMetric);
         viewModel.setScreenSize(myMetric.widthPixels);
-        XMLParse();
-        viewModel.setAnimals(animals);
-        viewModel.setStructures(structures);
+        XMLDataGetter myDataGetter = new XMLDataGetter(this);
+        viewModel.setAnimals(myDataGetter.getAnimals());
+        viewModel.setStructures(myDataGetter.getStructures());
+        viewModel.setAnimalContainerStructures(myDataGetter.getAnimalContainerStructures());
 
     }
 

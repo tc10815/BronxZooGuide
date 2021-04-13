@@ -13,6 +13,7 @@ public class AllAppData extends ViewModel {
     private String userFilter;
     private ArrayList<Animal> animals;
     private ArrayList<Structure> structures;
+    private ArrayList<AnimalContainerStructure> animalContainerStructures;
     private Animal currentlySelectedAnimal;
     private Structure currentlySelectedStructure;
     private CompassListFragment compassList;
@@ -103,5 +104,11 @@ public class AllAppData extends ViewModel {
     public void setCompassList(CompassListFragment compassList) {
         this.compassList = compassList;
     }
+    public ArrayList<AnimalContainerStructure> getAnimalContainerStructures() {
+        return animalContainerStructures;
+    }
 
+    public void setAnimalContainerStructures(ArrayList<AnimalContainerStructure> animalContainerStructures) {
+        this.animalContainerStructures = animalContainerStructures;
+    }
 }

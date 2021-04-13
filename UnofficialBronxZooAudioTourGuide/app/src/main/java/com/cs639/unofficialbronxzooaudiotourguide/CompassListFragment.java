@@ -123,8 +123,20 @@ public class CompassListFragment extends Fragment {
                     R.drawable.a94,
                     R.drawable.a95,
                     R.drawable.a96,
-            R.drawable.s1,
-            R.drawable.s2};
+                    R.drawable.s1,
+                    R.drawable.s2,
+                    R.drawable.acs1,
+                    R.drawable.acs2,
+                    R.drawable.acs3,
+                    R.drawable.acs4,
+                    R.drawable.acs5,
+                    R.drawable.acs6,
+                    R.drawable.acs7,
+                    R.drawable.acs8,
+                    R.drawable.acs9,
+                    R.drawable.acs10,
+                    R.drawable.acs11
+            };
     RecyclerView recyclerView;
     protected OutdoorRecycleAdapter mAdapter;
     View rootView;

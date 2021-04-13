@@ -5011,6 +5011,10 @@
                 <latitude>40.84488946494782</latitude>
                 <longitude>-73.8764349398628</longitude>
             </animalcontainingstructure>
+            <animalcontainingstructure id="11" name="World Of Birds">
+                <latitude>40.85251676531663</latitude>
+                <longitude>-73.87581145601868</longitude>
+            </animalcontainingstructure>
         </animalcontainingstructures>
     </resources>
 </guide>

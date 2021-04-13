@@ -53,6 +53,7 @@ Although not a "Audio Tour Guide" app, the Bronx zoo does have a mobile website 
 Although the logistical information the Bronx Zoo mobile website gives is helpful, it has no information about the animals.
 
 The MET and MoMA also have mobile websites instead of mobile apps, but they actually do provide audio tours. The MET does it in an extremely basic way, hosting a playlist off of Soundcloud for each of their exhibits. Users have to follow the tour in order of the playlist, and its quite tricky to navigate.
+
 ![The met](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/met1.png)
 
 MoMA gives visiters more flexability than the MET, by using a system where users can enter numbers online to listen to audio information. This makes it so users to can enjoy the exhibits out of order. It also makes the tour easier to find. 

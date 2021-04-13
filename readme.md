@@ -61,7 +61,7 @@ MoMA gives visiters more flexability than the MET, by using a system where users
 ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/moma1.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/moma2.png) 
 
-Rick Steves, a famous tour guide, has a audio tour for Europe which is offered as an android app. Pictures are below:
+Rick Steves, a famous tour guide, has a audio tour for Europe which is offered as an android app.  Pictures are below:
 
 ![Screenshot 1](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/1.png)
 ![Screenshot 2](https://github.com/jrandtc/UnofficialBronxZooAudioTour/blob/master/images/planning/0.png)
@@ -77,5 +77,5 @@ Our app would offer a smarter interface than any of these three apps. By using G
 - Images and audio files will be included in APK, although highly compressed
 - Some kind of tracking (probably Google Analytics)
 - A Map API of some kind (for compasses and/or map)
-- Sound Playing API
+- Sound Playing API  
 - Intents will be used to launch web browsers for sources and email if users want to submit information

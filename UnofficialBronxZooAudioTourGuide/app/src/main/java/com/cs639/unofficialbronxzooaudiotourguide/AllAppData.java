@@ -1,7 +1,15 @@
 package com.cs639.unofficialbronxzooaudiotourguide;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -12,6 +20,7 @@ public class AllAppData extends ViewModel {
     private int screenSize;
     private String userFilter;
     private ArrayList<Animal> animals;
+    private Context context;
     private ArrayList<Structure> structures;
     private ArrayList<AnimalContainerStructure> animalContainerStructures;
     private Animal currentlySelectedAnimal;
@@ -20,6 +29,15 @@ public class AllAppData extends ViewModel {
     public Animal getCurrentlySelectedAnimal() {
         return currentlySelectedAnimal;
     }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
 
     public void setCurrentlySelectedAnimal(Animal currentlySelectedAnimal) {
         this.currentlySelectedAnimal = currentlySelectedAnimal;
@@ -111,4 +129,5 @@ public class AllAppData extends ViewModel {
     public void setAnimalContainerStructures(ArrayList<AnimalContainerStructure> animalContainerStructures) {
         this.animalContainerStructures = animalContainerStructures;
     }
+
 }

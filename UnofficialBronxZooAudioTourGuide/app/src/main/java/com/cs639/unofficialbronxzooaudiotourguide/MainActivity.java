@@ -1,18 +1,29 @@
 package com.cs639.unofficialbronxzooaudiotourguide;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
 import android.util.DisplayMetrics;
 import android.util.Log;
 
 import android.view.Menu;
 import android.view.MenuItem;
+
 import java.util.ArrayList;
 
 
@@ -23,10 +34,15 @@ import java.util.ArrayList;
  *
  * @author Tom
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
+
     ArrayList<Animal> animals;
     ArrayList<Structure> structures;
     ArrayList<AnimalContainerStructure> animalContainerStructures;
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
+    protected Context context;
+
 
     public int ScreenWidth;
 
@@ -35,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         final AllAppData viewModel = new ViewModelProvider(this).get(AllAppData.class);
         viewModel.getUser().observe(this, new Observer<String>() {
             @Override
@@ -77,4 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

@@ -1,6 +1,10 @@
 package com.cs639.unofficialbronxzooaudiotourguide;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,10 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
 
@@ -25,6 +34,7 @@ import java.util.ArrayList;
  */
 public class CompassListFragment extends Fragment {
     String s1[], s2[];
+    private FusedLocationProviderClient fusedLocationClient;
     int images[];
     int animalimages[] =
             {
@@ -149,6 +159,7 @@ public class CompassListFragment extends Fragment {
     protected OutdoorRecycleAdapter mAdapter;
     View rootView;
     AllAppData userModel;
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -168,6 +179,7 @@ public class CompassListFragment extends Fragment {
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
         recyclerView.setAdapter(mAdapter);
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
 
 
         return rootView;
@@ -186,20 +198,20 @@ public class CompassListFragment extends Fragment {
      * @return
      */
     private String[][] buildItemList(ArrayList<Animal> animals, ArrayList<Structure> structures,
-                                                       ArrayList<AnimalContainerStructure> animalContainerStructures){
+                                     ArrayList<AnimalContainerStructure> animalContainerStructures) {
         int size = 0;
         String[][] ret;
         ArrayList<String> namesOfItems = new ArrayList<String>();
         ArrayList<String> BinomOrOtherItems = new ArrayList<String>();
         ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
-        for(int i = 0; i < animals.size(); i++){
-            if(animals.get(i).getParentStructure() == 0){
+        for (int i = 0; i < animals.size(); i++) {
+            if (animals.get(i).getParentStructure() == 0) {
                 namesOfItems.add(animals.get(i).getZooName());
                 BinomOrOtherItems.add(animals.get(i).getBinomialNomenclature());
                 imagesOfItems.add(animalimages[i]);
             }
         }
-        for(int i = 0; i < animalContainerStructures.size(); i++){
+        for (int i = 0; i < animalContainerStructures.size(); i++) {
             Log.i("TOMDEBUG", "animalContainerStructures.size() is " + animalContainerStructures.size());
             Log.i("TOMDEBUG", "i is " + i);
             Log.i("TOMDEBUG", "AnimalContainerStructures.get(i).getContainerName() is " + animalContainerStructures.get(i).getContainerName());
@@ -207,24 +219,24 @@ public class CompassListFragment extends Fragment {
             BinomOrOtherItems.add("Structure: Tap for Animals Inside");
             imagesOfItems.add(animalStructureImages[i]);
         }
-        for(int i = 0; i < structures.size(); i++){
+        for (int i = 0; i < structures.size(); i++) {
             namesOfItems.add(structures.get(i).getStructureName());
             BinomOrOtherItems.add("Structure: Tap for History");
             imagesOfItems.add(structureImages[i]);
         }
 
-        String s1[] = new String[ namesOfItems.size()];
-        for(int i = 0; i < namesOfItems.size(); i++){
+        String s1[] = new String[namesOfItems.size()];
+        for (int i = 0; i < namesOfItems.size(); i++) {
             s1[i] = namesOfItems.get(i);
         }
-        String s2[] = new String[ BinomOrOtherItems.size() ];
-        for(int i = 0; i < BinomOrOtherItems.size(); i++){
+        String s2[] = new String[BinomOrOtherItems.size()];
+        for (int i = 0; i < BinomOrOtherItems.size(); i++) {
             s2[i] = BinomOrOtherItems.get(i);
         }
 
         //Using private var instead of return since different type. Not good code.
         images = new int[imagesOfItems.size()];
-        for(int i = 0; i < imagesOfItems.size(); i++){
+        for (int i = 0; i < imagesOfItems.size(); i++) {
             images[i] = imagesOfItems.get(i);
         }
 
@@ -234,23 +246,41 @@ public class CompassListFragment extends Fragment {
         return ret;
     }
 
-    public void launchAnimalActivity(int animalNumber){
+    public void launchAnimalActivity(int animalNumber) {
         Intent intent = new Intent(rootView.getContext(), AnimalActivity.class);
         intent.putExtra("animalnumber", animalNumber);
         Log.i("TOMDEBUG", "Launching animal");
+        getCurrentLocation();
         startActivity(intent);
     }
 
-    public void launchStructureActivity(int structureNumber){
+    public void launchStructureActivity(int structureNumber) {
         Intent intent = new Intent(rootView.getContext(), StructureActivity.class);
         Log.i("TOMDEBUG", "Launching structure");
         intent.putExtra("structurenumber", structureNumber);
         startActivity(intent);
     }
-    public void launchAnimalsStructureActivity(int animalstructurenumber, String filter){
+
+    public void launchAnimalsStructureActivity(int animalstructurenumber, String filter) {
         Intent intent = new Intent(rootView.getContext(), AnimalContainerActivity.class);
         intent.putExtra("animalstructurenumber", animalstructurenumber);
         intent.putExtra("filter", filter);
         startActivity(intent);
+    }
+
+    @SuppressLint("MissingPermission")
+    public void getCurrentLocation() {
+        Location loc;
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this.getActivity(), new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        // Got last known location. In some rare situations this can be null.
+                        if (location != null) {
+                            Log.i("TOMDEBUG2", "Location is " + location.getLongitude() + " " + location.getLatitude());
+                        }
+                    }
+                });
+
     }
 }

@@ -25,7 +25,8 @@ import java.util.ArrayList;
  */
 public class CompassListFragment extends Fragment {
     String s1[], s2[];
-    int images[] =
+    int images[];
+    int animalimages[] =
             {
                     R.drawable.a1,
                     R.drawable.a2,
@@ -122,9 +123,16 @@ public class CompassListFragment extends Fragment {
                     R.drawable.a93,
                     R.drawable.a94,
                     R.drawable.a95,
-                    R.drawable.a96,
+                    R.drawable.a96
+            };
+    int structureImages[] =
+            {
                     R.drawable.s1,
                     R.drawable.s2,
+            };
+
+    int animalStructureImages[] =
+            {
                     R.drawable.acs1,
                     R.drawable.acs2,
                     R.drawable.acs3,
@@ -153,8 +161,9 @@ public class CompassListFragment extends Fragment {
         userModel = new ViewModelProvider(requireActivity()).get(AllAppData.class);
         int width = userModel.getScreenSize();
         userModel.setCompassList(this);
-        s1 = buildNameList(userModel.getAnimals(), userModel.getStructures());
-        s2 = buildBinomList(userModel.getAnimals(), userModel.getStructures());
+        String[][] toSend = buildItemList(userModel.getAnimals(), userModel.getStructures(), userModel.getAnimalContainerStructures());
+        s1 = toSend[0];
+        s2 = toSend[1];
         mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), s1, s2, images, 10);
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
@@ -168,31 +177,60 @@ public class CompassListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    private String[] buildNameList(ArrayList<Animal> animals, ArrayList<Structure> structures){
-        int size = animals.size() + structures.size();
-        String[] ret = new String[size];
-        for(int i = 0 ; i < animals.size(); i++){
-            ret[i] = animals.get(i).getZooName();
+    /**
+     * This function decides what goes in the compass view when it first loads
+     *
+     * @param animals
+     * @param structures
+     * @param animalContainerStructures
+     * @return
+     */
+    private String[][] buildItemList(ArrayList<Animal> animals, ArrayList<Structure> structures,
+                                                       ArrayList<AnimalContainerStructure> animalContainerStructures){
+        int size = 0;
+        String[][] ret;
+        ArrayList<String> namesOfItems = new ArrayList<String>();
+        ArrayList<String> BinomOrOtherItems = new ArrayList<String>();
+        ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
+        for(int i = 0; i < animals.size(); i++){
+            if(animals.get(i).getParentStructure() == 0){
+                namesOfItems.add(animals.get(i).getZooName());
+                BinomOrOtherItems.add(animals.get(i).getBinomialNomenclature());
+                imagesOfItems.add(animalimages[i]);
+            }
         }
-        for(int i = animals.size(); i < size; i++){
-            int temp = 0;
-            ret[i] = structures.get(temp).getStructureName();
-            temp++;
+        for(int i = 0; i < animalContainerStructures.size(); i++){
+            Log.i("TOMDEBUG", "animalContainerStructures.size() is " + animalContainerStructures.size());
+            Log.i("TOMDEBUG", "i is " + i);
+            Log.i("TOMDEBUG", "AnimalContainerStructures.get(i).getContainerName() is " + animalContainerStructures.get(i).getContainerName());
+            namesOfItems.add(animalContainerStructures.get(i).getContainerName());
+            BinomOrOtherItems.add("Structure: Tap for Animals Inside");
+            imagesOfItems.add(animalStructureImages[i]);
         }
-        return ret;
-    }
+        for(int i = 0; i < structures.size(); i++){
+            namesOfItems.add(structures.get(i).getStructureName());
+            BinomOrOtherItems.add("Structure: Tap for History");
+            imagesOfItems.add(structureImages[i]);
+        }
 
-    private String[] buildBinomList(ArrayList<Animal> animals, ArrayList<Structure> structures){
-        int size = animals.size() + structures.size();
-        String[] ret = new String[size];
-        for(int i = 0 ; i < animals.size(); i++){
-            ret[i] = animals.get(i).getBinomialNomenclature();
+        String s1[] = new String[ namesOfItems.size()];
+        for(int i = 0; i < namesOfItems.size(); i++){
+            s1[i] = namesOfItems.get(i);
         }
-        for(int i = animals.size(); i < size; i++){
-            int temp = 0;
-            ret[i] = "structure";
-            temp++;
+        String s2[] = new String[ BinomOrOtherItems.size() ];
+        for(int i = 0; i < BinomOrOtherItems.size(); i++){
+            s2[i] = BinomOrOtherItems.get(i);
         }
+
+        //Using private var instead of return since different type. Not good code.
+        images = new int[imagesOfItems.size()];
+        for(int i = 0; i < imagesOfItems.size(); i++){
+            images[i] = imagesOfItems.get(i);
+        }
+
+        ret = new String[2][s1.length];
+        ret[0] = s1;
+        ret[1] = s2;
         return ret;
     }
 
@@ -209,8 +247,10 @@ public class CompassListFragment extends Fragment {
         intent.putExtra("structurenumber", structureNumber);
         startActivity(intent);
     }
-    public void launchAnimalsStructureActivity(int structureNumber){
-        Intent intent = new Intent(rootView.getContext(), AnimalActivity.class);
+    public void launchAnimalsStructureActivity(int animalstructurenumber, String filter){
+        Intent intent = new Intent(rootView.getContext(), AnimalContainerActivity.class);
+        intent.putExtra("animalstructurenumber", animalstructurenumber);
+        intent.putExtra("filter", filter);
         startActivity(intent);
     }
 }

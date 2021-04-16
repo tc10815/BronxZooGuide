@@ -37,6 +37,7 @@ public class CompassListFragment extends Fragment {
     String s1[], s2[], s3[], s4[];
     private FusedLocationProviderClient fusedLocationClient;
     private String filter;
+    private String newS1[];
     Button btnSearch;
     Button btnClear;
     TextView txtSearch;
@@ -203,6 +204,7 @@ public class CompassListFragment extends Fragment {
         s2 = toSend[1];
         s3 = toSend[2];
         s4 = toSend[3];
+        newS1 = s1;
         mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), s1, s2, s3, s4, images, 10);
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
@@ -319,27 +321,57 @@ public class CompassListFragment extends Fragment {
         return ret;
     }
 
-    public void launchAnimalActivity(int animalNumber) {
-        Intent intent = new Intent(rootView.getContext(), AnimalActivity.class);
-        intent.putExtra("animalnumber", animalNumber);
-        Log.i("TOMDEBUG", "Launching animal");
-        getCurrentLocation();
-        startActivity(intent);
+    public void listClickedOn(int animalNumber) {
+        String nameOfItemClicked = newS1[animalNumber];
+        boolean isAnimal = false;
+        boolean isStructure = false;
+        boolean isAnimalContainingStructure = false;
+        int idOfItem = 0;
+        for(int iter = 0; iter < userModel.getAnimals().size(); iter++){
+            if(userModel.getAnimals().get(iter).getZooName().equals(nameOfItemClicked)){
+                isAnimal = true;
+                idOfItem = iter;
+            }
+        }
+        for(int iter = 0; iter < userModel.getStructures().size(); iter++) {
+            if(userModel.getStructures().get(iter).getStructureName().equals(nameOfItemClicked)){
+                isStructure = true;
+                idOfItem = iter;
+            }
+        }
+        for(int iter = 0; iter < userModel.getAnimalContainerStructures().size(); iter++) {
+            if(userModel.getAnimalContainerStructures().get(iter).getContainerName().equals(nameOfItemClicked)){
+                isAnimalContainingStructure = true;
+                idOfItem = iter;
+            }
+        }
+            if(isAnimal) {
+            Intent intent = new Intent(rootView.getContext(), AnimalActivity.class);
+            intent.putExtra("animalnumber", idOfItem);
+            Log.i("TOMDEBUG", "Launching animal");
+            startActivity(intent);
+        }
+        if(isStructure) {
+            Intent intent = new Intent(rootView.getContext(), StructureActivity.class);
+            intent.putExtra("structurenumber", idOfItem);
+            Log.i("TOMDEBUG", "Launching animal");
+            startActivity(intent);
+        }
+        if(isAnimalContainingStructure) {
+            Intent intent = new Intent(rootView.getContext(), AnimalContainerActivity.class);
+            intent.putExtra("parentstructure", idOfItem);
+            intent.putExtra("filter", filter);
+
+            Log.i("TOMDEBUG", "Launching animal");
+            startActivity(intent);
+        }
+//        Intent intent = new Intent(rootView.getContext(), AnimalContainerActivity.class);
+//        intent.putExtra("animalstructurenumber", animalstructurenumber);
+//        intent.putExtra("filter", filter);
+//        startActivity(intent);
     }
 
-    public void launchStructureActivity(int structureNumber) {
-        Intent intent = new Intent(rootView.getContext(), StructureActivity.class);
-        Log.i("TOMDEBUG", "Launching structure");
-        intent.putExtra("structurenumber", structureNumber);
-        startActivity(intent);
-    }
 
-    public void launchAnimalsStructureActivity(int animalstructurenumber, String filter) {
-        Intent intent = new Intent(rootView.getContext(), AnimalContainerActivity.class);
-        intent.putExtra("animalstructurenumber", animalstructurenumber);
-        intent.putExtra("filter", filter);
-        startActivity(intent);
-    }
 
     @SuppressLint("MissingPermission")
     public void getCurrentLocation() {
@@ -444,7 +476,7 @@ public class CompassListFragment extends Fragment {
         Collections.sort(comparableItemList);
 
         //put everything back in sorted order
-        String newS1[] = new String[s1.length];
+        newS1 = new String[s1.length];
         String newS2[] = new String[s1.length];
         String newS3[] = new String[s1.length];
         int newImages[] = new int[s1.length];

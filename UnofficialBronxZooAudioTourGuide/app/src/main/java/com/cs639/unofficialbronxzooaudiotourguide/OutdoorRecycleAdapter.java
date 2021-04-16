@@ -109,5 +109,11 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
     public void launchAnimalFragment(){
 
     }
+    public void clearClicked(){
+        Log.i("TOMDEBUG", "CLEAR");
+    }
+    public void searchClicked(){
+        Log.i("TOMDEBUG", "SEARCH");
+    }
 
 }

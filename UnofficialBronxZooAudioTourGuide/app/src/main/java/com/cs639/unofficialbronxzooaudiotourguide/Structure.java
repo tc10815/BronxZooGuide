@@ -15,7 +15,25 @@ public class Structure {
     private ArrayList<String> secondaryResourceNames;
     private String structureName;
     private int id;
+    public boolean matchesFilter(String filter) {
+        String searchString = "";
+        boolean ret = false;
+        searchString += structureName;
+        for (int x = 0; x < primaryResourceNames.size(); x++) {
+            searchString += primaryResourceNames.get(x);
+        }
+        for (int x = 0; x < secondaryResourceNames.size(); x++) {
+            searchString += secondaryResourceNames.get(x);
+        }
+        for (int x = 0; x < description.size(); x++) {
+            searchString += description.get(x);
+        }
 
+        if (searchString.indexOf(filter) != -1) {
+            ret = true;
+        }
+        return ret;
+    }
     public Structure(){
         ArrayList<String> description = new ArrayList<String>();
         ArrayList<Location> viewingPoints = new ArrayList<Location>();

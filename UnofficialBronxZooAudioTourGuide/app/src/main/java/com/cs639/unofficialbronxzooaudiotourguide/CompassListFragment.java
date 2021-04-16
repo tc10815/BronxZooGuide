@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -34,6 +36,10 @@ import java.util.List;
 public class CompassListFragment extends Fragment {
     String s1[], s2[], s3[], s4[];
     private FusedLocationProviderClient fusedLocationClient;
+    private String filter;
+    Button btnSearch;
+    Button btnClear;
+    TextView txtSearch;
     int images[];
     int animalimages[] =
             {
@@ -167,8 +173,25 @@ public class CompassListFragment extends Fragment {
 
     ) {
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
+        filter = "";
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(rootView.getContext());
-
+        btnClear = rootView.findViewById(R.id.btnClear);
+        btnSearch = rootView.findViewById(R.id.btnSearch);
+        txtSearch = rootView.findViewById(R.id.editTextSearch);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filter = txtSearch.getText().toString();
+                getCurrentLocation();
+            }
+        });
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filter = "";
+                txtSearch.setText("");
+                getCurrentLocation();            }
+        });
         // Inflate the layout for this fragment
         recyclerView = rootView.findViewById(R.id.OutdoorRecyclerView);
         userModel = new ViewModelProvider(requireActivity()).get(AllAppData.class);
@@ -336,12 +359,14 @@ public class CompassListFragment extends Fragment {
         ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
         for (int i = 0; i < animals.size(); i++) {
             if (animals.get(i).getParentStructure() == 0) {
-                namesOfItems.add(animals.get(i).getZooName());
-                BinomOrOtherItems.add(animals.get(i).getBinomialNomenclature());
-                imagesOfItems.add(animalimages[i]);
-                DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
-                locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
-                        + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
+                if( filter.equals("") || animals.get(i).matchesFilter(filter) ) {
+                    namesOfItems.add(animals.get(i).getZooName());
+                    BinomOrOtherItems.add(animals.get(i).getBinomialNomenclature());
+                    imagesOfItems.add(animalimages[i]);
+                    DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
+                    locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
+                            + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
+                }
             }
         }
         for (int i = 0; i < animalContainerStructures.size(); i++) {
@@ -353,12 +378,14 @@ public class CompassListFragment extends Fragment {
             imagesOfItems.add(animalStructureImages[i]);
         }
         for (int i = 0; i < structures.size(); i++) {
-            namesOfItems.add(structures.get(i).getStructureName());
-            locationOfItems.add(structures.get(i).getViewingPoints().get(0).getLatitude()
-                    + " " + structures.get(i).getViewingPoints().get(0).getLongitude());
-            BinomOrOtherItems.add("Structure: Tap for History");
-            DistanceOfItems.add(structures.get(i).getViewingPoints().get(0));
-            imagesOfItems.add(structureImages[i]);
+            if( filter.equals("") || structures.get(i).matchesFilter(filter) ) {
+                namesOfItems.add(structures.get(i).getStructureName());
+                locationOfItems.add(structures.get(i).getViewingPoints().get(0).getLatitude()
+                        + " " + structures.get(i).getViewingPoints().get(0).getLongitude());
+                BinomOrOtherItems.add("Structure: Tap for History");
+                DistanceOfItems.add(structures.get(i).getViewingPoints().get(0));
+                imagesOfItems.add(structureImages[i]);
+            }
         }
 
         String s1[] = new String[namesOfItems.size()];

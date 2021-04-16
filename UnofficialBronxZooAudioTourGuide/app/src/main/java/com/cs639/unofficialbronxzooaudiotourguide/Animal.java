@@ -154,4 +154,34 @@ public class Animal {
         id = -1;
         parentStructure = 0;
     }
+
+    public boolean matchesFilter(String filter){
+        String searchString = "";
+        boolean ret = false;
+        searchString += zooName;
+        searchString += family;
+        searchString += animalClass;
+        searchString += conservationStatus;
+        searchString += naturalLocation;
+        searchString += binomialNomenclature;
+        searchString += eolLink;
+        searchString += wikiLink;
+        for(int x = 0; x < otherResourceLinks.size(); x++){
+            searchString += otherResourceLinks.get(x);
+        }
+        for(int x = 0; x < commonNames.size(); x++){
+            searchString += commonNames.get(x);
+        }
+        for(int x = 0; x < otherResourceNames.size(); x++){
+            searchString += otherResourceNames.get(x);
+        }
+        for(int x = 0; x < description.size(); x++){
+            searchString += description.get(x);
+        }
+
+        if(searchString.indexOf(filter) != -1){
+           ret = true;
+        }
+        return ret;
+    }
 }

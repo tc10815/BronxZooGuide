@@ -1,7 +1,10 @@
+
+
 package com.cs639.unofficialbronxzooaudiotourguide;
 
 import android.location.Location;
 import android.net.Uri;
+import android.util.Log;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,6 +12,7 @@ import java.util.ArrayList;
 public class Animal {
     private int id;
     private int parentStructure;
+    private String searchString;
     private String zooName;
     private String family;
     private String animalClass;
@@ -157,6 +161,7 @@ public class Animal {
 
     public boolean matchesFilter(String filter){
         String searchString = "";
+        String lowerFilter = filter.toLowerCase();
         boolean ret = false;
         searchString += zooName;
         searchString += family;
@@ -180,9 +185,39 @@ public class Animal {
         }
         searchString = searchString.toLowerCase();
 
-        if(searchString.indexOf(filter) != -1){
+        if(searchString.indexOf(lowerFilter) != -1){
            ret = true;
         }
         return ret;
+    }
+    public String getSearchString() {
+        String newSearchString = "";
+        Log.i("TOMDEBUG", "is everything really empty: " + zooName);
+        newSearchString += zooName;
+        newSearchString += family;
+        newSearchString += animalClass;
+        newSearchString += conservationStatus;
+        newSearchString += naturalLocation;
+        newSearchString += binomialNomenclature;
+        newSearchString += eolLink;
+        newSearchString += wikiLink;
+        for(int x = 0; x < otherResourceLinks.size(); x++){
+            newSearchString += otherResourceLinks.get(x);
+        }
+        for(int x = 0; x < commonNames.size(); x++){
+            newSearchString += commonNames.get(x);
+        }
+        for(int x = 0; x < otherResourceNames.size(); x++){
+            newSearchString += otherResourceNames.get(x);
+        }
+        for(int x = 0; x < description.size(); x++){
+            newSearchString += description.get(x);
+        }
+        newSearchString = newSearchString.toLowerCase();
+        return newSearchString;
+    }
+
+    public void setSearchString(String searchString) {
+        this.searchString = searchString;
     }
 }

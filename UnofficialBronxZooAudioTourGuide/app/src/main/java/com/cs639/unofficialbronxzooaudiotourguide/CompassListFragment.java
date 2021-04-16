@@ -241,6 +241,20 @@ public class CompassListFragment extends Fragment {
                 DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
                 locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
                         + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
+
+            }
+            //Code to make parent containers searchable by animal data
+            if(animals.get(i).getParentStructure() != 0){
+                int parentStructureId = 0;
+                for(int iter = 0; iter < animalContainerStructures.size(); iter++){
+                    if(animalContainerStructures.get(iter).getId() == animals.get(i).getParentStructure()){
+                        parentStructureId = iter;
+                    }
+                }
+                String oldString = animalContainerStructures.get(parentStructureId).getSearchString();
+                oldString += animals.get(i).getSearchString();
+                animalContainerStructures.get(parentStructureId).setSearchString(oldString);
+                Log.i("TOMDEBUG", "This structure contains this search string: " + animalContainerStructures.get(parentStructureId).getSearchString());
             }
         }
         for (int i = 0; i < animalContainerStructures.size(); i++) {
@@ -340,6 +354,7 @@ public class CompassListFragment extends Fragment {
                             loc[0] = location;
                             sortListByLocation(location);
 
+
                         }
                     }
                 });
@@ -370,12 +385,14 @@ public class CompassListFragment extends Fragment {
             }
         }
         for (int i = 0; i < animalContainerStructures.size(); i++) {
-            namesOfItems.add(animalContainerStructures.get(i).getContainerName());
-            BinomOrOtherItems.add("Structure: Tap for Animals Inside");
-            DistanceOfItems.add(animalContainerStructures.get(i).getViewingPoints());
-            locationOfItems.add(animalContainerStructures.get(i).getViewingPoints().getLatitude()
-                    + " " + animalContainerStructures.get(i).getViewingPoints().getLongitude());
-            imagesOfItems.add(animalStructureImages[i]);
+            if( filter.equals("") || animalContainerStructures.get(i).matchesFilter(filter) ) {
+                namesOfItems.add(animalContainerStructures.get(i).getContainerName());
+                BinomOrOtherItems.add("Structure: Tap for Animals Inside");
+                DistanceOfItems.add(animalContainerStructures.get(i).getViewingPoints());
+                locationOfItems.add(animalContainerStructures.get(i).getViewingPoints().getLatitude()
+                        + " " + animalContainerStructures.get(i).getViewingPoints().getLongitude());
+                imagesOfItems.add(animalStructureImages[i]);
+            }
         }
         for (int i = 0; i < structures.size(); i++) {
             if( filter.equals("") || structures.get(i).matchesFilter(filter) ) {

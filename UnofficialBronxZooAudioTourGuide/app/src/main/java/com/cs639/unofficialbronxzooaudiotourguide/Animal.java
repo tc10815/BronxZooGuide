@@ -178,6 +178,7 @@ public class Animal {
         for(int x = 0; x < description.size(); x++){
             searchString += description.get(x);
         }
+        searchString = searchString.toLowerCase();
 
         if(searchString.indexOf(filter) != -1){
            ret = true;

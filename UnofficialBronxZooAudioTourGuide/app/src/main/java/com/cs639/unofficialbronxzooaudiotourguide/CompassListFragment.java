@@ -2,6 +2,10 @@ package com.cs639.unofficialbronxzooaudiotourguide;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +29,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static android.content.Context.SENSOR_SERVICE;
+import static androidx.core.content.ContextCompat.getSystemService;
+
 /**
  *
  * This Fragment shows the all outside animals; it's the fragment that is loaded first when the
@@ -33,11 +40,12 @@ import java.util.List;
  *
  * @author Tom Cookson
  */
-public class CompassListFragment extends Fragment {
+public class CompassListFragment extends Fragment  implements SensorEventListener {
     String s1[], s2[], s3[], s4[];
     private FusedLocationProviderClient fusedLocationClient;
     private String filter;
     private String newS1[];
+
     Button btnSearch;
     Button btnClear;
     TextView txtSearch;
@@ -166,6 +174,8 @@ public class CompassListFragment extends Fragment {
     View rootView;
     AllAppData userModel;
     Location phoneLocation;
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
 
     @Override
     public View onCreateView(
@@ -175,6 +185,8 @@ public class CompassListFragment extends Fragment {
     ) {
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
         filter = "";
+        mSensorManager = (SensorManager)rootView.getContext().getSystemService(SENSOR_SERVICE);
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(rootView.getContext());
         btnClear = rootView.findViewById(R.id.btnClear);
         btnSearch = rootView.findViewById(R.id.btnSearch);
@@ -256,7 +268,6 @@ public class CompassListFragment extends Fragment {
                 String oldString = animalContainerStructures.get(parentStructureId).getSearchString();
                 oldString += animals.get(i).getSearchString();
                 animalContainerStructures.get(parentStructureId).setSearchString(oldString);
-                Log.i("TOMDEBUG", "This structure contains this search string: " + animalContainerStructures.get(parentStructureId).getSearchString());
             }
         }
         for (int i = 0; i < animalContainerStructures.size(); i++) {
@@ -348,13 +359,11 @@ public class CompassListFragment extends Fragment {
             if(isAnimal) {
             Intent intent = new Intent(rootView.getContext(), AnimalActivity.class);
             intent.putExtra("animalnumber", idOfItem);
-            Log.i("TOMDEBUG", "Launching animal");
             startActivity(intent);
         }
         if(isStructure) {
             Intent intent = new Intent(rootView.getContext(), StructureActivity.class);
             intent.putExtra("structurenumber", idOfItem);
-            Log.i("TOMDEBUG", "Launching animal");
             startActivity(intent);
         }
         if(isAnimalContainingStructure) {
@@ -493,5 +502,21 @@ public class CompassListFragment extends Fragment {
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
         recyclerView.setAdapter(mAdapter);
+    }
+    public void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    public void onPause() {
+        super.onPause();
+        mSensorManager.unregisterListener(this);
+    }
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 }

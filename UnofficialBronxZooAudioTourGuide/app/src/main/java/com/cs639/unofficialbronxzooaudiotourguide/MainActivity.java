@@ -88,6 +88,8 @@ public class MainActivity extends AppCompatActivity  {
         viewModel.setAnimals(myDataGetter.getAnimals());
         viewModel.setStructures(myDataGetter.getStructures());
         viewModel.setAnimalContainerStructures(myDataGetter.getAnimalContainerStructures());
+        viewModel.setContext(this);
+
 
     }
 

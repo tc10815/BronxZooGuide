@@ -1,9 +1,7 @@
 package com.cs639.unofficialbronxzooaudiotourguide;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,6 +20,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  *
@@ -33,7 +32,7 @@ import java.util.ArrayList;
  * @author Tom Cookson
  */
 public class CompassListFragment extends Fragment {
-    String s1[], s2[];
+    String s1[], s2[], s3[], s4[];
     private FusedLocationProviderClient fusedLocationClient;
     int images[];
     int animalimages[] =
@@ -159,6 +158,7 @@ public class CompassListFragment extends Fragment {
     protected OutdoorRecycleAdapter mAdapter;
     View rootView;
     AllAppData userModel;
+    Location phoneLocation;
 
     @Override
     public View onCreateView(
@@ -167,20 +167,24 @@ public class CompassListFragment extends Fragment {
 
     ) {
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(rootView.getContext());
+
         // Inflate the layout for this fragment
         recyclerView = rootView.findViewById(R.id.OutdoorRecyclerView);
         userModel = new ViewModelProvider(requireActivity()).get(AllAppData.class);
         int width = userModel.getScreenSize();
         userModel.setCompassList(this);
+
         String[][] toSend = buildItemList(userModel.getAnimals(), userModel.getStructures(), userModel.getAnimalContainerStructures());
         s1 = toSend[0];
         s2 = toSend[1];
-        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), s1, s2, images, 10);
+        s3 = toSend[2];
+        s4 = toSend[3];
+        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), s1, s2, s3, s4, images, 10);
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
         recyclerView.setAdapter(mAdapter);
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
-
+        getCurrentLocation();
 
         return rootView;
     }
@@ -203,25 +207,33 @@ public class CompassListFragment extends Fragment {
         String[][] ret;
         ArrayList<String> namesOfItems = new ArrayList<String>();
         ArrayList<String> BinomOrOtherItems = new ArrayList<String>();
+        ArrayList<String> locationOfItems = new ArrayList<String>();
+        ArrayList<Location> DistanceOfItems = new ArrayList<Location>();
         ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
         for (int i = 0; i < animals.size(); i++) {
             if (animals.get(i).getParentStructure() == 0) {
                 namesOfItems.add(animals.get(i).getZooName());
                 BinomOrOtherItems.add(animals.get(i).getBinomialNomenclature());
                 imagesOfItems.add(animalimages[i]);
+                DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
+                locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
+                        + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
             }
         }
         for (int i = 0; i < animalContainerStructures.size(); i++) {
-            Log.i("TOMDEBUG", "animalContainerStructures.size() is " + animalContainerStructures.size());
-            Log.i("TOMDEBUG", "i is " + i);
-            Log.i("TOMDEBUG", "AnimalContainerStructures.get(i).getContainerName() is " + animalContainerStructures.get(i).getContainerName());
             namesOfItems.add(animalContainerStructures.get(i).getContainerName());
             BinomOrOtherItems.add("Structure: Tap for Animals Inside");
+            DistanceOfItems.add(animalContainerStructures.get(i).getViewingPoints());
+            locationOfItems.add(animalContainerStructures.get(i).getViewingPoints().getLatitude()
+                    + " " + animalContainerStructures.get(i).getViewingPoints().getLongitude());
             imagesOfItems.add(animalStructureImages[i]);
         }
         for (int i = 0; i < structures.size(); i++) {
             namesOfItems.add(structures.get(i).getStructureName());
+            locationOfItems.add(structures.get(i).getViewingPoints().get(0).getLatitude()
+                    + " " + structures.get(i).getViewingPoints().get(0).getLongitude());
             BinomOrOtherItems.add("Structure: Tap for History");
+            DistanceOfItems.add(structures.get(i).getViewingPoints().get(0));
             imagesOfItems.add(structureImages[i]);
         }
 
@@ -233,6 +245,27 @@ public class CompassListFragment extends Fragment {
         for (int i = 0; i < BinomOrOtherItems.size(); i++) {
             s2[i] = BinomOrOtherItems.get(i);
         }
+        String s3[] = new String[locationOfItems.size()];
+        for (int i = 0; i < locationOfItems.size(); i++) {
+            s3[i] = locationOfItems.get(i);
+        }
+
+
+        //Figures out distance between standing person and item
+        String s4[] = new String[DistanceOfItems.size()];
+
+        for (int i = 0; i < DistanceOfItems.size(); i++) {
+            Location itemLocation = DistanceOfItems.get(i);
+            String toAdd = "empty";
+            if(itemLocation != null && phoneLocation != null) {
+                toAdd = phoneLocation.distanceTo(itemLocation) + "";
+            }
+            if(phoneLocation != null){
+                toAdd = phoneLocation.getLatitude() + " " + phoneLocation.getLongitude();
+            }
+
+            s4[i] = toAdd;
+        }
 
         //Using private var instead of return since different type. Not good code.
         images = new int[imagesOfItems.size()];
@@ -240,9 +273,12 @@ public class CompassListFragment extends Fragment {
             images[i] = imagesOfItems.get(i);
         }
 
-        ret = new String[2][s1.length];
+        ret = new String[4][s1.length];
         ret[0] = s1;
         ret[1] = s2;
+        ret[2] = s3;
+        ret[3] = s4;
+
         return ret;
     }
 
@@ -270,17 +306,116 @@ public class CompassListFragment extends Fragment {
 
     @SuppressLint("MissingPermission")
     public void getCurrentLocation() {
-        Location loc;
+        final Location[] loc = new Location[1];
+
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this.getActivity(), new OnSuccessListener<Location>() {
                     @Override
                     public void onSuccess(Location location) {
                         // Got last known location. In some rare situations this can be null.
                         if (location != null) {
-                            Log.i("TOMDEBUG2", "Location is " + location.getLongitude() + " " + location.getLatitude());
+                            loc[0] = location;
+                            sortListByLocation(location);
+
                         }
                     }
                 });
+        phoneLocation = loc[0];
+    }
+    public void sortListByLocation(Location location){
+        Log.i("TOMDEBUG", "Location is " + location.getLongitude() + " " + location.getLatitude());
+        int size = 0;
+        String[][] ret;
+        ArrayList<Animal> animals = userModel.getAnimals();
+        ArrayList<AnimalContainerStructure> animalContainerStructures = userModel.getAnimalContainerStructures();
+        ArrayList<Structure> structures = userModel.getStructures();
+        ArrayList<String> namesOfItems = new ArrayList<String>();
+        ArrayList<String> BinomOrOtherItems = new ArrayList<String>();
+        ArrayList<String> locationOfItems = new ArrayList<String>();
+        ArrayList<Location> DistanceOfItems = new ArrayList<Location>();
+        ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
+        for (int i = 0; i < animals.size(); i++) {
+            if (animals.get(i).getParentStructure() == 0) {
+                namesOfItems.add(animals.get(i).getZooName());
+                BinomOrOtherItems.add(animals.get(i).getBinomialNomenclature());
+                imagesOfItems.add(animalimages[i]);
+                DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
+                locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
+                        + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
+            }
+        }
+        for (int i = 0; i < animalContainerStructures.size(); i++) {
+            namesOfItems.add(animalContainerStructures.get(i).getContainerName());
+            BinomOrOtherItems.add("Structure: Tap for Animals Inside");
+            DistanceOfItems.add(animalContainerStructures.get(i).getViewingPoints());
+            locationOfItems.add(animalContainerStructures.get(i).getViewingPoints().getLatitude()
+                    + " " + animalContainerStructures.get(i).getViewingPoints().getLongitude());
+            imagesOfItems.add(animalStructureImages[i]);
+        }
+        for (int i = 0; i < structures.size(); i++) {
+            namesOfItems.add(structures.get(i).getStructureName());
+            locationOfItems.add(structures.get(i).getViewingPoints().get(0).getLatitude()
+                    + " " + structures.get(i).getViewingPoints().get(0).getLongitude());
+            BinomOrOtherItems.add("Structure: Tap for History");
+            DistanceOfItems.add(structures.get(i).getViewingPoints().get(0));
+            imagesOfItems.add(structureImages[i]);
+        }
 
+        String s1[] = new String[namesOfItems.size()];
+        for (int i = 0; i < namesOfItems.size(); i++) {
+            s1[i] = namesOfItems.get(i);
+        }
+        String s2[] = new String[BinomOrOtherItems.size()];
+        for (int i = 0; i < BinomOrOtherItems.size(); i++) {
+            s2[i] = BinomOrOtherItems.get(i);
+        }
+        String s3[] = new String[locationOfItems.size()];
+        for (int i = 0; i < locationOfItems.size(); i++) {
+            s3[i] = locationOfItems.get(i);
+        }
+        Double myD[] = new Double[DistanceOfItems.size()];
+        for (int i = 0; i < DistanceOfItems.size(); i++) {
+            Location itemLocation = DistanceOfItems.get(i);
+            double toAdd = 0;
+            if(itemLocation != null && location != null) {
+                toAdd = location.distanceTo(itemLocation);
+            }
+            myD[i] = toAdd;
+        }
+
+        //Using private var instead of return since different type. Not good code.
+        images = new int[imagesOfItems.size()];
+        for (int i = 0; i < imagesOfItems.size(); i++) {
+            images[i] = imagesOfItems.get(i);
+        }
+
+        //Puts everything in a a sortable List
+        List<ComparableDataItem> comparableItemList = new ArrayList<ComparableDataItem>();
+        for(int it = 0; it < s1.length; it++){
+            ComparableDataItem myItem = new
+                    ComparableDataItem(s1[it], s2[it], s3[it], images[it], myD[it], it );
+            comparableItemList.add(myItem);
+        }
+        //Sort the list
+        Collections.sort(comparableItemList);
+
+        //put everything back in sorted order
+        String newS1[] = new String[s1.length];
+        String newS2[] = new String[s1.length];
+        String newS3[] = new String[s1.length];
+        int newImages[] = new int[s1.length];
+        String newS4[] = new String[s1.length];
+        for(int it = 0; it < comparableItemList.size(); it++){
+            newS1[it] = comparableItemList.get(it).getS1();
+            newS2[it] = comparableItemList.get(it).getS2();
+            newS3[it] = comparableItemList.get(it).getS3();
+            newS4[it] = comparableItemList.get(it).getD() + "";
+            newImages[it] = comparableItemList.get(it).getI();
+        }
+
+        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), newS1, newS2, newS3, newS4, newImages, 10);
+        mAdapter.setMyAppData(userModel);
+        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
+        recyclerView.setAdapter(mAdapter);
     }
 }

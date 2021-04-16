@@ -25,7 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * @author Tom Cookson
  */
 public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAdapter.MyViewHolder>{
-    String data1[], data2[];
+    String data1[], data2[], data3[], data4[];
     int images[];
     Context context;
     int screenWidth;
@@ -35,10 +35,12 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
     AllAppData myAppData;
     View rowView;
 
-    public  OutdoorRecycleAdapter(Context ct, String[] s1, String[] s2, int[] myimages, int myWidth){
+    public  OutdoorRecycleAdapter(Context ct, String[] s1, String[] s2, String[] s3, String[] s4, int[] myimages, int myWidth){
         context = ct;
         data1 = s1;
         data2 = s2;
+        data3 = s3;
+        data4 = s4;
         images = myimages;
         screenWidth = myWidth;
 
@@ -57,6 +59,9 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.txtZooName.setText(data1[position]);
         holder.txtBiNom.setText(data2[position]);
+        holder.txtLocation.setText(data3[position]);
+        holder.txtDistance.setText(data4[position]);
+
         holder.imgAnimal.setImageResource(images[position]);
 
         holder.parentLayout.setOnClickListener(new OnClickListener(){
@@ -79,13 +84,15 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView txtZooName, txtBiNom;
+        TextView txtZooName, txtBiNom, txtDistance, txtLocation;
         ImageView imgAnimal;
         ConstraintLayout parentLayout;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txtZooName = itemView.findViewById(R.id.rowOutsideAnimalNameTxt);
             txtBiNom = itemView.findViewById(R.id.rowOutsideAnimalBiNomTxt);
+            txtDistance = itemView.findViewById(R.id.rowOutsideDistanceTxt);
+            txtLocation = itemView.findViewById(R.id.rowOutsideLocationTxt);
             imgAnimal = itemView.findViewById(R.id.rowOutsideAnimalImg);
             parentLayout =itemView.findViewById(R.id.parentLayout);
 

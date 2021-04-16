@@ -50,6 +50,31 @@
                 app:layout_constraintStart_toEndOf="@+id/rowOutsideAnimalImg"
                 app:layout_constraintTop_toBottomOf="@+id/rowOutsideAnimalNameTxt"
                 app:layout_constraintVertical_bias="0.060000002" />
+
+            <TextView
+                android:id="@+id/rowOutsideLocationTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="My Location"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rowOutsideAnimalImg"
+                app:layout_constraintTop_toBottomOf="@+id/rowOutsideAnimalBiNomTxt"
+                app:layout_constraintVertical_bias="0.120000005" />
+            <TextView
+                android:id="@+id/rowOutsideDistanceTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="My Distance from Phone"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rowOutsideAnimalImg"
+                app:layout_constraintTop_toBottomOf="@+id/rowOutsideLocationTxt"
+                app:layout_constraintVertical_bias="0.120000005" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

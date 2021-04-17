@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -385,7 +386,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     @SuppressLint("MissingPermission")
     public void getCurrentLocation() {
         final Location[] loc = new Location[1];
-
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(rootView.getContext());
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this.getActivity(), new OnSuccessListener<Location>() {
                     @Override
@@ -393,6 +394,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                         // Got last known location. In some rare situations this can be null.
                         if (location != null) {
                             loc[0] = location;
+                            Log.i("TOMDEBUG", "Location is " + location.toString());
+                            Toast.makeText(rootView.getContext().getApplicationContext(),"Location is " + location.toString(),Toast.LENGTH_SHORT).show();
                             sortListByLocation(location);
 
 

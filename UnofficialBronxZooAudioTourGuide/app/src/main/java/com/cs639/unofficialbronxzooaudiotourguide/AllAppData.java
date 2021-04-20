@@ -1,6 +1,7 @@
 package com.cs639.unofficialbronxzooaudiotourguide;
 
 import android.content.Context;
+import android.location.Location;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
@@ -10,10 +11,12 @@ import java.util.ArrayList;
 
 public class AllAppData extends ViewModel {
     private final MutableLiveData<String> userLiveData = new MutableLiveData<>();
+    private MutableLiveData<String> currentLocation;
+    private Location currentPhoneLocation;
     private int screenSize;
     private String userFilter;
-    private ArrayList<Animal> animals;
     private Context context;
+    private ArrayList<Animal> animals;
     private ArrayList<Structure> structures;
     private ArrayList<AnimalContainerStructure> animalContainerStructures;
     private Animal currentlySelectedAnimal;
@@ -21,6 +24,13 @@ public class AllAppData extends ViewModel {
     private CompassListFragment compassList;
     public Animal getCurrentlySelectedAnimal() {
         return currentlySelectedAnimal;
+    }
+
+    public MutableLiveData<String> getCurrentLocation() {
+        if (currentLocation == null) {
+            currentLocation = new MutableLiveData<String>();
+        }
+        return currentLocation;
     }
 
     public Context getContext() {
@@ -114,4 +124,41 @@ public class AllAppData extends ViewModel {
         this.animalContainerStructures = animalContainerStructures;
     }
 
+    /**
+     * Given the title of an item on a list, returns its location
+     *
+     * @param myThing
+     * @return
+     */
+    public Location getLocationOf(String myThing){
+        Location ret = null;
+        for(int iter = 0; iter < animals.size(); iter++){
+            if(animals.get(iter).getZooName().equals(myThing)){
+                ret = animals.get(iter).getViewingPoints().get(0);
+            }
+        }
+        for(int iter = 0; iter < structures.size(); iter++){
+            if(structures.get(iter).getStructureName().equals(myThing)){
+                ret = structures.get(iter).getViewingPoints().get(0);
+            }
+        }
+        for(int iter = 0; iter < animalContainerStructures.size(); iter++) {
+            if (animalContainerStructures.get(iter).getContainerName().equals(myThing)) {
+                ret = animalContainerStructures.get(iter).getViewingPoints();
+            }
+        }
+        return ret;
+
+    }
+
+    public Location getCurrentPhoneLocation() {
+        return currentPhoneLocation;
+    }
+
+    public void setCurrentPhoneLocation(Location currentPhoneLocation) {
+        Location emptyLocation = new Location("");
+        if(!currentPhoneLocation.equals(emptyLocation)) {
+            this.currentPhoneLocation = currentPhoneLocation;
+        }
+    }
 }

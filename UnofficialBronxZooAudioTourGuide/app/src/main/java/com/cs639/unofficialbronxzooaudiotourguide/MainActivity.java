@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity  {
         viewModel.setScreenSize(myMetric.widthPixels);
         XMLDataGetter myDataGetter = new XMLDataGetter(this);
         viewModel.setAnimals(myDataGetter.getAnimals());
+        viewModel.setCurrentPhoneLocation(new Location(""));
         viewModel.setStructures(myDataGetter.getStructures());
         viewModel.setAnimalContainerStructures(myDataGetter.getAnimalContainerStructures());
         viewModel.setContext(this);

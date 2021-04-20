@@ -31,7 +31,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static android.content.Context.SENSOR_SERVICE;
-import static androidx.core.content.ContextCompat.getSystemService;
 
 /**
  *
@@ -46,6 +45,9 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     private FusedLocationProviderClient fusedLocationClient;
     private String filter;
     private String newS1[];
+    private float[] mGravity = new float[3];
+    private float[] mGeomagnetic = new float[3];
+    float azimuth;
 
     Button btnSearch;
     Button btnClear;
@@ -176,18 +178,21 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     AllAppData userModel;
     Location phoneLocation;
     private SensorManager mSensorManager;
-    private Sensor mAccelerometer;
+    private Sensor sensorMag;
+    private Sensor sensorAcc;
 
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-
-    ) {
+            Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
+        mGravity = new float[3];
+        mGeomagnetic = new float[3];
+        azimuth = 0f;
         filter = "";
         mSensorManager = (SensorManager)rootView.getContext().getSystemService(SENSOR_SERVICE);
-        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorMag = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        sensorAcc = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(rootView.getContext());
         btnClear = rootView.findViewById(R.id.btnClear);
         btnSearch = rootView.findViewById(R.id.btnSearch);
@@ -204,7 +209,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             public void onClick(View view) {
                 filter = "";
                 txtSearch.setText("");
-                getCurrentLocation();            }
+                getCurrentLocation();
+            }
         });
         // Inflate the layout for this fragment
         recyclerView = rootView.findViewById(R.id.OutdoorRecyclerView);
@@ -218,13 +224,12 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         s3 = toSend[2];
         s4 = toSend[3];
         newS1 = s1;
-        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), s1, s2, s3, s4, images, 10);
+        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, s1, s2, s3, s4, images, 10);
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
         recyclerView.setAdapter(mAdapter);
-        getCurrentLocation();
-
         return rootView;
+
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -394,6 +399,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                         // Got last known location. In some rare situations this can be null.
                         if (location != null) {
                             loc[0] = location;
+                            userModel.setCurrentPhoneLocation(location);
                             Log.i("TOMDEBUG", "Location is " + location.toString());
                             Toast.makeText(rootView.getContext().getApplicationContext(),"Location is " + location.toString(),Toast.LENGTH_SHORT).show();
                             sortListByLocation(location);
@@ -405,7 +411,6 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         phoneLocation = loc[0];
     }
     public void sortListByLocation(Location location){
-        Log.i("TOMDEBUG", "Location is " + location.getLongitude() + " " + location.getLatitude());
         int size = 0;
         String[][] ret;
         ArrayList<Animal> animals = userModel.getAnimals();
@@ -501,14 +506,16 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             newImages[it] = comparableItemList.get(it).getI();
         }
 
-        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), newS1, newS2, newS3, newS4, newImages, 10);
+        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newS4, newImages, 10);
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
         recyclerView.setAdapter(mAdapter);
     }
     public void onResume() {
         super.onResume();
-        mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, sensorMag, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, sensorAcc, SensorManager.SENSOR_DELAY_NORMAL);
+
     }
 
     public void onPause() {
@@ -517,6 +524,28 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     }
     @Override
     public void onSensorChanged(SensorEvent event) {
+        final float alpha = 0.97f;
+        float myTestFloat = 0f;
+        synchronized(this){
+            if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+                mGravity = event.values;
+            }
+            if(event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD){
+                mGeomagnetic = event.values;
+            }
+            float R[] = new float[9];
+            float I[] = new float[9];
+            if (SensorManager.getRotationMatrix(R, I, mGravity, mGeomagnetic)) {
+                // orientation contains azimut, pitch and roll
+                float orientation[] = new float[3];
+                SensorManager.getOrientation(R, orientation);
+                azimuth = orientation[0];
+                userModel.getCurrentLocation().setValue(Math.toDegrees(azimuth) + "");
+
+            }
+
+
+            }
     }
 
     @Override

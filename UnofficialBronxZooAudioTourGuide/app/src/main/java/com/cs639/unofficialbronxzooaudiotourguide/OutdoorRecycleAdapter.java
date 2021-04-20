@@ -3,6 +3,7 @@ package com.cs639.unofficialbronxzooaudiotourguide;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
+import android.location.Location;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -15,8 +16,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.jetbrains.annotations.Nullable;
 
 
 /**
@@ -24,10 +30,11 @@ import androidx.recyclerview.widget.RecyclerView;
  *
  * @author Tom Cookson
  */
-public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAdapter.MyViewHolder>{
+public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAdapter.MyViewHolder> {
     String data1[], data2[], data3[], data4[];
     int images[];
     Context context;
+    CompassListFragment theParent;
     int screenWidth;
 
 
@@ -35,7 +42,7 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
     AllAppData myAppData;
     View rowView;
 
-    public  OutdoorRecycleAdapter(Context ct, String[] s1, String[] s2, String[] s3, String[] s4, int[] myimages, int myWidth){
+    public  OutdoorRecycleAdapter(Context ct, CompassListFragment myDad, AllAppData theAppData, String[] s1, String[] s2, String[] s3, String[] s4, int[] myimages, int myWidth){
         context = ct;
         data1 = s1;
         data2 = s2;
@@ -43,6 +50,8 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
         data4 = s4;
         images = myimages;
         screenWidth = myWidth;
+        myAppData = theAppData;
+        theParent = myDad;
 
 
     }
@@ -52,6 +61,7 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.outside_animal_row, parent, false);
         rowView = view;
+
         return new MyViewHolder(view);
     }
 
@@ -83,7 +93,9 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
         return data1.length;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+
+
+    public class MyViewHolder extends RecyclerView.ViewHolder  {
         TextView txtZooName, txtBiNom, txtDistance, txtLocation;
         ImageView imgAnimal;
         ConstraintLayout parentLayout;
@@ -94,13 +106,29 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
             txtDistance = itemView.findViewById(R.id.rowOutsideDistanceTxt);
             txtLocation = itemView.findViewById(R.id.rowOutsideLocationTxt);
             imgAnimal = itemView.findViewById(R.id.rowOutsideAnimalImg);
-            parentLayout =itemView.findViewById(R.id.parentLayout);
+            parentLayout = itemView.findViewById(R.id.parentLayout);
+            // Create the observer which updates the UI.
+            final Observer<String> locationObserver = new Observer<String>() {
+                @Override
+                public void onChanged(@Nullable final String newLocation) {
+                    // Update the UI, in this case, a TextView.
+                    String itemName = txtZooName.getText().toString();
+                    Location itemLocation = myAppData.getLocationOf(itemName);
+                    Location phoneLocation = myAppData.getCurrentPhoneLocation();
+                    if(phoneLocation != null && itemLocation !=null)
+                    txtLocation.setText(newLocation);
+                }
+            };
+
+            // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+            myAppData.getCurrentLocation().observe(theParent, locationObserver);
 
         }
     }
     public AllAppData getMyAppData() {
         return myAppData;
     }
+
 
     public void setMyAppData(AllAppData myAppData) {
         this.myAppData = myAppData;

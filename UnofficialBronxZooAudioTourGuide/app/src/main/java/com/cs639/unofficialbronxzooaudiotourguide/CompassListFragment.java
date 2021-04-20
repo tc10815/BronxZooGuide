@@ -1,7 +1,9 @@
 package com.cs639.unofficialbronxzooaudiotourguide;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -17,14 +19,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,7 +42,7 @@ import static android.content.Context.SENSOR_SERVICE;
  */
 public class CompassListFragment extends Fragment  implements SensorEventListener {
     String s1[], s2[], s3[], s4[];
-    private FusedLocationProviderClient fusedLocationClient;
+    private boolean isContinue = false;
     private String filter;
     private String newS1[];
     private float[] mGravity = new float[3];
@@ -180,6 +180,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     private SensorManager mSensorManager;
     private Sensor sensorMag;
     private Sensor sensorAcc;
+    public static final int LOCATION_REQUEST = 1000;
 
     @Override
     public View onCreateView(
@@ -188,12 +189,11 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
         mGravity = new float[3];
         mGeomagnetic = new float[3];
-        azimuth = 0f;
+//        azimuth = 0f;
         filter = "";
         mSensorManager = (SensorManager)rootView.getContext().getSystemService(SENSOR_SERVICE);
         sensorMag = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         sensorAcc = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(rootView.getContext());
         btnClear = rootView.findViewById(R.id.btnClear);
         btnSearch = rootView.findViewById(R.id.btnSearch);
         txtSearch = rootView.findViewById(R.id.editTextSearch);
@@ -201,7 +201,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             @Override
             public void onClick(View view) {
                 filter = txtSearch.getText().toString();
-                getCurrentLocation();
+                sortListByLocation(userModel.getCurrentPhoneLocation());
             }
         });
         btnClear.setOnClickListener(new View.OnClickListener() {
@@ -209,7 +209,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             public void onClick(View view) {
                 filter = "";
                 txtSearch.setText("");
-                getCurrentLocation();
+                sortListByLocation(userModel.getCurrentPhoneLocation());
+
             }
         });
         // Inflate the layout for this fragment
@@ -316,7 +317,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             if(itemLocation != null && phoneLocation != null) {
                 toAdd = phoneLocation.distanceTo(itemLocation) + "";
             }
-            if(phoneLocation != null){
+            if (phoneLocation != null) {
                 toAdd = phoneLocation.getLatitude() + " " + phoneLocation.getLongitude();
             }
 
@@ -380,36 +381,10 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             Log.i("TOMDEBUG", "Launching animal");
             startActivity(intent);
         }
-//        Intent intent = new Intent(rootView.getContext(), AnimalContainerActivity.class);
-//        intent.putExtra("animalstructurenumber", animalstructurenumber);
-//        intent.putExtra("filter", filter);
-//        startActivity(intent);
     }
 
 
 
-    @SuppressLint("MissingPermission")
-    public void getCurrentLocation() {
-        final Location[] loc = new Location[1];
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(rootView.getContext());
-        fusedLocationClient.getLastLocation()
-                .addOnSuccessListener(this.getActivity(), new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
-                        // Got last known location. In some rare situations this can be null.
-                        if (location != null) {
-                            loc[0] = location;
-                            userModel.setCurrentPhoneLocation(location);
-                            Log.i("TOMDEBUG", "Location is " + location.toString());
-                            Toast.makeText(rootView.getContext().getApplicationContext(),"Location is " + location.toString(),Toast.LENGTH_SHORT).show();
-                            sortListByLocation(location);
-
-
-                        }
-                    }
-                });
-        phoneLocation = loc[0];
-    }
     public void sortListByLocation(Location location){
         int size = 0;
         String[][] ret;
@@ -536,19 +511,18 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             float R[] = new float[9];
             float I[] = new float[9];
             if (SensorManager.getRotationMatrix(R, I, mGravity, mGeomagnetic)) {
-                // orientation contains azimut, pitch and roll
-                float orientation[] = new float[3];
-                SensorManager.getOrientation(R, orientation);
-                azimuth = orientation[0];
-                userModel.getCurrentLocation().setValue(Math.toDegrees(azimuth) + "");
-
+                    // orientation contains azimut, pitch and roll
+                    float orientation[] = new float[3];
+                    SensorManager.getOrientation(R, orientation);
+                    azimuth = orientation[0];
+                    userModel.setAzimuth(azimuth);
+                    userModel.getCurrentLocation().setValue(Math.toDegrees(orientation[0]) + "");
             }
-
-
-            }
+        }
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
+
 }

@@ -16,6 +16,7 @@ public class AllAppData extends ViewModel {
     private int screenSize;
     private String userFilter;
     private Context context;
+    private float azimuth = 0;
     private ArrayList<Animal> animals;
     private ArrayList<Structure> structures;
     private ArrayList<AnimalContainerStructure> animalContainerStructures;
@@ -157,8 +158,17 @@ public class AllAppData extends ViewModel {
 
     public void setCurrentPhoneLocation(Location currentPhoneLocation) {
         Location emptyLocation = new Location("");
-        if(!currentPhoneLocation.equals(emptyLocation)) {
-            this.currentPhoneLocation = currentPhoneLocation;
+        if(currentPhoneLocation !=null) {
+            if (!currentPhoneLocation.equals(emptyLocation)) {
+                this.currentPhoneLocation = currentPhoneLocation;
+            }
         }
+    }
+    public float getAzimuth() {
+        return azimuth;
+    }
+
+    public void setAzimuth(float azimuth) {
+        this.azimuth = azimuth;
     }
 }

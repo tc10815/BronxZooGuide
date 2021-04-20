@@ -71,16 +71,13 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
         holder.txtBiNom.setText(data2[position]);
         holder.txtLocation.setText(data3[position]);
         holder.txtDistance.setText(data4[position]);
-
         holder.imgAnimal.setImageResource(images[position]);
-
         holder.parentLayout.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View v){
                 myAppData.compassViewClicked(position);
             }
         });
-
     }
 
     public void setImageSize(int newSize){
@@ -89,11 +86,8 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
 
     @Override
     public int getItemCount() {
-
         return data1.length;
     }
-
-
 
     public class MyViewHolder extends RecyclerView.ViewHolder  {
         TextView txtZooName, txtBiNom, txtDistance, txtLocation;
@@ -115,8 +109,19 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
                     String itemName = txtZooName.getText().toString();
                     Location itemLocation = myAppData.getLocationOf(itemName);
                     Location phoneLocation = myAppData.getCurrentPhoneLocation();
-                    if(phoneLocation != null && itemLocation !=null)
-                    txtLocation.setText(newLocation);
+
+                    if(phoneLocation != null && itemLocation !=null){
+                        double longDiff =  itemLocation.getLongitude() - phoneLocation.getLongitude();
+                        double latDiff = itemLocation.getLatitude() - phoneLocation.getLatitude();
+                        double currentAngle = Math.toDegrees(myAppData.getAzimuth());
+                        double angle = Math.atan2(latDiff, longDiff);
+                        String myAngle = (currentAngle + "").substring(0,4);
+                        String myAngle2 = ((currentAngle - Math.toDegrees(angle)) + "").substring(0,4);
+
+                        txtDistance.setText(phoneLocation.distanceTo(itemLocation) + "");
+                        txtLocation.setText((myAngle + " " + myAngle2));
+                    }
+
                 }
             };
 
@@ -129,19 +134,9 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
         return myAppData;
     }
 
-
     public void setMyAppData(AllAppData myAppData) {
         this.myAppData = myAppData;
     }
 
-    public void launchAnimalFragment(){
-
-    }
-    public void clearClicked(){
-        Log.i("TOMDEBUG", "CLEAR");
-    }
-    public void searchClicked(){
-        Log.i("TOMDEBUG", "SEARCH");
-    }
 
 }

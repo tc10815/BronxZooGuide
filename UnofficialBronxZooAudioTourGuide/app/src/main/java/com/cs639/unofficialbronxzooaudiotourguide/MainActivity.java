@@ -240,4 +240,5 @@ public class MainActivity extends AppCompatActivity  {
         AllAppData userModel = new ViewModelProvider(this).get(AllAppData.class);
         userModel.setCurrentPhoneLocation(loc);
     }
+
 }

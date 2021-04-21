@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
 import android.location.Location;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -36,8 +37,6 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
     Context context;
     CompassListFragment theParent;
     int screenWidth;
-
-
 
     AllAppData myAppData;
     View rowView;

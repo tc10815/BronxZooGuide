@@ -10,6 +10,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -179,6 +180,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     View rootView;
     AllAppData userModel;
     Location phoneLocation;
+    Location lastLocationWhenItemsSorted;
     private SensorManager mSensorManager;
     private Sensor sensorMag;
     private Sensor sensorAcc;
@@ -193,6 +195,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         mGeomagnetic = new float[3];
 //        azimuth = 0f;
         filter = "";
+        lastLocationWhenItemsSorted = new Location("");
         mSensorManager = (SensorManager)rootView.getContext().getSystemService(SENSOR_SERVICE);
         sensorMag = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         sensorAcc = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -215,6 +218,16 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
 
             }
         });
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                if(userModel.getCurrentPhoneLocation().distanceTo(lastLocationWhenItemsSorted) > 7){
+                    sortListByLocation(userModel.getCurrentPhoneLocation());
+                }
+            }
+        }, 5000);
+
+
         // Inflate the layout for this fragment
         recyclerView = rootView.findViewById(R.id.OutdoorRecyclerView);
         userModel = new ViewModelProvider(requireActivity()).get(AllAppData.class);
@@ -366,7 +379,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 idOfItem = iter;
             }
         }
-            if(isAnimal) {
+        if(isAnimal) {
             Intent intent = new Intent(rootView.getContext(), AnimalActivity.class);
             intent.putExtra("animalnumber", idOfItem);
             startActivity(intent);
@@ -380,8 +393,6 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             Intent intent = new Intent(rootView.getContext(), AnimalContainerActivity.class);
             intent.putExtra("parentstructure", idOfItem);
             intent.putExtra("filter", filter);
-
-            Log.i("TOMDEBUG", "Launching animal");
             startActivity(intent);
         }
     }

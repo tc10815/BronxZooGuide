@@ -171,4 +171,5 @@ public class AllAppData extends ViewModel {
     public void setAzimuth(float azimuth) {
         this.azimuth = azimuth;
     }
+
 }

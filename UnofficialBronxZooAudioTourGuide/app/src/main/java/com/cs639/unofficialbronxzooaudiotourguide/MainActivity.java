@@ -37,6 +37,8 @@ import com.google.android.gms.location.LocationServices;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -81,6 +83,16 @@ public class MainActivity extends AppCompatActivity  {
                 isGPS = isGPSEnable;
             }
         });
+
+
+        /*
+         * Starts location services automatically 2 seconds after the app is opened.
+         */
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                getLocation();            }
+        }, 2000);
 
         locationCallback = new LocationCallback() {
             @Override
@@ -157,7 +169,6 @@ public class MainActivity extends AppCompatActivity  {
                 Toast.makeText(this, "Please turn on GPS", Toast.LENGTH_SHORT).show();
             } else {
                 isContinue = true;
-                getLocation();
             }
         }
 
@@ -178,11 +189,8 @@ public class MainActivity extends AppCompatActivity  {
                         wayLatitude = location.getLatitude();
                         wayLongitude = location.getLongitude();
                         setLocation(location);
-                        Log.i("TOMDEBUG", "Not this one: "+  wayLatitude + " " + wayLongitude);
-
                     } else {
                         mFusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
-                        Log.i("TOMDEBUG", "Here? "+  wayLatitude + " " + wayLongitude);
                     }
                 });
             }
@@ -206,13 +214,8 @@ public class MainActivity extends AppCompatActivity  {
                             if (location != null) {
                                 wayLatitude = location.getLatitude();
                                 wayLongitude = location.getLongitude();
-
-                                Log.i("TOMDEBUG", "b Not this one: "+  wayLatitude + " " + wayLongitude);
-
                             } else {
                                 mFusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
-                                Log.i("TOMDEBUG", "a "+  wayLatitude + " " + wayLongitude);
-
                             }
                         });
                     }

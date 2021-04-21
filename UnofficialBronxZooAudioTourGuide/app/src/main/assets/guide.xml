@@ -3,7 +3,7 @@
     <resources>
         <bestiary>
             <animal id="1">
-                <zooname>Southern Pudu</zooname>
+                <zooname>My Home Spot</zooname>
                 <commonname id="1">Chilean Pudu</commonname>
                 <binomialnomenclature>Pudu puda</binomialnomenclature>
                 <family>Cervidae</family>
@@ -54,8 +54,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>40.848938</latitude>
-                        <longitude>-73.879588</longitude>
+                        <latitude>41.1514711</latitude>
+                        <longitude>-73.5473577</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -77,8 +77,8 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="2">
-                <zooname>Giraffe</zooname>
-                <binomialnomenclature>Giraffa camelopardalis</binomialnomenclature>
+                <zooname>North</zooname>
+                <binomialnomenclature>North</binomialnomenclature>
                 <family>Giraffidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
@@ -119,8 +119,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>40.847847</latitude>
-                        <longitude>-73.880372</longitude>
+                        <latitude>42.1514711</latitude>
+                        <longitude>-73.5473577</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -140,7 +140,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="3">
-                <zooname>Common Ostrich</zooname>
+                <zooname>South</zooname>
                 <commonname id="1">African Ostrich</commonname>
                 <binomialnomenclature>Struthio camelus</binomialnomenclature>
                 <family>Struthionidae</family>
@@ -167,8 +167,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.15160044033885</latitude>
-                        <longitude>-73.54797320970962</longitude>
+                        <latitude>40.1514711</latitude>
+                        <longitude>-73.5473577</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -189,7 +189,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="4">
-                <zooname>African Wild Dog</zooname>
+                <zooname>East</zooname>
                 <binomialnomenclature>Lycaon pictus</binomialnomenclature>
                 <family>Lycaon pictus</family>
                 <class>Mammalia</class>
@@ -213,8 +213,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.147166536121226</latitude>
-                        <longitude>-73.54810309977132</longitude>
+                        <latitude>41.1514711</latitude>
+                        <longitude>-72.5473577</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -239,7 +239,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="5">
-                <zooname>Spotted Hyena</zooname>
+                <zooname>West</zooname>
                 <binomialnomenclature>Crocuta crocuta</binomialnomenclature>
                 <family>Crocuta crocuta</family>
                 <class>Mammalia</class>
@@ -263,8 +263,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>40.847016699999998</latitude>
-                        <longitude>-73.880799999999994</longitude>
+                        <latitude>41.1514711</latitude>
+                        <longitude>-74.5473577</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -289,7 +289,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="6">
-                <zooname>Grevy's Zebra</zooname>
+                <zooname>Tom's Tree</zooname>
                 <binomialnomenclature>Equus grevyi</binomialnomenclature>
                 <family>Equus grevyi</family>
                 <class>Mammalia</class>
@@ -313,8 +313,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.151476762346086</latitude>
-                        <longitude>-73.54748944985704</longitude>
+                        <latitude>41.15133463050036</latitude>
+                        <longitude>-73.54742289270686</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -339,7 +339,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="7">
-                <zooname>Slender-horned Gazelle</zooname>
+                <zooname>End of Stop sign Line</zooname>
                 <binomialnomenclature>Gazella leptoceros</binomialnomenclature>
                 <family>Gazella leptoceros</family>
                 <class>Mammalia</class>
@@ -363,8 +363,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>40.845966699999998</latitude>
-                        <longitude>-73.878986100000006</longitude>
+                        <latitude>41.15078712509565</latitude>
+                        <longitude>-73.54704240854534</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>

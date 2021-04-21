@@ -114,9 +114,10 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
                         double longDiff =  itemLocation.getLongitude() - phoneLocation.getLongitude();
                         double latDiff = itemLocation.getLatitude() - phoneLocation.getLatitude();
                         double currentAngle = Math.toDegrees(myAppData.getAzimuth());
-                        double angle = Math.atan2(latDiff, longDiff);
+                        double angle = Math.toDegrees(Math.atan2(longDiff, latDiff));
+                        double finalAngle = currentAngle - angle;
                         String myAngle = (currentAngle + "").substring(0,4);
-                        String myAngle2 = ((currentAngle - Math.toDegrees(angle)) + "").substring(0,4);
+                        String myAngle2 = (finalAngle + "").substring(0,4);
 
                         txtDistance.setText(phoneLocation.distanceTo(itemLocation) + "");
                         txtLocation.setText((myAngle + " " + myAngle2));

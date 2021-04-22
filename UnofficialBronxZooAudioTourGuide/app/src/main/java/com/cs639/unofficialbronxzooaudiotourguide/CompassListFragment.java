@@ -2,6 +2,7 @@ package com.cs639.unofficialbronxzooaudiotourguide;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -207,13 +209,18 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             public void onClick(View view) {
                 filter = txtSearch.getText().toString();
                 sortListByLocation(userModel.getCurrentPhoneLocation());
+                InputMethodManager mgr = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                mgr.hideSoftInputFromWindow(txtSearch.getWindowToken(), 0);
             }
         });
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 filter = "";
-
+                txtSearch.setText("");
+                sortListByLocation(userModel.getCurrentPhoneLocation());
+                InputMethodManager mgr = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                mgr.hideSoftInputFromWindow(txtSearch.getWindowToken(), 0);
             }
         });
 

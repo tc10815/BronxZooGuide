@@ -439,8 +439,8 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="9">
-                <zooname>Okapi</zooname>
-                <binomialnomenclature>Okapia johnstoni</binomialnomenclature>
+                <zooname>Stamford Parking Lot</zooname>
+                <binomialnomenclature>Stamford Parking Lot</binomialnomenclature>
                 <family>Okapia johnstoni</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
@@ -463,8 +463,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>40.847763899999997</latitude>
-                        <longitude>-73.881136100000006</longitude>
+                        <latitude>41.08093326856311</latitude>
+                        <longitude>-73.58040398547828</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -489,7 +489,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="10">
-                <zooname>Red River Hog</zooname>
+                <zooname>Greenwich Parking Lot</zooname>
                 <binomialnomenclature>Potamochoerus porcus</binomialnomenclature>
                 <family>Potamochoerus porcus</family>
                 <class>Mammalia</class>
@@ -513,8 +513,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>40.847730599999998</latitude>
-                        <longitude>-73.881280599999997</longitude>
+                        <latitude>41.08101065383457</latitude>
+                        <longitude>-73.59495670582913</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -539,7 +539,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="11">
-                <zooname>De Brazza's Monkey</zooname>
+                <zooname>The Dam in the Trail</zooname>
                 <binomialnomenclature>Cercopithecus neglectus</binomialnomenclature>
                 <family>Cercopithecus neglectus</family>
                 <class>Mammalia</class>
@@ -563,8 +563,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>40.847730599999998</latitude>
-                        <longitude>-73.881280599999997</longitude>
+                        <latitude>41.08308086991084</latitude>
+                        <longitude>-73.59251952700689</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -589,7 +589,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="12">
-                <zooname>Lady Amherst's Pheasent</zooname>
+                <zooname>Trail Entrance</zooname>
                 <binomialnomenclature>Chrysolophus amherstiae</binomialnomenclature>
                 <family>Chrysolophus amherstiae</family>
                 <class>Aves</class>
@@ -613,8 +613,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>40.848661100000001</latitude>
-                        <longitude>-73.881397199999995</longitude>
+                        <latitude>41.0814075191226</latitude>
+                        <longitude>-73.58247697834453</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -639,7 +639,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="13">
-                <zooname>Superb Starling</zooname>
+                <zooname>50 North</zooname>
                 <binomialnomenclature>Lamprotornis superbus</binomialnomenclature>
                 <family>Lamprotornis superbus</family>
                 <class>Aves</class>
@@ -663,8 +663,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>40.848661100000001</latitude>
-                        <longitude>-73.881397199999995</longitude>
+                        <latitude>41.05884890568944</latitude>
+                        <longitude>-73.54449970731318</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>

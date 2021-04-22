@@ -9,8 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -20,7 +18,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -35,7 +32,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import java.util.ArrayList;
-import java.util.Locale;
+
 /**
  * MainActivity. The Guide XML is transformed into internal data in this class and	
  * entered into the ViewModel AllData where all fragments and activities can	
@@ -113,7 +110,7 @@ public class MainActivity extends AppCompatActivity  {
         viewModel.setStructures(myDataGetter.getStructures());
         viewModel.setAnimalContainerStructures(myDataGetter.getAnimalContainerStructures());
         viewModel.setContext(this);
-        DialogFragment newFragment = new FireMissilesDialogFragment(this);
+        DialogFragment newFragment = new StartLocationDialogFragment(this);
         newFragment.show(this.getSupportFragmentManager(), "Continue");
     }
     @Override
@@ -206,9 +203,9 @@ public class MainActivity extends AppCompatActivity  {
         userModel.setCurrentPhoneLocation(loc);
     }
 
-    public static class FireMissilesDialogFragment extends DialogFragment {
+    public static class StartLocationDialogFragment extends DialogFragment {
         MainActivity parentActivity;
-        public FireMissilesDialogFragment(MainActivity mainActivity) {
+        public StartLocationDialogFragment(MainActivity mainActivity) {
             parentActivity = mainActivity;
         }
 

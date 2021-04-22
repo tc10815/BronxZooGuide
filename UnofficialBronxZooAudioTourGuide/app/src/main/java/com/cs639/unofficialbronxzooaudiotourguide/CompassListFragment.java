@@ -50,6 +50,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     private String newS1[];
     private float[] mGravity = new float[3];
     private float[] mGeomagnetic = new float[3];
+    private boolean sortListNext;
     float azimuth;
 
     Button btnSearch;
@@ -191,6 +192,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
+        sortListNext = false;
         mGravity = new float[3];
         mGeomagnetic = new float[3];
 //        azimuth = 0f;
@@ -218,14 +220,9 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
 
             }
         });
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                if(userModel.getCurrentPhoneLocation().distanceTo(lastLocationWhenItemsSorted) > 7){
-                    sortListByLocation(userModel.getCurrentPhoneLocation());
-                }
-            }
-        }, 5000);
+
+
+
 
 
         // Inflate the layout for this fragment
@@ -243,7 +240,6 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
         recyclerView.setAdapter(mAdapter);
-
 
         return rootView;
     }
@@ -529,6 +525,15 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                     userModel.setAzimuth(azimuth);
                     userModel.getCurrentLocation().setValue(Math.toDegrees(orientation[0]) + "");
             }
+
+                    Location workingLoc = userModel.getCurrentPhoneLocation();
+
+                    if(workingLoc.distanceTo(lastLocationWhenItemsSorted) > 5){
+                        sortListByLocation(workingLoc);
+                        lastLocationWhenItemsSorted = workingLoc;
+                    }
+
+
         }
     }
 

@@ -3,7 +3,9 @@ package com.cs639.unofficialbronxzooaudiotourguide;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -14,10 +16,12 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import android.util.DisplayMetrics;
@@ -109,6 +113,8 @@ public class MainActivity extends AppCompatActivity  {
         viewModel.setStructures(myDataGetter.getStructures());
         viewModel.setAnimalContainerStructures(myDataGetter.getAnimalContainerStructures());
         viewModel.setContext(this);
+        DialogFragment newFragment = new FireMissilesDialogFragment(this);
+        newFragment.show(this.getSupportFragmentManager(), "Continue");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -128,8 +134,7 @@ public class MainActivity extends AppCompatActivity  {
             if (!isGPS) {
                 Toast.makeText(this, "Please turn on GPS", Toast.LENGTH_SHORT).show();
             } else {
-                isContinue = true;
-                getLocation();
+
             }
         }
         return super.onOptionsItemSelected(item);
@@ -199,5 +204,30 @@ public class MainActivity extends AppCompatActivity  {
     public void setLocation(Location loc){
         AllAppData userModel = new ViewModelProvider(this).get(AllAppData.class);
         userModel.setCurrentPhoneLocation(loc);
+    }
+
+    public static class FireMissilesDialogFragment extends DialogFragment {
+        MainActivity parentActivity;
+        public FireMissilesDialogFragment(MainActivity mainActivity) {
+            parentActivity = mainActivity;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the Builder class for convenient dialog construction
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage("Instructions: You can search for any animal by entering its name." +
+                    " Find endangered or extinct animals by entering those terms. Searching for" +
+                    " classes works: Aves only shows birds or Reptilia reptiles. " +
+                    "Enable GPS to continue")
+                    .setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            parentActivity.isContinue = true;
+                            parentActivity.getLocation();
+                        }
+                    });
+            // Create the AlertDialog object and return it
+            return builder.create();
+        }
     }
 }

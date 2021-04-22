@@ -32,7 +32,7 @@ import org.jetbrains.annotations.Nullable;
  * @author Tom Cookson
  */
 public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAdapter.MyViewHolder> {
-    String data1[], data2[], data3[], data4[];
+    String data1[], data2[], data3[];
     int images[];
     Context context;
     CompassListFragment theParent;
@@ -41,12 +41,11 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
     AllAppData myAppData;
     View rowView;
 
-    public  OutdoorRecycleAdapter(Context ct, CompassListFragment myDad, AllAppData theAppData, String[] s1, String[] s2, String[] s3, String[] s4, int[] myimages, int myWidth){
+    public  OutdoorRecycleAdapter(Context ct, CompassListFragment myDad, AllAppData theAppData, String[] s1, String[] s2, String[] s3, int[] myimages, int myWidth){
         context = ct;
         data1 = s1;
         data2 = s2;
         data3 = s3;
-        data4 = s4;
         images = myimages;
         screenWidth = myWidth;
         myAppData = theAppData;
@@ -68,8 +67,7 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.txtZooName.setText(data1[position]);
         holder.txtBiNom.setText(data2[position]);
-        holder.txtLocation.setText(data3[position]);
-        holder.txtDistance.setText(data4[position]);
+        holder.txtDistance.setText(data3[position]);
         holder.imgAnimal.setImageResource(images[position]);
         holder.parentLayout.setOnClickListener(new OnClickListener(){
             @Override
@@ -89,16 +87,16 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder  {
-        TextView txtZooName, txtBiNom, txtDistance, txtLocation;
-        ImageView imgAnimal;
+        TextView txtZooName, txtBiNom, txtDistance;
+        ImageView imgAnimal, imgArrow;
         ConstraintLayout parentLayout;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txtZooName = itemView.findViewById(R.id.rowOutsideAnimalNameTxt);
             txtBiNom = itemView.findViewById(R.id.rowOutsideAnimalBiNomTxt);
             txtDistance = itemView.findViewById(R.id.rowOutsideDistanceTxt);
-            txtLocation = itemView.findViewById(R.id.rowOutsideLocationTxt);
             imgAnimal = itemView.findViewById(R.id.rowOutsideAnimalImg);
+            imgArrow = itemView.findViewById(R.id.rowOutsideArrowImg);
             parentLayout = itemView.findViewById(R.id.parentLayout);
             // Create the observer which updates the UI.
             final Observer<String> locationObserver = new Observer<String>() {
@@ -123,8 +121,9 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
                         }
                         String myAngle = ("");
                         int myAngle2 = (int) finalAngle;
+                        imgArrow.setRotation(myAngle2 + 90);
                         txtDistance.setText(phoneLocation.distanceTo(itemLocation) + "");
-                        txtLocation.setText((myAngle + " " + myAngle2));
+                        //txtLocation.setText((myAngle + " " + myAngle2));
                     }
                 }
             };

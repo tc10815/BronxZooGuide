@@ -17,7 +17,6 @@ public class ComparableDataItem implements Comparable<ComparableDataItem> {
      *
      * @param myS1 - name
      * @param myS2 - binom or message
-     * @param myS3 - location string
      * @param myI - Image number
      * @param myD - distance from walker in meters as a double
      * @param myOriginalSpot - The original index of this location for mapping
@@ -52,14 +51,6 @@ public class ComparableDataItem implements Comparable<ComparableDataItem> {
 
     public void setS2(String s2) {
         this.s2 = s2;
-    }
-
-    public String getS3() {
-        return s3;
-    }
-
-    public void setS3(String s3) {
-        this.s3 = s3;
     }
 
     public int getI() {

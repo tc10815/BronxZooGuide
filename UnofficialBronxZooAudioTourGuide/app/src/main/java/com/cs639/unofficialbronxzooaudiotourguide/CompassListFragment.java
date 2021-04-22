@@ -238,9 +238,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         s1 = toSend[0];
         s2 = toSend[1];
         s3 = toSend[2];
-        s4 = toSend[3];
         newS1 = s1;
-        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, s1, s2, s3, s4, images, 10);
+        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, s1, s2, s3, images, 10);
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
         recyclerView.setAdapter(mAdapter);
@@ -486,16 +485,14 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         String newS2[] = new String[s1.length];
         String newS3[] = new String[s1.length];
         int newImages[] = new int[s1.length];
-        String newS4[] = new String[s1.length];
         for(int it = 0; it < comparableItemList.size(); it++){
             newS1[it] = comparableItemList.get(it).getS1();
             newS2[it] = comparableItemList.get(it).getS2();
-            newS3[it] = comparableItemList.get(it).getS3();
-            newS4[it] = comparableItemList.get(it).getD() + "";
+            newS3[it] = comparableItemList.get(it).getD() + "";
             newImages[it] = comparableItemList.get(it).getI();
         }
 
-        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newS4, newImages, 10);
+        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newImages, 10);
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
         recyclerView.setAdapter(mAdapter);

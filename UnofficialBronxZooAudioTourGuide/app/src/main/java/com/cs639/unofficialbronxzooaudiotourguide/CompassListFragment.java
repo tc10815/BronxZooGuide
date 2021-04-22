@@ -45,14 +45,12 @@ import static android.content.Context.SENSOR_SERVICE;
  */
 public class CompassListFragment extends Fragment  implements SensorEventListener {
     String s1[], s2[], s3[], s4[];
-    private boolean isContinue = false;
     private String filter;
+    int retainPosition;
     private String newS1[];
     private float[] mGravity = new float[3];
     private float[] mGeomagnetic = new float[3];
-    private boolean sortListNext;
     float azimuth;
-
     Button btnSearch;
     Button btnClear;
     TextView txtSearch;
@@ -182,6 +180,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     AllAppData userModel;
     Location phoneLocation;
     Location lastLocationWhenItemsSorted;
+    private LinearLayoutManager myLinearLayoutManager;
     private SensorManager mSensorManager;
     private Sensor sensorMag;
     private Sensor sensorAcc;
@@ -192,7 +191,6 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
-        sortListNext = false;
         mGravity = new float[3];
         mGeomagnetic = new float[3];
 //        azimuth = 0f;
@@ -215,8 +213,6 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             @Override
             public void onClick(View view) {
                 filter = "";
-                txtSearch.setText("");
-                sortListByLocation(userModel.getCurrentPhoneLocation());
 
             }
         });
@@ -229,6 +225,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         recyclerView = rootView.findViewById(R.id.OutdoorRecyclerView);
         userModel = new ViewModelProvider(requireActivity()).get(AllAppData.class);
         int width = userModel.getScreenSize();
+        retainPosition = 0;
         userModel.setCompassList(this);
 
         String[][] toSend = buildItemList(userModel.getAnimals(), userModel.getStructures(), userModel.getAnimalContainerStructures());
@@ -238,7 +235,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         newS1 = s1;
         mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, s1, s2, s3, images, 10);
         mAdapter.setMyAppData(userModel);
-        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
+        myLinearLayoutManager = new LinearLayoutManager(rootView.getContext());
+        recyclerView.setLayoutManager(myLinearLayoutManager);
         recyclerView.setAdapter(mAdapter);
 
         return rootView;
@@ -490,7 +488,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
 
         mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newImages, 10);
         mAdapter.setMyAppData(userModel);
-        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
+        recyclerView.setLayoutManager(myLinearLayoutManager);
         recyclerView.setAdapter(mAdapter);
     }
     public void onResume() {
@@ -525,14 +523,13 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                     userModel.setAzimuth(azimuth);
                     userModel.getCurrentLocation().setValue(Math.toDegrees(orientation[0]) + "");
             }
-
                     Location workingLoc = userModel.getCurrentPhoneLocation();
-
-                    if(workingLoc.distanceTo(lastLocationWhenItemsSorted) > 5){
-                        sortListByLocation(workingLoc);
+                    if(workingLoc.distanceTo(lastLocationWhenItemsSorted) > 10){
+                        retainPosition = myLinearLayoutManager.findFirstVisibleItemPosition();
+                        sortListByLocation(userModel.getCurrentPhoneLocation());
+                        myLinearLayoutManager.scrollToPosition(retainPosition);
                         lastLocationWhenItemsSorted = workingLoc;
                     }
-
 
         }
     }

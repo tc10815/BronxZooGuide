@@ -57,7 +57,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     Button btnClear;
     TextView txtSearch;
     int images[];
-    int animalimages[] =
+    public int animalimages[] =
             {
                     R.drawable.a1,
                     R.drawable.a2,
@@ -289,7 +289,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                     }
                 }
                 String oldString = animalContainerStructures.get(parentStructureId).getSearchString();
-                oldString += animals.get(i).getSearchString();
+                oldString += animals.get(i).getSearchString() + animalContainerStructures.get(parentStructureId).getContainerName();
                 animalContainerStructures.get(parentStructureId).setSearchString(oldString);
             }
         }
@@ -376,7 +376,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         for(int iter = 0; iter < userModel.getAnimalContainerStructures().size(); iter++) {
             if(userModel.getAnimalContainerStructures().get(iter).getContainerName().equals(nameOfItemClicked)){
                 isAnimalContainingStructure = true;
-                idOfItem = iter;
+                idOfItem = userModel.getAnimalContainerStructures().get(iter).getId();
             }
         }
         if(isAnimal) {

@@ -3864,7 +3864,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Congo_tetra#/media/File:Phenacogrammus_interruptus_(aka).jpg
                 </photocredit>
-                <parentstructure>1</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="77">
                 <zooname>Decorus Catfish</zooname>
@@ -3914,7 +3914,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Synodontis_decorus#/media/File:Synodontis_decora.jpg
                 </photocredit>
-                <parentstructure>1</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="78">
                 <zooname>Blunthead Cichlid</zooname>
@@ -3964,7 +3964,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Tropheus_moorii#/media/File:TropheusspRed200.jpg
                 </photocredit>
-                <parentstructure>1</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="79">
                 <zooname>Blue Neon Cichlid</zooname>
@@ -4014,7 +4014,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Paracyprichromis_nigripinnis#/media/File:Paracyprichromis_Nigripinnis-2.JPG
                 </photocredit>
-                <parentstructure>1</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="80">
                 <zooname>Humphead Cichlid</zooname>
@@ -4064,7 +4064,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Cyphotilapia_frontosa#/media/File:Cyphotilapia_frontosa_-_Tanganjika-Beulenkopf.jpg
                 </photocredit>
-                <parentstructure>1</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="81">
                 <zooname>African Lungfish</zooname>
@@ -4114,7 +4114,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Protopterus#/media/File:G%C5%91tehal-2.jpg
                 </photocredit>
-                <parentstructure>1</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="82">
                 <zooname>White Spot Assassin Bug</zooname>
@@ -4164,7 +4164,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Platymeris_biguttatus#/media/File:Platymeris_biguttatus.jpg
                 </photocredit>
-                <parentstructure>1</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="83">
                 <zooname>Dwarf African Clawed Frog</zooname>
@@ -4215,7 +4215,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Hymenochirus_boettgeri#/media/File:Karlik-szponiasty02.jpg
                 </photocredit>
-                <parentstructure>1</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="84">
                 <zooname>Wolf's Monkey</zooname>
@@ -4266,7 +4266,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Wolf%27s_mona_monkey#/media/File:Wolf's_Mona_Monkey.jpg
                 </photocredit>
-                <parentstructure>1</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="85">
                 <zooname>Congo Peafowl</zooname>
@@ -4316,7 +4316,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Congo_peafowl#/media/File:Afropavo_congensis_-Antwerp_Zoo_-pair-8a.jpg
                 </photocredit>
-                <parentstructure>1</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="86">
                 <zooname>Long-tailed Hornbill</zooname>
@@ -4366,7 +4366,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/White-crested_hornbill#/media/File:Tropicranus_albocristatus_-Central_Park_Zoo-6a-4c.jpg
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
             <animal id="87">
                 <zooname>Blue-Bellied Roller</zooname>
@@ -4416,7 +4416,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Blue-bellied_roller#/media/File:Blue-bellied_rollers_(Coracias_cyanogaster).jpg
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
             <animal id="88">
                 <zooname>Green Woodhoopoe</zooname>
@@ -4466,7 +4466,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Green_wood_hoopoe#/media/File:Green_wood_hoopoe_(Phoeniculus_purpureus_angolensis).jpg
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
             <animal id="89">
                 <zooname>Lowland Gorilla</zooname>
@@ -4518,7 +4518,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Western_lowland_gorilla#/media/File:WesternLowlandGorilla03.jpg
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
             <animal id="90">
                 <zooname>Freckled Monitor</zooname>
@@ -4568,7 +4568,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Black-headed_monitor#/media/File:Gillenibaumann.JPG
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
             <animal id="91">
                 <zooname>Yellow Spiny-tailed Monitor</zooname>
@@ -4618,7 +4618,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Spiny-tailed_monitor#/media/File:Spiny-tailed-monitor.jpg
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
             <animal id="92">
                 <zooname>Blue Tree Monitor</zooname>
@@ -4668,7 +4668,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Varanus_macraei#/media/File:Varanidae_-_Varanus_macraei.JPG
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
             <animal id="93">
                 <zooname>Komodo Dragon</zooname>
@@ -4718,7 +4718,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Komodo_dragon#/media/File:KomodoDragon_Shade.jpg
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
             <animal id="94">
                 <zooname>Zebra Finch</zooname>
@@ -4769,7 +4769,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Zebra_finch#/media/File:Taeniopygia_guttata_-_Bushell's_Lagoon.jpg
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
             <animal id="95">
                 <zooname>Java Sparrow</zooname>
@@ -4819,7 +4819,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Java_sparrow#/media/File:Buberel_Lonchura_oryzivora_3.jpg
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
             <animal id="96">
                 <zooname>Mertens' Water Monitor</zooname>
@@ -4869,7 +4869,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Mertens%27_water_monitor#/media/File:Mertens'_water_monitor_02.jpg
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
 
 
@@ -4971,47 +4971,47 @@
             </structure>
         </structures>
         <animalcontainingstructures>
-            <animalcontainingstructure id="1" name="Great Ape House">
+            <animalcontainingstructure id="2" name="Great Ape House">
                 <latitude>40.84773425305227</latitude>
                 <longitude>-73.88167357366416</longitude>
             </animalcontainingstructure>
-            <animalcontainingstructure id="2" name="Zoo Center">
+            <animalcontainingstructure id="3" name="Zoo Center">
                 <latitude>40.85146363763401</latitude>
                 <longitude>-73.87938196189735</longitude>
             </animalcontainingstructure>
-            <animalcontainingstructure id="3" name="Giraffe Building">
+            <animalcontainingstructure id="4" name="Giraffe Building">
                 <latitude>40.846817986548764</latitude>
                 <longitude>-73.88013227837898</longitude>
             </animalcontainingstructure>
-            <animalcontainingstructure id="4" name="Mouse House">
+            <animalcontainingstructure id="5" name="Mouse House">
                 <latitude>40.848842768085916</latitude>
                 <longitude>-73.87969039436658</longitude>
             </animalcontainingstructure>
-            <animalcontainingstructure id="5" name="Reptile House">
+            <animalcontainingstructure id="6" name="Reptile House">
                 <latitude>40.849367341141956</latitude>
                 <longitude>-73.87887625939739</longitude>
             </animalcontainingstructure>
-            <animalcontainingstructure id="6" name="Madagascar">
+            <animalcontainingstructure id="7" name="Madagascar">
                 <latitude>40.85239848877321</latitude>
                 <longitude>-73.87925149551742</longitude>
             </animalcontainingstructure>
-            <animalcontainingstructure id="7" name="Sea Bird Aviary">
+            <animalcontainingstructure id="8" name="Sea Bird Aviary">
                 <latitude>40.85385487629322</latitude>
                 <longitude>-73.87891659636858</longitude>
             </animalcontainingstructure>
-            <animalcontainingstructure id="8" name="Butterfly Garden">
+            <animalcontainingstructure id="9" name="Butterfly Garden">
                 <latitude>40.849030096580194</latitude>
                 <longitude>-73.87933164454039</longitude>
             </animalcontainingstructure>
-            <animalcontainingstructure id="9" name="Birds of Prey">
+            <animalcontainingstructure id="10" name="Birds of Prey">
                 <latitude>40.85257738372757</latitude>
                 <longitude>-73.8804700545403</longitude>
             </animalcontainingstructure>
-            <animalcontainingstructure id="10" name="Jungle World">
+            <animalcontainingstructure id="11" name="Jungle World">
                 <latitude>40.84488946494782</latitude>
                 <longitude>-73.8764349398628</longitude>
             </animalcontainingstructure>
-            <animalcontainingstructure id="11" name="World Of Birds">
+            <animalcontainingstructure id="12" name="World Of Birds">
                 <latitude>40.85251676531663</latitude>
                 <longitude>-73.87581145601868</longitude>
             </animalcontainingstructure>

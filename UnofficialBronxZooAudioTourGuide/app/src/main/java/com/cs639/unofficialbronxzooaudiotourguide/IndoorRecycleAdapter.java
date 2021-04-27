@@ -26,28 +26,24 @@ import java.util.List;
  * @author Tom Cookson
  */
 public class IndoorRecycleAdapter extends RecyclerView.Adapter<IndoorRecycleAdapter.MyViewHolder> {
-    //    String data1[], data2[], data3[];
+    String data1[], data2[];
     int images[];
     Context context;
-//    CompassListFragment theParent;
-//    int screenWidth;
-
+    AnimalContainerActivity theParent;
     //    AllAppData myAppData;
     View rowView;
 
-    List<Animal> dataList = new ArrayList<>();
-
-    public IndoorRecycleAdapter(Context ct, List<Animal> dataList, int[] myimages) {
+    public IndoorRecycleAdapter(Context ct, String[] dataList, String[] dataList2, int[] myimages, AnimalContainerActivity myDad) {
         context = ct;
-//        data1 = s1;
-//        data2 = s2;
+         data1 = dataList;
+         data2 = dataList2;
 //        data3 = s3;
         images = myimages;
+        theParent = myDad;
 //        screenWidth = myWidth;
 //        myAppData = theAppData;
 //        theParent = myDad;
 
-        this.dataList = dataList;
     }
 
     @NonNull
@@ -62,37 +58,31 @@ public class IndoorRecycleAdapter extends RecyclerView.Adapter<IndoorRecycleAdap
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.txtZooName.setText(dataList.get(position).getZooName());
-        holder.txtBiNom.setText(dataList.get(position).getBinomialNomenclature());
-//        holder.txtDistance.setText(dataList.get(position).get);
+        holder.txtZooName.setText(data1[position]);
+        holder.txtBiNom.setText(data2[position]);
         holder.imgAnimal.setImageResource(images[position]);
         holder.parentLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-//                myAppData.compassViewClicked(position);
+                theParent.launchAnimal(data1[position]);
             }
         });
     }
 
-
-
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return data1.length;
     }
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView txtZooName, txtBiNom, txtDistance;
-        ImageView imgAnimal, imgArrow;
+        TextView txtZooName, txtBiNom;
+        ImageView imgAnimal;
         ConstraintLayout parentLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txtZooName = itemView.findViewById(R.id.rowinsideAnimalNameTxt);
             txtBiNom = itemView.findViewById(R.id.rowinsideAnimalBiNomTxt);
-            txtDistance = itemView.findViewById(R.id.rowinsideDistanceTxt);
             imgAnimal = itemView.findViewById(R.id.rowinsideAnimalImg);
-            imgArrow = itemView.findViewById(R.id.rowinsideArrowImg);
             parentLayout = itemView.findViewById(R.id.parentLayout);
 
 

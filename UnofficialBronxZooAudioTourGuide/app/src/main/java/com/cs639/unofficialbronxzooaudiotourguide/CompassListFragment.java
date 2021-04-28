@@ -57,6 +57,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     Button btnClear;
     TextView txtSearch;
     int images[];
+    int visible[];
     public int animalimages[] =
             {
                     R.drawable.a1,
@@ -239,8 +240,12 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         s1 = toSend[0];
         s2 = toSend[1];
         s3 = toSend[2];
+        visible = new int[1000];
+        for(int it = 0; it < visible.length; it++){
+            visible[it] = View.INVISIBLE;
+        }
         newS1 = s1;
-        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, s1, s2, s3, images, 10);
+        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, s1, s2, s3, images, visible, 10);
         mAdapter.setMyAppData(userModel);
         myLinearLayoutManager = new LinearLayoutManager(rootView.getContext());
         recyclerView.setLayoutManager(myLinearLayoutManager);
@@ -493,7 +498,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             newImages[it] = comparableItemList.get(it).getI();
         }
 
-        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newImages, 10);
+        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newImages, visible,10);
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(myLinearLayoutManager);
         recyclerView.setAdapter(mAdapter);

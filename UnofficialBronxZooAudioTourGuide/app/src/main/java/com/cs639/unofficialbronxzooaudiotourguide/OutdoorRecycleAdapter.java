@@ -33,7 +33,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAdapter.MyViewHolder> {
     String data1[], data2[], data3[];
-    int images[];
+    int images[], visibility[];
     Context context;
     CompassListFragment theParent;
     int screenWidth;
@@ -41,12 +41,13 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
     AllAppData myAppData;
     View rowView;
 
-    public  OutdoorRecycleAdapter(Context ct, CompassListFragment myDad, AllAppData theAppData, String[] s1, String[] s2, String[] s3, int[] myimages, int myWidth){
+    public  OutdoorRecycleAdapter(Context ct, CompassListFragment myDad, AllAppData theAppData, String[] s1, String[] s2, String[] s3, int[] myimages, int[] myvisibility, int myWidth){
         context = ct;
         data1 = s1;
         data2 = s2;
         data3 = s3;
         images = myimages;
+        visibility = myvisibility;
         screenWidth = myWidth;
         myAppData = theAppData;
         theParent = myDad;
@@ -69,6 +70,7 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
         holder.txtBiNom.setText(data2[position]);
         holder.txtDistance.setText(data3[position]);
         holder.imgAnimal.setImageResource(images[position]);
+        holder.imgCheck.setVisibility(visibility[position]);
         holder.parentLayout.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View v){
@@ -88,7 +90,7 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
 
     public class MyViewHolder extends RecyclerView.ViewHolder  {
         TextView txtZooName, txtBiNom, txtDistance;
-        ImageView imgAnimal, imgArrow;
+        ImageView imgAnimal, imgArrow, imgArrow2, imgCheck;
         ConstraintLayout parentLayout;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,6 +99,8 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
             txtDistance = itemView.findViewById(R.id.rowOutsideDistanceTxt);
             imgAnimal = itemView.findViewById(R.id.rowOutsideAnimalImg);
             imgArrow = itemView.findViewById(R.id.rowOutsideArrowImg);
+            imgArrow2 = itemView.findViewById(R.id.rowOutsideArrowImg2);
+            imgCheck = itemView.findViewById(R.id.imgCheckbox);
             parentLayout = itemView.findViewById(R.id.parentLayout);
             // Create the observer which updates the UI.
             final Observer<String> locationObserver = new Observer<String>() {

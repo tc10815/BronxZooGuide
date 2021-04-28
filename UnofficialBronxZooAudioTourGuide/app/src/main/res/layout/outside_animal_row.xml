@@ -66,15 +66,40 @@
 
             <ImageView
                 android:id="@+id/rowOutsideArrowImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="47dp"
+                android:layout_height="54dp"
                 android:rotationY="-180"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintHorizontal_bias="0.956"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="?attr/homeAsUpIndicator" />
+
+            <ImageView
+                android:id="@+id/rowOutsideArrowImg2"
+                android:layout_width="47dp"
+                android:layout_height="54dp"
+                android:rotationY="-180"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.788"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="?attr/homeAsUpIndicator" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/rowOutsideAnimalNameTxt"
+                app:layout_constraintEnd_toEndOf="@+id/rowOutsideAnimalBiNomTxt"
+                app:layout_constraintHorizontal_bias="0.71"
+                app:layout_constraintStart_toStartOf="@+id/rowOutsideAnimalNameTxt"
+                app:layout_constraintTop_toTopOf="@+id/rowOutsideAnimalNameTxt"
+                app:srcCompat="@android:drawable/checkbox_on_background" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

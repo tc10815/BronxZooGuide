@@ -6,12 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-/**
- * This activity displays all xml information about an strcture, provides a picture, provides
- * audio, and offers links.
- *
- * @author Janvi
- */
+
 public class StructureActivity extends AppCompatActivity {
     private Structure myStructure;
     private TextView txtName;

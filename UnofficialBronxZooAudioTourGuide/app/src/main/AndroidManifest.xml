@@ -11,11 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UnofficialBronxZooAudioTourGuide">
-        <activity android:name=".AnimalContainerActivity"></activity>
-        <activity android:name=".StructureActivity" />
-        <activity android:name=".AnimalActivity" />
+        <activity android:name=".AnimalContainerActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".StructureActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".AnimalActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:theme="@style/Theme.UnofficialBronxZooAudioTourGuide.NoActionBar">
             <intent-filter>

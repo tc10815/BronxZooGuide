@@ -52,6 +52,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     private String newS1[];
     private float[] mGravity = new float[3];
     private float[] mGeomagnetic = new float[3];
+    private String checkmarkData;
     float azimuth;
     Button btnSearch;
     Button btnClear;
@@ -194,6 +195,12 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
+        checkmarkData = "uuuxuxuxuuuuuuuuuuxuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" +
+                "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu"; //u = unknown, x = checked, o = unchecked
+        //Each position char is 1 item
+        visible = new int[checkmarkData.length()];
+
+
         mGravity = new float[3];
         mGeomagnetic = new float[3];
 //        azimuth = 0f;
@@ -210,7 +217,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             public void onClick(View view) {
                 filter = txtSearch.getText().toString();
                 sortListByLocation(userModel.getCurrentPhoneLocation());
-                InputMethodManager mgr = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager mgr = (InputMethodManager)
+                        getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 mgr.hideSoftInputFromWindow(txtSearch.getWindowToken(), 0);
             }
         });
@@ -220,7 +228,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 filter = "";
                 txtSearch.setText("");
                 sortListByLocation(userModel.getCurrentPhoneLocation());
-                InputMethodManager mgr = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager mgr = (InputMethodManager)
+                        getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 mgr.hideSoftInputFromWindow(txtSearch.getWindowToken(), 0);
             }
         });
@@ -233,18 +242,18 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         recyclerView = rootView.findViewById(R.id.OutdoorRecyclerView);
         userModel = new ViewModelProvider(requireActivity()).get(AllAppData.class);
         int width = userModel.getScreenSize();
+        addChecksToAnimals();
         retainPosition = 0;
         userModel.setCompassList(this);
 
-        String[][] toSend = buildItemList(userModel.getAnimals(), userModel.getStructures(), userModel.getAnimalContainerStructures());
+        String[][] toSend = buildItemList(userModel.getAnimals(), userModel.getStructures(),
+                userModel.getAnimalContainerStructures());
         s1 = toSend[0];
         s2 = toSend[1];
         s3 = toSend[2];
-        visible = new int[1000];
-        for(int it = 0; it < visible.length; it++){
-            visible[it] = View.INVISIBLE;
-        }
+
         newS1 = s1;
+        addChecksToAnimals();
         mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, s1, s2, s3, images, visible, 10);
         mAdapter.setMyAppData(userModel);
         myLinearLayoutManager = new LinearLayoutManager(rootView.getContext());
@@ -275,6 +284,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         ArrayList<String> locationOfItems = new ArrayList<String>();
         ArrayList<Location> DistanceOfItems = new ArrayList<Location>();
         ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
+        ArrayList<Integer> checkboxstatusOfItem = new ArrayList<Integer>();
         for (int i = 0; i < animals.size(); i++) {
             if (animals.get(i).getParentStructure() == 0) {
                 namesOfItems.add(animals.get(i).getZooName());
@@ -283,6 +293,11 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
                 locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
                         + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
+                if(animals.get(i).isChecked()){
+                    checkboxstatusOfItem.add(View.VISIBLE);
+                } else {
+                    checkboxstatusOfItem.add(View.INVISIBLE);
+                }
 
             }
             //Code to make parent containers searchable by animal data
@@ -305,6 +320,11 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             locationOfItems.add(animalContainerStructures.get(i).getViewingPoints().getLatitude()
                     + " " + animalContainerStructures.get(i).getViewingPoints().getLongitude());
             imagesOfItems.add(animalStructureImages[i]);
+            if(animalContainerStructures.get(i).isChecked()){
+                checkboxstatusOfItem.add(View.VISIBLE);
+            } else {
+                checkboxstatusOfItem.add(View.INVISIBLE);
+            }
         }
         for (int i = 0; i < structures.size(); i++) {
             namesOfItems.add(structures.get(i).getStructureName());
@@ -313,6 +333,11 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             BinomOrOtherItems.add("Structure: Tap for History");
             DistanceOfItems.add(structures.get(i).getViewingPoints().get(0));
             imagesOfItems.add(structureImages[i]);
+            if(structures.get(i).isChecked()){
+                checkboxstatusOfItem.add(View.VISIBLE);
+            } else {
+                checkboxstatusOfItem.add(View.INVISIBLE);
+            }
         }
 
         String s1[] = new String[namesOfItems.size()];
@@ -349,6 +374,11 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         images = new int[imagesOfItems.size()];
         for (int i = 0; i < imagesOfItems.size(); i++) {
             images[i] = imagesOfItems.get(i);
+        }
+        //Using private var instead of return since different type. Not good code.
+        visible = new int[checkboxstatusOfItem.size()];
+        for (int i = 0; i < imagesOfItems.size(); i++) {
+            visible[i] = checkboxstatusOfItem.get(i);
         }
 
         ret = new String[4][s1.length];
@@ -415,6 +445,10 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         ArrayList<String> locationOfItems = new ArrayList<String>();
         ArrayList<Location> DistanceOfItems = new ArrayList<Location>();
         ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
+        ArrayList<Boolean> checkedStatusOfItems = new ArrayList<Boolean>();
+
+
+
         for (int i = 0; i < animals.size(); i++) {
             if (animals.get(i).getParentStructure() == 0) {
                 if( filter.equals("") || animals.get(i).matchesFilter(filter) ) {
@@ -424,6 +458,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                     DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
                     locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
                             + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
+                    checkedStatusOfItems.add(animals.get(i).isChecked());
                 }
             }
         }
@@ -435,6 +470,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 locationOfItems.add(animalContainerStructures.get(i).getViewingPoints().getLatitude()
                         + " " + animalContainerStructures.get(i).getViewingPoints().getLongitude());
                 imagesOfItems.add(animalStructureImages[i]);
+                checkedStatusOfItems.add(animalContainerStructures.get(i).isChecked());
+
             }
         }
         for (int i = 0; i < structures.size(); i++) {
@@ -445,6 +482,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 BinomOrOtherItems.add("Structure: Tap for History");
                 DistanceOfItems.add(structures.get(i).getViewingPoints().get(0));
                 imagesOfItems.add(structureImages[i]);
+                checkedStatusOfItems.add(structures.get(i).isChecked());
+
             }
         }
 
@@ -469,6 +508,14 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             }
             myD[i] = toAdd;
         }
+        int[] newCheckedStatus = new int[checkedStatusOfItems.size()];
+        for(int i = 0; i <checkedStatusOfItems.size(); i++){
+            if(checkedStatusOfItems.get(i)){
+                newCheckedStatus[i] = View.VISIBLE;
+            } else {
+                newCheckedStatus[i] = View.INVISIBLE;
+            }
+        }
 
         //Using private var instead of return since different type. Not good code.
         images = new int[imagesOfItems.size()];
@@ -480,7 +527,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         List<ComparableDataItem> comparableItemList = new ArrayList<ComparableDataItem>();
         for(int it = 0; it < s1.length; it++){
             ComparableDataItem myItem = new
-                    ComparableDataItem(s1[it], s2[it], s3[it], images[it], myD[it], it );
+                    ComparableDataItem(s1[it], s2[it], s3[it], images[it], myD[it], it, newCheckedStatus[it]);
             comparableItemList.add(myItem);
         }
         //Sort the list
@@ -491,14 +538,16 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         String newS2[] = new String[s1.length];
         String newS3[] = new String[s1.length];
         int newImages[] = new int[s1.length];
+        int newNewChecked[] = new int[s1.length];
         for(int it = 0; it < comparableItemList.size(); it++){
             newS1[it] = comparableItemList.get(it).getS1();
             newS2[it] = comparableItemList.get(it).getS2();
             newS3[it] = comparableItemList.get(it).getD() + "";
             newImages[it] = comparableItemList.get(it).getI();
+            newNewChecked[it] = comparableItemList.get(it).getChecked();
         }
-
-        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newImages, visible,10);
+        addChecksToAnimals();
+        mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newImages, newNewChecked,10);
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(myLinearLayoutManager);
         recyclerView.setAdapter(mAdapter);
@@ -550,4 +599,47 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 
+    public boolean getChecked(int position){
+        String spot = checkmarkData.substring(position, position + 1);
+        boolean ret = false;
+        if(spot.equals("x")){
+            ret = true;
+        }
+        return ret;
+    }
+
+    /**
+     * Adds whether or not items are checked to all 3 data structures, since
+     * such information must come from SharedPreferences rather than XML
+     */
+    public void addChecksToAnimals(){
+        int counterMax = userModel.getAnimals().size() +
+                userModel.getStructures().size() +
+                userModel.getAnimalContainerStructures().size();
+        int counterHalf = userModel.getAnimals().size() +
+                userModel.getStructures().size();
+        int counterNone = userModel.getAnimals().size();
+        int counter = 0;
+        while(counter < counterMax){
+            if(counter < counterNone){
+                userModel.getAnimals().get(counter).setChecked(getChecked(counter));
+            } else if(counter < counterHalf){
+                int tempPos = counter - counterNone;
+                userModel.getStructures().get(tempPos).setChecked(getChecked(counter));
+
+            } else {
+                int tempPos = counter - counterHalf;
+                userModel.getAnimalContainerStructures().get(tempPos).setChecked(getChecked(counter));
+            }
+            counter++;
+        }
+//        for(int it = 0; it < visible.length; it++){
+//            if(getChecked(it)) {
+//                visible[it] = View.VISIBLE;
+//            } else {
+//                visible[it] = View.INVISIBLE;
+//            }
+//        }
+
+    }
 }

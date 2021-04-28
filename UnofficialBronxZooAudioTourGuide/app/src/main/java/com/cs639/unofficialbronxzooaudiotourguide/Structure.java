@@ -14,6 +14,8 @@ public class Structure {
     private ArrayList<String> secondaryResourceLinks;
     private ArrayList<String> secondaryResourceNames;
     private String structureName;
+    private boolean isChecked;
+
     private int id;
     public boolean matchesFilter(String filter) {
         String searchString = "";
@@ -44,6 +46,7 @@ public class Structure {
         ArrayList<String> secondaryResourceLinks = new ArrayList<String>();
         ArrayList<String> secondaryResourceNames = new ArrayList<String>();
         structureName = "error";
+        isChecked = false;
         id = -1;
     }
 
@@ -108,5 +111,12 @@ public class Structure {
 
     public void setSecondaryResourceNames(ArrayList<String> secondaryResourceNames) {
         this.secondaryResourceNames = secondaryResourceNames;
+    }
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 }

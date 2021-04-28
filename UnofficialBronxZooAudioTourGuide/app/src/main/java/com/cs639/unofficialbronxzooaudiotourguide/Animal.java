@@ -26,6 +26,7 @@ public class Animal {
     private ArrayList<String> commonNames;
     private ArrayList<String> description;
     private ArrayList<Location> viewingPoints;
+    private boolean isChecked;
 
 
     public int getId() {
@@ -154,6 +155,7 @@ public class Animal {
         naturalLocation = "error";
         binomialNomenclature = "error";
         eolLink = "error";
+        isChecked = false;
         wikiLink = "error";
         id = -1;
         parentStructure = 0;
@@ -216,8 +218,14 @@ public class Animal {
         newSearchString = newSearchString.toLowerCase();
         return newSearchString;
     }
-
     public void setSearchString(String searchString) {
         this.searchString = searchString;
+    }
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 }

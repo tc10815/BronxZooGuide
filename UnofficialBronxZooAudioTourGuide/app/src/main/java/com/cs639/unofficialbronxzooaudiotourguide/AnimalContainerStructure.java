@@ -9,6 +9,7 @@ public class AnimalContainerStructure {
     private Location viewingPoints;
     private String containerName;
     public String searchString;
+    private boolean isChecked;
 
     public String getSearchString() {
         return searchString;
@@ -46,6 +47,8 @@ public class AnimalContainerStructure {
         id = 999;
         viewingPoints = null;
         searchString = "";
+        isChecked = false;
+
     }
     public boolean matchesFilter(String filter){
         String lowerFilter = filter.toLowerCase();
@@ -55,6 +58,13 @@ public class AnimalContainerStructure {
             ret = true;
         }
         return ret;
+    }
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 
 }

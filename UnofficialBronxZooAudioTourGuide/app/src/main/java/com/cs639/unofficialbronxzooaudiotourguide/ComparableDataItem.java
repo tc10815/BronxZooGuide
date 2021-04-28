@@ -9,6 +9,7 @@ public class ComparableDataItem implements Comparable<ComparableDataItem> {
     String s1;
     String s2;
     String s3;
+    int checked;
     int i;
     double d;
     int originalSpot;
@@ -21,13 +22,14 @@ public class ComparableDataItem implements Comparable<ComparableDataItem> {
      * @param myD - distance from walker in meters as a double
      * @param myOriginalSpot - The original index of this location for mapping
      */
-    public ComparableDataItem(String myS1, String myS2, String myS3, int myI, double myD, int myOriginalSpot){
+    public ComparableDataItem(String myS1, String myS2, String myS3, int myI, double myD, int myOriginalSpot, int myChecked){
         s1 = myS1;
         s2 = myS2;
         s3 = myS3;
         i = myI;
         d = myD;
         originalSpot = myOriginalSpot;
+        checked = myChecked;
     }
     public int getOriginalSpot() {
         return originalSpot;
@@ -69,6 +71,13 @@ public class ComparableDataItem implements Comparable<ComparableDataItem> {
         this.d = d;
     }
 
+    public int getChecked() {
+        return checked;
+    }
+
+    public void setChecked(int checked) {
+        this.checked = checked;
+    }
 
 
     @Override

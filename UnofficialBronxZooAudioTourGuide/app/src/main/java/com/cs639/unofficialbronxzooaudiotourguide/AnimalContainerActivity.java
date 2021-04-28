@@ -12,6 +12,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.textview.MaterialTextView;
 
@@ -27,6 +28,7 @@ public class AnimalContainerActivity extends AppCompatActivity {
     private String filter;
     protected IndoorRecycleAdapter mAdapter;
     private LinearLayoutManager myLinearLayoutManager;
+    private TextView txtTopText;
 
     int images[] =
             {
@@ -131,11 +133,14 @@ public class AnimalContainerActivity extends AppCompatActivity {
     ArrayList<Animal> animalsListed;
     MaterialTextView txtData;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal_container);
+        txtTopText = findViewById(R.id.txtIndoorTopText);
         XMLDataGetter myData = new XMLDataGetter(this);
+        ArrayList<AnimalContainerStructure> parentStructures = myData.getAnimalContainerStructures();
         animalsListed = new ArrayList<Animal>();
         ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
 
@@ -148,6 +153,11 @@ public class AnimalContainerActivity extends AppCompatActivity {
         Log.e(TAG, "onCreate: B parentstructure " + bundle.getInt("parentstructure"));
         Log.e(TAG, "onCreate: I filter" + i.getStringExtra("filter"));
         recyclerView = findViewById(R.id.IndoorRecyclerView);
+        String parentStructureName = parentStructures.get(indexRecived - 2).getContainerName();
+        if(!filter.equals("")){
+            parentStructureName += " filtering results by '" + filter + "'";
+        }
+        txtTopText.setText(parentStructureName);
 
         ArrayList<Animal> allAnimalsTemp = myData.getAnimals();
         Log.i("TOMDEBUG", "Here: " + allAnimalsTemp.size());
@@ -182,7 +192,6 @@ public class AnimalContainerActivity extends AppCompatActivity {
     }
 
     public void launchAnimal(String animalToLaunch){
-        Log.i("TOMDEBUG","Animal Name: " + animalToLaunch);
         for(int iter = 0; iter < animalsListed.size(); iter++){
             if(animalsListed.get(iter).getZooName().equals(animalToLaunch)){
                 Intent intent = new Intent(this, AnimalActivity.class);

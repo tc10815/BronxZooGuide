@@ -172,4 +172,9 @@ public class AllAppData extends ViewModel {
         this.azimuth = azimuth;
     }
 
+    public void clickClear(){
+        compassList.sortListByLocation(getCurrentPhoneLocation());
+
+    }
+
 }

@@ -204,7 +204,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
         checkmarkData = "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" +
-                "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu"; //u = unknown, x = checked, o = unchecked
+                "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu"; //u = unknown, x = checked, o = unchecked
         //Each position char is 1 item
         visible = new int[checkmarkData.length()];
 
@@ -417,40 +417,46 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         boolean isAnimal = false;
         boolean isStructure = false;
         boolean isAnimalContainingStructure = false;
+        int checkboxId = 0;
         int idOfItem = 0;
         for(int iter = 0; iter < userModel.getAnimals().size(); iter++){
             if(userModel.getAnimals().get(iter).getZooName().equals(nameOfItemClicked)){
                 isAnimal = true;
                 idOfItem = iter;
+                checkboxId = userModel.getAnimals().get(iter).getId();
             }
         }
         for(int iter = 0; iter < userModel.getStructures().size(); iter++) {
             if(userModel.getStructures().get(iter).getStructureName().equals(nameOfItemClicked)){
                 isStructure = true;
                 idOfItem = iter;
+                checkboxId = userModel.getStructures().get(iter).getId();
+
             }
         }
         for(int iter = 0; iter < userModel.getAnimalContainerStructures().size(); iter++) {
             if(userModel.getAnimalContainerStructures().get(iter).getContainerName().equals(nameOfItemClicked)){
                 isAnimalContainingStructure = true;
                 idOfItem = userModel.getAnimalContainerStructures().get(iter).getId();
+                checkboxId = userModel.getAnimalContainerStructures().get(iter).getId();
+
             }
         }
         if(isAnimal) {
             Intent intent = new Intent(rootView.getContext(), AnimalActivity.class);
-            setAnimalCheck(idOfItem);
+            setAnimalCheck(checkboxId);
             intent.putExtra("animalnumber", idOfItem);
             startActivity(intent);
         }
         if(isStructure) {
             Intent intent = new Intent(rootView.getContext(), StructureActivity.class);
-            setStructureCheck(idOfItem);
+            setStructureCheck(checkboxId);
             intent.putExtra("structurenumber", idOfItem);
             startActivity(intent);
         }
         if(isAnimalContainingStructure) {
             Intent intent = new Intent(rootView.getContext(), AnimalContainerActivity.class);
-            setAnimalContainerCheck(idOfItem);
+            setAnimalContainerCheck(checkboxId);
             intent.putExtra("parentstructure", idOfItem);
             intent.putExtra("filter", filter);
             startActivity(intent);
@@ -646,26 +652,46 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     public void addChecksToAnimals(){
         mPreferences = rootView.getContext().getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         checkmarkData = mPreferences.getString(CHECKMARK_KEY, checkmarkData);
-        int counterMax = userModel.getAnimals().size() +
-                userModel.getStructures().size() +
-                userModel.getAnimalContainerStructures().size();
-        int counterHalf = userModel.getAnimals().size() +
-                userModel.getStructures().size();
-        int counterNone = userModel.getAnimals().size();
-        int counter = 0;
-        while(counter < counterMax){
-            if(counter < counterNone){
-                userModel.getAnimals().get(counter).setChecked(getChecked(counter));
-            } else if(counter < counterHalf){
-                int tempPos = counter - counterNone;
-                userModel.getStructures().get(tempPos).setChecked(getChecked(counter));
-
-            } else {
-                int tempPos = counter - counterHalf;
-                userModel.getAnimalContainerStructures().get(tempPos).setChecked(getChecked(counter));
+        int loopMax = userModel.getAnimals().size() + userModel.getStructures().size() + userModel.getAnimalContainerStructures().size();
+        for (int iter = 0; iter < loopMax ; iter++){
+            String workingLetter = checkmarkData.substring(iter, iter + 1);
+            if(iter < userModel.getAnimals().size()){
+                int spotDisplacement = 0;
+                int id = userModel.getAnimals().get(iter).getId();
+                userModel.getAnimals().get(iter).setChecked(getChecked(id + spotDisplacement));
             }
-            counter++;
+            if(iter >= userModel.getAnimals().size() && iter < userModel.getAnimals().size() + userModel.getStructures().size()){
+                int spotDisplacement = userModel.getAnimals().size();
+                int id = userModel.getStructures().get(iter - spotDisplacement).getId();
+                userModel.getStructures().get(iter - spotDisplacement).setChecked(getChecked(id + spotDisplacement));
+            }
+            if(iter >= userModel.getAnimals().size() + userModel.getStructures().size() ){
+                int spotDisplacement = userModel.getAnimals().size() + userModel.getStructures().size();
+                int id = userModel.getAnimalContainerStructures().get(iter - spotDisplacement).getId();
+                userModel.getAnimalContainerStructures().get(iter - spotDisplacement).setChecked(getChecked(id + spotDisplacement));
+            }
         }
+
+        //        int counterMax = userModel.getAnimals().size() +
+//                userModel.getStructures().size() +
+//                userModel.getAnimalContainerStructures().size();
+//        int counterHalf = userModel.getAnimals().size() +
+//                userModel.getStructures().size();
+//        int counterNone = userModel.getAnimals().size();
+//        int counter = 0;
+//        while(counter < counterMax){
+//            if(counter < counterNone){
+//                userModel.getAnimals().get(counter).setChecked(getChecked(counter));
+//            } else if(counter < counterHalf){
+//                int tempPos = counter - counterNone;
+//                userModel.getStructures().get(tempPos).setChecked(getChecked(counter));
+//
+//            } else {
+//                int tempPos = counter - counterHalf;
+//                userModel.getAnimalContainerStructures().get(tempPos).setChecked(getChecked(counter));
+//            }
+//            counter++;
+//        }
 
     }
     public void setAnimalCheck(int animalId){

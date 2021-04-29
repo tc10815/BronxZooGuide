@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -41,13 +42,19 @@ import java.util.ArrayList;
  * @author Tom
  */
 public class MainActivity extends AppCompatActivity  {
-    ArrayList<Animal> animals;
-    ArrayList<Structure> structures;
-    ArrayList<AnimalContainerStructure> animalContainerStructures;
     private FusedLocationProviderClient mFusedLocationClient;
     private double wayLatitude = 0.0, wayLongitude = 0.0;
     private LocationRequest locationRequest;
     private LocationCallback locationCallback;
+    private final String CHECKMARK_KEY = "checkmarks";
+    private final String ISMETRIC_KEY = "ismetric";
+    private final String EMPTY_CHECKMARKS = "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" +
+            "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" +
+            "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu";
+    private SharedPreferences mPreferences;
+    private String sharedPrefFile =
+            "com.cs639.unofficialbronxzooaudiotourguide";
+
     private boolean isContinue = false;
     private boolean isGPS = false;
     protected Context context;
@@ -57,6 +64,7 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
@@ -126,13 +134,16 @@ public class MainActivity extends AppCompatActivity  {
         // as you specify a parent activity in AndroidManifest.xml.	
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement	
-        if (id == R.id.action_settings) {
-            Log.i("TOMDEBUG","something worked");
-            if (!isGPS) {
-                Toast.makeText(this, "Please turn on GPS", Toast.LENGTH_SHORT).show();
-            } else {
+        if (id == R.id.action_clear_memory) {
+            SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+            preferencesEditor.putString(CHECKMARK_KEY, EMPTY_CHECKMARKS);
+            preferencesEditor.apply();
+            AllAppData userModel = new ViewModelProvider(this).get(AllAppData.class);
+            userModel.clickClear();
 
-            }
+        }
+        if (id == R.id.action_convert_to_metric) {
+
         }
         return super.onOptionsItemSelected(item);
     }

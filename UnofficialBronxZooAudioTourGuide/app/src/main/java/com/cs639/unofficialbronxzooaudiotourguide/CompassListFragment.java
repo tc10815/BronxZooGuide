@@ -207,8 +207,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu"; //u = unknown, x = checked, o = unchecked
         //Each position char is 1 item
         visible = new int[checkmarkData.length()];
-        mPreferences = rootView.getContext().getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-        checkmarkData = mPreferences.getString(CHECKMARK_KEY, checkmarkData);
+
 
         mGravity = new float[3];
         mGeomagnetic = new float[3];
@@ -445,11 +444,13 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         }
         if(isStructure) {
             Intent intent = new Intent(rootView.getContext(), StructureActivity.class);
+            setStructureCheck(idOfItem);
             intent.putExtra("structurenumber", idOfItem);
             startActivity(intent);
         }
         if(isAnimalContainingStructure) {
             Intent intent = new Intent(rootView.getContext(), AnimalContainerActivity.class);
+            setAnimalContainerCheck(idOfItem);
             intent.putExtra("parentstructure", idOfItem);
             intent.putExtra("filter", filter);
             startActivity(intent);
@@ -643,6 +644,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
      * such information must come from SharedPreferences rather than XML
      */
     public void addChecksToAnimals(){
+        mPreferences = rootView.getContext().getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        checkmarkData = mPreferences.getString(CHECKMARK_KEY, checkmarkData);
         int counterMax = userModel.getAnimals().size() +
                 userModel.getStructures().size() +
                 userModel.getAnimalContainerStructures().size();
@@ -673,9 +676,20 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         userModel.getAnimals().get(animalId).setChecked(true);
     }
     public void setStructureCheck(int structId){
-
+        int newLoc = structId + userModel.getAnimals().size();
+        checkmarkData = setPoint(newLoc, "x",checkmarkData);
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putString(CHECKMARK_KEY, checkmarkData);
+        preferencesEditor.apply();
+        userModel.getStructures().get(structId).setChecked(true);
     }
     public void setAnimalContainerCheck(int animalContainerId){
-
+        int newLoc = animalContainerId + userModel.getAnimals().size()
+                + userModel.getStructures().size();
+        checkmarkData = setPoint(newLoc, "x",checkmarkData);
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putString(CHECKMARK_KEY, checkmarkData);
+        preferencesEditor.apply();
+        userModel.getAnimalContainerStructures().get(animalContainerId).setChecked(true);
     }
 }

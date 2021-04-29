@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -35,6 +36,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static android.content.Context.MODE_PRIVATE;
 import static android.content.Context.SENSOR_SERVICE;
 
 /**
@@ -48,6 +50,12 @@ import static android.content.Context.SENSOR_SERVICE;
 public class CompassListFragment extends Fragment  implements SensorEventListener {
     String s1[], s2[], s3[], s4[];
     private String filter;
+    private final String CHECKMARK_KEY = "checkmarks";
+    private final String ISMETRIC_KEY = "ismetric";
+    private SharedPreferences mPreferences;
+    private String sharedPrefFile =
+            "com.cs639.unofficialbronxzooaudiotourguide";
+
     int retainPosition;
     private String newS1[];
     private float[] mGravity = new float[3];
@@ -199,7 +207,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu"; //u = unknown, x = checked, o = unchecked
         //Each position char is 1 item
         visible = new int[checkmarkData.length()];
-
+        mPreferences = rootView.getContext().getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        checkmarkData = mPreferences.getString(CHECKMARK_KEY, checkmarkData);
 
         mGravity = new float[3];
         mGeomagnetic = new float[3];
@@ -249,6 +258,20 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         String[][] toSend = buildItemList(userModel.getAnimals(), userModel.getStructures(),
                 userModel.getAnimalContainerStructures());
         s1 = toSend[0];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         s2 = toSend[1];
         s3 = toSend[2];
 
@@ -416,6 +439,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         }
         if(isAnimal) {
             Intent intent = new Intent(rootView.getContext(), AnimalActivity.class);
+            setAnimalCheck(idOfItem);
             intent.putExtra("animalnumber", idOfItem);
             startActivity(intent);
         }
@@ -608,6 +632,11 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         return ret;
     }
 
+    public String setPoint(int point, String character, String toAddTo){
+        String ret = toAddTo.substring(0, point) + character + toAddTo.substring(point);
+        return ret;
+    }
+
     /**
      * Adds whether or not items are checked to all 3 data structures, since
      * such information must come from SharedPreferences rather than XML
@@ -633,13 +662,18 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             }
             counter++;
         }
-//        for(int it = 0; it < visible.length; it++){
-//            if(getChecked(it)) {
-//                visible[it] = View.VISIBLE;
-//            } else {
-//                visible[it] = View.INVISIBLE;
-//            }
-//        }
+
+    }
+    public void setAnimalCheck(int animalId){
+        checkmarkData = setPoint(animalId, "x",checkmarkData);
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putString(CHECKMARK_KEY, checkmarkData);
+        preferencesEditor.apply();
+    }
+    public void setStructureCheck(int structId){
+
+    }
+    public void setAnimalContainerCheck(int animalContainerId){
 
     }
 }

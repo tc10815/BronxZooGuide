@@ -552,6 +552,10 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             newImages[it] = comparableItemList.get(it).getI();
             newNewChecked[it] = comparableItemList.get(it).getChecked();
         }
+
+        /*
+        This code makes all rendering of checkbox possible. IMPORTANT
+         */
         for(int i = 0; i < newS1.length; i++){
             String animalName = newS1[i];
             for(int j = 0; j < originalAnimals.size(); j++){
@@ -562,6 +566,16 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                         newNewChecked[i] = View.VISIBLE;
                     }
                 }
+            }
+            for(int j = 0; j < originalStructures.size(); j++){
+                if(originalStructures.get(j).getStructureName().equals(animalName)){
+                    int structId = originalStructures.get(j).getId() + originalAnimals.size();
+                    String statusString = checkmarkData.substring(structId, structId + 1);
+                    if(statusString.equals("x")){
+                        newNewChecked[i] = View.VISIBLE;
+                    }
+                }
+
             }
         }
         mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newImages, newNewChecked,10);
@@ -687,28 +701,24 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
      */
     public void setAnimalCheck(int animalId){
         String animalName = originalAnimals.get(animalId).getZooName();
-        Log.i("TOMDEBUG", "Animal id clicked is: " + animalName);
         int animalSpot = originalAnimals.get(animalId).getId();
-        Log.i("TOMDEBUG", "String before click: " +  checkmarkData);
         String workingS = checkmarkData;
         String workingS2 = workingS.substring(0, animalSpot) + "x" + workingS.substring(animalSpot + 1, workingS.length());
         checkmarkData = workingS2;
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
         preferencesEditor.putString(CHECKMARK_KEY, workingS2);
         preferencesEditor.apply();
-        Log.i("TOMDEBUG", "Since " + animalName + "has an id of " + originalAnimals.get(animalId).getId()
-                + " a spot was added at " + animalSpot);
-        Log.i("TOMDEBUG", "String length is : " + checkmarkData.length());
-        Log.i("TOMDEBUG", "String  is : " + checkmarkData);
+
     }
     public void setStructureCheck(int structId){
-//        Log.i("TOMDEBUG", "Struct id clicked is: " + structId);
-//        int newLoc = structId + originalAnimals.size();
-//        checkmarkData = setPoint(newLoc, "x",checkmarkData);
-//        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-//        preferencesEditor.putString(CHECKMARK_KEY, checkmarkData);
-//        preferencesEditor.apply();
-//        originalStructures.get(structId - 1).setChecked(true);
+        String structName = originalStructures.get(structId -1).getStructureName();
+        int structSpot = originalStructures.get(structId-1).getId() + originalAnimals.size();
+        String workingS = checkmarkData;
+        String workingS2 = workingS.substring(0, structSpot) + "x" + workingS.substring(structSpot + 1, workingS.length());
+        checkmarkData = workingS2;
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putString(CHECKMARK_KEY, workingS2);
+        preferencesEditor.apply();
     }
     public void setAnimalContainerCheck(int animalContainerId){
 //        Log.i("TOMDEBUG", "animalContainerId  clicked is: " + animalContainerId);

@@ -302,11 +302,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
                 locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
                         + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
-                if(animals.get(i).isChecked()){
-                    checkboxstatusOfItem.add(View.VISIBLE);
-                } else {
-                    checkboxstatusOfItem.add(View.INVISIBLE);
-                }
+                checkboxstatusOfItem.add(View.INVISIBLE);
+
 
             }
             //Code to make parent containers searchable by animal data
@@ -329,11 +326,9 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             locationOfItems.add(animalContainerStructures.get(i).getViewingPoints().getLatitude()
                     + " " + animalContainerStructures.get(i).getViewingPoints().getLongitude());
             imagesOfItems.add(animalStructureImages[i]);
-            if(animalContainerStructures.get(i).isChecked()){
-                checkboxstatusOfItem.add(View.VISIBLE);
-            } else {
+
                 checkboxstatusOfItem.add(View.INVISIBLE);
-            }
+
         }
         for (int i = 0; i < structures.size(); i++) {
             namesOfItems.add(structures.get(i).getStructureName());
@@ -342,11 +337,9 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             BinomOrOtherItems.add("Structure: Tap for History");
             DistanceOfItems.add(structures.get(i).getViewingPoints().get(0));
             imagesOfItems.add(structureImages[i]);
-            if(structures.get(i).isChecked()){
-                checkboxstatusOfItem.add(View.VISIBLE);
-            } else {
+
                 checkboxstatusOfItem.add(View.INVISIBLE);
-            }
+
         }
 
         String s1[] = new String[namesOfItems.size()];
@@ -386,7 +379,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         }
         //Using private var instead of return since different type. Not good code.
         visible = new int[checkboxstatusOfItem.size()];
-        for (int i = 0; i < imagesOfItems.size(); i++) {
+        for (int i = 0; i < checkboxstatusOfItem.size(); i++) {
             visible[i] = checkboxstatusOfItem.get(i);
         }
 
@@ -477,12 +470,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                     DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
                     locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
                             + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
-                    for(int j = 0; j < originalAnimals.size(); j++){
-                        if(originalAnimals.get(j).getZooName().equals(animals.get(i).getZooName())){
-                            originalAnimals.get(j).setChecked(getChecked(animals.get(i).getId()));
-                            checkedStatusOfItems.add(animals.get(i).isChecked());
-                        }
-                    }
+
                 }
             }
         }
@@ -494,12 +482,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 locationOfItems.add(animalContainerStructures.get(i).getViewingPoints().getLatitude()
                         + " " + animalContainerStructures.get(i).getViewingPoints().getLongitude());
                 imagesOfItems.add(animalStructureImages[i]);
-                for(int j = 0; j < originalAnimalContainers.size(); j++){
-                    if(originalAnimalContainers.get(j).getContainerName().equals(animalContainerStructures.get(i).getContainerName())){
-                        originalAnimalContainers.get(j).setChecked(getChecked(animalContainerStructures.get(i).getId()));
-                        checkedStatusOfItems.add(animalContainerStructures.get(i).isChecked());
-                    }
-                }
+
             }
         }
         for (int i = 0; i < structures.size(); i++) {
@@ -510,13 +493,6 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 BinomOrOtherItems.add("Structure: Tap for History");
                 DistanceOfItems.add(structures.get(i).getViewingPoints().get(0));
                 imagesOfItems.add(structureImages[i]);
-                for(int j = 0; j < originalStructures.size(); j++){
-                    if(originalStructures.get(j).getStructureName().equals(structures.get(i).getStructureName())){
-                        originalStructures.get(j).setChecked(getChecked(structures.get(i).getId()));
-                        checkedStatusOfItems.add(structures.get(i).isChecked());
-                    }
-                }
-
             }
         }
 
@@ -541,14 +517,11 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             }
             myD[i] = toAdd;
         }
-        int[] newCheckedStatus = new int[checkedStatusOfItems.size()];
-        for(int i = 0; i <checkedStatusOfItems.size(); i++){
-            if(checkedStatusOfItems.get(i)){
-                newCheckedStatus[i] = View.VISIBLE;
-            } else {
+        int[] newCheckedStatus = new int[originalAnimals.size() + originalAnimalContainers.size() + originalStructures.size()];
+        for(int i = 0; i < originalAnimals.size() + originalAnimalContainers.size() + originalStructures.size(); i++){
                 newCheckedStatus[i] = View.INVISIBLE;
-            }
         }
+
 
         //Using private var instead of return since different type. Not good code.
         images = new int[imagesOfItems.size()];
@@ -578,6 +551,18 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             newS3[it] = comparableItemList.get(it).getD() + "";
             newImages[it] = comparableItemList.get(it).getI();
             newNewChecked[it] = comparableItemList.get(it).getChecked();
+        }
+        for(int i = 0; i < newS1.length; i++){
+            String animalName = newS1[i];
+            for(int j = 0; j < originalAnimals.size(); j++){
+                if(originalAnimals.get(j).getZooName().equals(animalName)){
+                    int animalId = originalAnimals.get(j).getId();
+                    String statusString = checkmarkData.substring(animalId, animalId + 1);
+                    if(statusString.equals("x")){
+                        newNewChecked[i] = View.VISIBLE;
+                    }
+                }
+            }
         }
         mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newImages, newNewChecked,10);
         mAdapter.setMyAppData(userModel);

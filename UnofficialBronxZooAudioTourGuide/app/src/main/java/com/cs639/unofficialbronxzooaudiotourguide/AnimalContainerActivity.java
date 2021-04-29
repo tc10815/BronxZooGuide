@@ -153,7 +153,7 @@ public class AnimalContainerActivity extends AppCompatActivity {
         Log.e(TAG, "onCreate: B parentstructure " + bundle.getInt("parentstructure"));
         Log.e(TAG, "onCreate: I filter" + i.getStringExtra("filter"));
         recyclerView = findViewById(R.id.IndoorRecyclerView);
-        String parentStructureName = parentStructures.get(indexRecived - 2).getContainerName();
+        String parentStructureName = parentStructures.get(indexRecived).getContainerName();
         if(!filter.equals("")){
             parentStructureName += " filtering results by '" + filter + "'";
         }
@@ -162,7 +162,7 @@ public class AnimalContainerActivity extends AppCompatActivity {
         ArrayList<Animal> allAnimalsTemp = myData.getAnimals();
         Log.i("TOMDEBUG", "Here: " + allAnimalsTemp.size());
         for(int iter = 0; iter < allAnimalsTemp.size(); iter++){
-            if(allAnimalsTemp.get(iter).getParentStructure() == indexRecived){
+            if(allAnimalsTemp.get(iter).getParentStructure() == indexRecived + 2){
                 if(filter.equals("") || allAnimalsTemp.get(iter).matchesFilter(filter)) {
                     animalsListed.add(allAnimalsTemp.get(iter));
                     imagesOfItems.add(images[iter]);

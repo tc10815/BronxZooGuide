@@ -554,7 +554,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         }
 
         /*
-        This code makes all rendering of checkbox possible. IMPORTANT
+         * This code makes all rendering of checkbox possible. IMPORTANT
          */
         for(int i = 0; i < newS1.length; i++){
             String animalName = newS1[i];
@@ -575,7 +575,16 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                         newNewChecked[i] = View.VISIBLE;
                     }
                 }
-
+            }
+            for(int j = 0; j < originalAnimalContainers.size(); j++){
+                if(originalAnimalContainers.get(j).getContainerName().equals(animalName)){
+                    int structId = originalAnimalContainers.get(j).getId()
+                            + originalAnimals.size() + originalStructures.size();
+                    String statusString = checkmarkData.substring(structId, structId + 1);
+                    if(statusString.equals("x")){
+                        newNewChecked[i] = View.VISIBLE;
+                    }
+                }
             }
         }
         mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newImages, newNewChecked,10);

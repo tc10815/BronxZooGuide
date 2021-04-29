@@ -196,6 +196,10 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     private SensorManager mSensorManager;
     private Sensor sensorMag;
     private Sensor sensorAcc;
+    private ArrayList<AnimalContainerStructure> originalAnimalContainers;
+    private ArrayList<Animal> originalAnimals;
+    private ArrayList<Structure> originalStructures;
+
     public static final int LOCATION_REQUEST = 1000;
 
     @Override
@@ -242,35 +246,18 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             }
         });
 
-
-
-
-
         // Inflate the layout for this fragment
         recyclerView = rootView.findViewById(R.id.OutdoorRecyclerView);
         userModel = new ViewModelProvider(requireActivity()).get(AllAppData.class);
         int width = userModel.getScreenSize();
-        addChecksToAnimals();
         retainPosition = 0;
         userModel.setCompassList(this);
-
+        originalAnimalContainers= userModel.getAnimalContainerStructures();
+        originalAnimals = userModel.getAnimals();
+        originalStructures = userModel.getStructures();
         String[][] toSend = buildItemList(userModel.getAnimals(), userModel.getStructures(),
                 userModel.getAnimalContainerStructures());
         s1 = toSend[0];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         s2 = toSend[1];
         s3 = toSend[2];
 
@@ -437,14 +424,14 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         for(int iter = 0; iter < userModel.getAnimalContainerStructures().size(); iter++) {
             if(userModel.getAnimalContainerStructures().get(iter).getContainerName().equals(nameOfItemClicked)){
                 isAnimalContainingStructure = true;
-                idOfItem = userModel.getAnimalContainerStructures().get(iter).getId();
+                idOfItem = iter;
                 checkboxId = userModel.getAnimalContainerStructures().get(iter).getId();
 
             }
         }
         if(isAnimal) {
             Intent intent = new Intent(rootView.getContext(), AnimalActivity.class);
-            setAnimalCheck(checkboxId);
+            setAnimalCheck(idOfItem);
             intent.putExtra("animalnumber", idOfItem);
             startActivity(intent);
         }
@@ -471,6 +458,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         ArrayList<Animal> animals = userModel.getAnimals();
         ArrayList<AnimalContainerStructure> animalContainerStructures = userModel.getAnimalContainerStructures();
         ArrayList<Structure> structures = userModel.getStructures();
+        addChecksToAnimals();
         ArrayList<String> namesOfItems = new ArrayList<String>();
         ArrayList<String> BinomOrOtherItems = new ArrayList<String>();
         ArrayList<String> locationOfItems = new ArrayList<String>();
@@ -489,7 +477,12 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                     DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
                     locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
                             + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
-                    checkedStatusOfItems.add(animals.get(i).isChecked());
+                    for(int j = 0; j < originalAnimals.size(); j++){
+                        if(originalAnimals.get(j).getZooName().equals(animals.get(i).getZooName())){
+                            originalAnimals.get(j).setChecked(getChecked(animals.get(i).getId()));
+                            checkedStatusOfItems.add(animals.get(i).isChecked());
+                        }
+                    }
                 }
             }
         }
@@ -501,8 +494,12 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 locationOfItems.add(animalContainerStructures.get(i).getViewingPoints().getLatitude()
                         + " " + animalContainerStructures.get(i).getViewingPoints().getLongitude());
                 imagesOfItems.add(animalStructureImages[i]);
-                checkedStatusOfItems.add(animalContainerStructures.get(i).isChecked());
-
+                for(int j = 0; j < originalAnimalContainers.size(); j++){
+                    if(originalAnimalContainers.get(j).getContainerName().equals(animalContainerStructures.get(i).getContainerName())){
+                        originalAnimalContainers.get(j).setChecked(getChecked(animalContainerStructures.get(i).getId()));
+                        checkedStatusOfItems.add(animalContainerStructures.get(i).isChecked());
+                    }
+                }
             }
         }
         for (int i = 0; i < structures.size(); i++) {
@@ -513,7 +510,12 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 BinomOrOtherItems.add("Structure: Tap for History");
                 DistanceOfItems.add(structures.get(i).getViewingPoints().get(0));
                 imagesOfItems.add(structureImages[i]);
-                checkedStatusOfItems.add(structures.get(i).isChecked());
+                for(int j = 0; j < originalStructures.size(); j++){
+                    if(originalStructures.get(j).getStructureName().equals(structures.get(i).getStructureName())){
+                        originalStructures.get(j).setChecked(getChecked(structures.get(i).getId()));
+                        checkedStatusOfItems.add(structures.get(i).isChecked());
+                    }
+                }
 
             }
         }
@@ -577,7 +579,6 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             newImages[it] = comparableItemList.get(it).getI();
             newNewChecked[it] = comparableItemList.get(it).getChecked();
         }
-        addChecksToAnimals();
         mAdapter = new OutdoorRecycleAdapter(rootView.getContext(), this, userModel, newS1, newS2, newS3, newImages, newNewChecked,10);
         mAdapter.setMyAppData(userModel);
         recyclerView.setLayoutManager(myLinearLayoutManager);
@@ -594,6 +595,8 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     public void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(this);
+        sortListByLocation(userModel.getCurrentPhoneLocation());
+
     }
     @Override
     public void onSensorChanged(SensorEvent event) {
@@ -652,23 +655,22 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
     public void addChecksToAnimals(){
         mPreferences = rootView.getContext().getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         checkmarkData = mPreferences.getString(CHECKMARK_KEY, checkmarkData);
-        int loopMax = userModel.getAnimals().size() + userModel.getStructures().size() + userModel.getAnimalContainerStructures().size();
+        int loopMax = originalAnimals.size() + originalStructures.size() + originalAnimalContainers.size();
         for (int iter = 0; iter < loopMax ; iter++){
-            String workingLetter = checkmarkData.substring(iter, iter + 1);
-            if(iter < userModel.getAnimals().size()){
-                int spotDisplacement = 0;
-                int id = userModel.getAnimals().get(iter).getId();
-                userModel.getAnimals().get(iter).setChecked(getChecked(id + spotDisplacement));
+            if(iter < originalAnimals.size()){
+                int spotDisplacement = 2;
+                int id = originalAnimals.get(iter).getId();
+                originalAnimals.get(iter).setChecked(getChecked(id + spotDisplacement));
             }
-            if(iter >= userModel.getAnimals().size() && iter < userModel.getAnimals().size() + userModel.getStructures().size()){
-                int spotDisplacement = userModel.getAnimals().size();
-                int id = userModel.getStructures().get(iter - spotDisplacement).getId();
-                userModel.getStructures().get(iter - spotDisplacement).setChecked(getChecked(id + spotDisplacement));
+            if(iter >= originalAnimals.size() && iter < originalAnimals.size() + originalStructures.size()){
+                int spotDisplacement = originalAnimals.size();
+                int id = originalStructures.get(iter - spotDisplacement).getId();
+                originalStructures.get(iter - spotDisplacement).setChecked(getChecked(id + spotDisplacement));
             }
-            if(iter >= userModel.getAnimals().size() + userModel.getStructures().size() ){
-                int spotDisplacement = userModel.getAnimals().size() + userModel.getStructures().size();
-                int id = userModel.getAnimalContainerStructures().get(iter - spotDisplacement).getId();
-                userModel.getAnimalContainerStructures().get(iter - spotDisplacement).setChecked(getChecked(id + spotDisplacement));
+            if(iter >= originalAnimals.size() + originalStructures.size() ){
+                int spotDisplacement = originalAnimals.size() + originalStructures.size();
+                int id = originalAnimalContainers.get(iter - spotDisplacement).getId();
+                originalAnimalContainers.get(iter - spotDisplacement).setChecked(getChecked(id + spotDisplacement));
             }
         }
 
@@ -694,28 +696,43 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
 //        }
 
     }
+
+    /*
+     * This method works correctly. String is edited and saved correctly for animals. It is read wrong.
+     */
     public void setAnimalCheck(int animalId){
-        checkmarkData = setPoint(animalId, "x",checkmarkData);
+        String animalName = originalAnimals.get(animalId).getZooName();
+        Log.i("TOMDEBUG", "Animal id clicked is: " + animalName);
+        int animalSpot = originalAnimals.get(animalId).getId();
+        Log.i("TOMDEBUG", "String before click: " +  checkmarkData);
+        String workingS = checkmarkData;
+        String workingS2 = workingS.substring(0, animalSpot) + "x" + workingS.substring(animalSpot + 1, workingS.length());
+        checkmarkData = workingS2;
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-        preferencesEditor.putString(CHECKMARK_KEY, checkmarkData);
+        preferencesEditor.putString(CHECKMARK_KEY, workingS2);
         preferencesEditor.apply();
-        userModel.getAnimals().get(animalId).setChecked(true);
+        Log.i("TOMDEBUG", "Since " + animalName + "has an id of " + originalAnimals.get(animalId).getId()
+                + " a spot was added at " + animalSpot);
+        Log.i("TOMDEBUG", "String length is : " + checkmarkData.length());
+        Log.i("TOMDEBUG", "String  is : " + checkmarkData);
     }
     public void setStructureCheck(int structId){
-        int newLoc = structId + userModel.getAnimals().size();
-        checkmarkData = setPoint(newLoc, "x",checkmarkData);
-        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-        preferencesEditor.putString(CHECKMARK_KEY, checkmarkData);
-        preferencesEditor.apply();
-        userModel.getStructures().get(structId).setChecked(true);
+//        Log.i("TOMDEBUG", "Struct id clicked is: " + structId);
+//        int newLoc = structId + originalAnimals.size();
+//        checkmarkData = setPoint(newLoc, "x",checkmarkData);
+//        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+//        preferencesEditor.putString(CHECKMARK_KEY, checkmarkData);
+//        preferencesEditor.apply();
+//        originalStructures.get(structId - 1).setChecked(true);
     }
     public void setAnimalContainerCheck(int animalContainerId){
-        int newLoc = animalContainerId + userModel.getAnimals().size()
-                + userModel.getStructures().size();
-        checkmarkData = setPoint(newLoc, "x",checkmarkData);
-        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-        preferencesEditor.putString(CHECKMARK_KEY, checkmarkData);
-        preferencesEditor.apply();
-        userModel.getAnimalContainerStructures().get(animalContainerId).setChecked(true);
+//        Log.i("TOMDEBUG", "animalContainerId  clicked is: " + animalContainerId);
+//        int newLoc = animalContainerId + userModel.getAnimals().size()
+//                + userModel.getStructures().size();
+//        checkmarkData = setPoint(newLoc, "x",checkmarkData);
+//        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+//        preferencesEditor.putString(CHECKMARK_KEY, checkmarkData);
+//        preferencesEditor.apply();
+//        originalAnimalContainers.get(animalContainerId - 2).setChecked(true);
     }
 }

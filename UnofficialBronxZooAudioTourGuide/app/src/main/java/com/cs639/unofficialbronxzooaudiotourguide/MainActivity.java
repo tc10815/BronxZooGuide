@@ -48,9 +48,7 @@ public class MainActivity extends AppCompatActivity  {
     private LocationCallback locationCallback;
     private final String CHECKMARK_KEY = "checkmarks";
     private final String ISMETRIC_KEY = "ismetric";
-    private final String EMPTY_CHECKMARKS = "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" +
-            "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" +
-            "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu";
+    private final String EMPTY_CHECKMARKS = "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu";
     private SharedPreferences mPreferences;
     private String sharedPrefFile =
             "com.cs639.unofficialbronxzooaudiotourguide";

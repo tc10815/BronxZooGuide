@@ -203,7 +203,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
-        checkmarkData = "uuuxuxuxuuuuuuuuuuxuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" +
+        checkmarkData = "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" +
                 "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu"; //u = unknown, x = checked, o = unchecked
         //Each position char is 1 item
         visible = new int[checkmarkData.length()];
@@ -580,6 +580,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         super.onResume();
         mSensorManager.registerListener(this, sensorMag, SensorManager.SENSOR_DELAY_NORMAL);
         mSensorManager.registerListener(this, sensorAcc, SensorManager.SENSOR_DELAY_NORMAL);
+        sortListByLocation(userModel.getCurrentPhoneLocation());
 
     }
 
@@ -669,6 +670,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
         preferencesEditor.putString(CHECKMARK_KEY, checkmarkData);
         preferencesEditor.apply();
+        userModel.getAnimals().get(animalId).setChecked(true);
     }
     public void setStructureCheck(int structId){
 

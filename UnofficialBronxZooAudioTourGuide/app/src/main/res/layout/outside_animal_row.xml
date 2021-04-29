@@ -95,8 +95,8 @@
                 android:layout_height="wrap_content"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="@+id/rowOutsideAnimalNameTxt"
-                app:layout_constraintEnd_toEndOf="@+id/rowOutsideAnimalBiNomTxt"
-                app:layout_constraintHorizontal_bias="0.71"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.96"
                 app:layout_constraintStart_toStartOf="@+id/rowOutsideAnimalNameTxt"
                 app:layout_constraintTop_toTopOf="@+id/rowOutsideAnimalNameTxt"
                 app:srcCompat="@android:drawable/checkbox_on_background" />

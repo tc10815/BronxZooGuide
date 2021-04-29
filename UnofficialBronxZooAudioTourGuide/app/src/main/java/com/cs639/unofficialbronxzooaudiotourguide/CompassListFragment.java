@@ -730,13 +730,15 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         preferencesEditor.apply();
     }
     public void setAnimalContainerCheck(int animalContainerId){
-//        Log.i("TOMDEBUG", "animalContainerId  clicked is: " + animalContainerId);
-//        int newLoc = animalContainerId + userModel.getAnimals().size()
-//                + userModel.getStructures().size();
-//        checkmarkData = setPoint(newLoc, "x",checkmarkData);
-//        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-//        preferencesEditor.putString(CHECKMARK_KEY, checkmarkData);
-//        preferencesEditor.apply();
-//        originalAnimalContainers.get(animalContainerId - 2).setChecked(true);
+        String structName = originalAnimalContainers.get(animalContainerId - 2).getContainerName();
+        Log.i("TOMDEBUG", "This is containerID :" + structName);
+        int structSpot = originalAnimalContainers.get(animalContainerId - 2).getId()
+                + originalAnimals.size() + originalStructures.size();
+        String workingS = checkmarkData;
+        String workingS2 = workingS.substring(0, structSpot) + "x" + workingS.substring(structSpot + 1, workingS.length());
+        checkmarkData = workingS2;
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putString(CHECKMARK_KEY, workingS2);
+        preferencesEditor.apply();
     }
 }

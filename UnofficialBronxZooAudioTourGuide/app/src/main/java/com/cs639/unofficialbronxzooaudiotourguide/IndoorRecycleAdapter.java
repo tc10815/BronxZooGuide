@@ -27,17 +27,17 @@ import java.util.List;
  */
 public class IndoorRecycleAdapter extends RecyclerView.Adapter<IndoorRecycleAdapter.MyViewHolder> {
     String data1[], data2[];
-    int images[];
+    int images[], data3[];
     Context context;
     AnimalContainerActivity theParent;
     //    AllAppData myAppData;
     View rowView;
 
-    public IndoorRecycleAdapter(Context ct, String[] dataList, String[] dataList2, int[] myimages, AnimalContainerActivity myDad) {
+    public IndoorRecycleAdapter(Context ct, String[] dataList, String[] dataList2, int[] dataList3, int[] myimages, AnimalContainerActivity myDad) {
         context = ct;
          data1 = dataList;
          data2 = dataList2;
-//        data3 = s3;
+         data3 = dataList3;
         images = myimages;
         theParent = myDad;
 //        screenWidth = myWidth;
@@ -61,6 +61,7 @@ public class IndoorRecycleAdapter extends RecyclerView.Adapter<IndoorRecycleAdap
         holder.txtZooName.setText(data1[position]);
         holder.txtBiNom.setText(data2[position]);
         holder.imgAnimal.setImageResource(images[position]);
+        holder.checkbox.setVisibility(data3[position]);
         holder.parentLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +76,7 @@ public class IndoorRecycleAdapter extends RecyclerView.Adapter<IndoorRecycleAdap
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView txtZooName, txtBiNom;
-        ImageView imgAnimal;
+        ImageView imgAnimal, checkbox;
         ConstraintLayout parentLayout;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -84,6 +85,7 @@ public class IndoorRecycleAdapter extends RecyclerView.Adapter<IndoorRecycleAdap
             txtBiNom = itemView.findViewById(R.id.rowinsideAnimalBiNomTxt);
             imgAnimal = itemView.findViewById(R.id.rowinsideAnimalImg);
             parentLayout = itemView.findViewById(R.id.parentLayout);
+            checkbox = itemView.findViewById(R.id.imgCheckboxInside);
 
 
         }

@@ -717,7 +717,6 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
         preferencesEditor.putString(CHECKMARK_KEY, workingS2);
         preferencesEditor.apply();
-
     }
     public void setStructureCheck(int structId){
         String structName = originalStructures.get(structId -1).getStructureName();

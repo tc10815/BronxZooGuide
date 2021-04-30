@@ -1,5 +1,6 @@
 package com.cs639.unofficialbronxzooaudiotourguide;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
@@ -26,8 +28,14 @@ public class AnimalContainerActivity extends AppCompatActivity {
     int indexRecived;
     private RecyclerView recyclerView;
     private String filter;
+    private int parentPassed;
     protected IndoorRecycleAdapter mAdapter;
     private LinearLayoutManager myLinearLayoutManager;
+    private final String CHECKMARKINSIDE_KEY = "checkmarksinside";
+    private SharedPreferences mPreferences;
+    private String checkmarkData;
+    private String sharedPrefFile =
+            "com.cs639.unofficialbronxzooaudiotourguide";
     private TextView txtTopText;
 
     int images[] =
@@ -132,6 +140,7 @@ public class AnimalContainerActivity extends AppCompatActivity {
     ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
     ArrayList<Animal> animalsListed;
     MaterialTextView txtData;
+    int visible[];
 
 
     @Override
@@ -139,6 +148,13 @@ public class AnimalContainerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal_container);
         txtTopText = findViewById(R.id.txtIndoorTopText);
+        checkmarkData = "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" +
+                "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu"; //u = unknown, x = checked, o = unchecked
+        visible = new int[checkmarkData.length()];
+
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        checkmarkData = mPreferences.getString(CHECKMARKINSIDE_KEY, checkmarkData);
+
         XMLDataGetter myData = new XMLDataGetter(this);
         ArrayList<AnimalContainerStructure> parentStructures = myData.getAnimalContainerStructures();
         animalsListed = new ArrayList<Animal>();
@@ -152,6 +168,8 @@ public class AnimalContainerActivity extends AppCompatActivity {
         Log.e(TAG, "onCreate: I parentstructure " + i.getIntExtra("parentstructure", 0));
         Log.e(TAG, "onCreate: B parentstructure " + bundle.getInt("parentstructure"));
         Log.e(TAG, "onCreate: I filter" + i.getStringExtra("filter"));
+
+
         recyclerView = findViewById(R.id.IndoorRecyclerView);
         String parentStructureName = parentStructures.get(indexRecived).getContainerName();
         if(!filter.equals("")){
@@ -179,9 +197,27 @@ public class AnimalContainerActivity extends AppCompatActivity {
             imagesRecycleData[iter] = imagesOfItems.get(iter);
         }
 
+        int[] newNewChecked = new int[recycleData.length];
+        for(int it = 0; it < newNewChecked.length; it++){
+            newNewChecked[it] = View.INVISIBLE;
+        }
+        /*
+         * This code makes all rendering of checkbox possible. IMPORTANT
+         */
+        for(int x = 0; x < recycleData.length; x++) {
+            String animalName = recycleData[x];
+            for (int j = 0; j < animalsListed.size(); j++) {
+                if (animalsListed.get(j).getZooName().equals(animalName)) {
+                    int animalId = animalsListed.get(j).getId();
+                    String statusString = checkmarkData.substring(animalId, animalId + 1);
+                    if (statusString.equals("x")) {
+                        newNewChecked[x] = View.VISIBLE;
+                    }
+                }
+            }
+        }
 
-
-        mAdapter = new IndoorRecycleAdapter(this, recycleData, recycleData2, imagesRecycleData, this);
+        mAdapter = new IndoorRecycleAdapter(this, recycleData, recycleData2, newNewChecked, imagesRecycleData, this);
         myLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(myLinearLayoutManager);
         recyclerView.setAdapter(mAdapter);
@@ -194,10 +230,106 @@ public class AnimalContainerActivity extends AppCompatActivity {
     public void launchAnimal(String animalToLaunch){
         for(int iter = 0; iter < animalsListed.size(); iter++){
             if(animalsListed.get(iter).getZooName().equals(animalToLaunch)){
+                setAnimalCheck(iter);
                 Intent intent = new Intent(this, AnimalActivity.class);
                 intent.putExtra("animalnumber", (animalsListed.get(iter).getId() -1));
                 startActivity(intent);
             }
         }
+    }
+    /*
+     * This method works correctly. String is edited and saved correctly for animals. It is read wrong.
+     */
+    public void setAnimalCheck(int animalId){
+        String animalName = animalsListed.get(animalId).getZooName();
+        int animalSpot = animalsListed.get(animalId).getId();
+        String workingS = checkmarkData;
+        String workingS2 = workingS.substring(0, animalSpot) + "x" + workingS.substring(animalSpot + 1, workingS.length());
+        checkmarkData = workingS2;
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putString(CHECKMARKINSIDE_KEY, workingS2);
+        preferencesEditor.apply();
+    }
+
+    /**
+     * Saves the instance state if the activity is restarted (for example,
+     * on device rotation.) Here you save the values for the count and the
+     * background color.
+     *
+     * @param outState The state data.
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt("parentstructure", indexRecived);
+        outState.putString("filter", filter);
+        super.onSaveInstanceState(outState);
+
+    }
+
+
+    @Override
+    protected void onRestart() {
+        checkmarkData = "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" +
+                "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu"; //u = unknown, x = checked, o = unchecked
+        visible = new int[checkmarkData.length()];
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        checkmarkData = mPreferences.getString(CHECKMARKINSIDE_KEY, checkmarkData);
+        XMLDataGetter myData = new XMLDataGetter(this);
+        ArrayList<AnimalContainerStructure> parentStructures = myData.getAnimalContainerStructures();
+        animalsListed = new ArrayList<Animal>();
+        ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
+
+
+        String parentStructureName = parentStructures.get(indexRecived).getContainerName();
+        if(!filter.equals("")){
+            parentStructureName += " filtering results by '" + filter + "'";
+        }
+        txtTopText.setText(parentStructureName);
+
+        ArrayList<Animal> allAnimalsTemp = myData.getAnimals();
+        Log.i("TOMDEBUG", "Here: " + allAnimalsTemp.size());
+        for(int iter = 0; iter < allAnimalsTemp.size(); iter++){
+            if(allAnimalsTemp.get(iter).getParentStructure() == indexRecived + 2){
+                if(filter.equals("") || allAnimalsTemp.get(iter).matchesFilter(filter)) {
+                    animalsListed.add(allAnimalsTemp.get(iter));
+                    imagesOfItems.add(images[iter]);
+                }
+            }
+
+        }
+        int[] imagesRecycleData = new int[imagesOfItems.size()];
+        String[] recycleData = new String[animalsListed.size()];
+        String[] recycleData2 = new String[animalsListed.size()];
+        for (int iter = 0; iter < animalsListed.size(); iter++){
+            recycleData[iter] = animalsListed.get(iter).getZooName();
+            recycleData2[iter] = animalsListed.get(iter).getBinomialNomenclature();
+            imagesRecycleData[iter] = imagesOfItems.get(iter);
+        }
+
+        int[] newNewChecked = new int[recycleData.length];
+        for(int it = 0; it < newNewChecked.length; it++){
+            newNewChecked[it] = View.INVISIBLE;
+        }
+        /*
+         * This code makes all rendering of checkbox possible. IMPORTANT
+         */
+        for(int x = 0; x < recycleData.length; x++) {
+            String animalName = recycleData[x];
+            for (int j = 0; j < animalsListed.size(); j++) {
+                if (animalsListed.get(j).getZooName().equals(animalName)) {
+                    int animalId = animalsListed.get(j).getId();
+                    String statusString = checkmarkData.substring(animalId, animalId + 1);
+                    if (statusString.equals("x")) {
+                        newNewChecked[x] = View.VISIBLE;
+                    }
+                }
+            }
+        }
+
+        mAdapter = new IndoorRecycleAdapter(this, recycleData, recycleData2, newNewChecked, imagesRecycleData, this);
+        myLinearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(myLinearLayoutManager);
+        recyclerView.setAdapter(mAdapter);
+        super.onRestart();
     }
 }

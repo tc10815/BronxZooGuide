@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity  {
     private LocationCallback locationCallback;
     private final String CHECKMARK_KEY = "checkmarks";
     private final String ISMETRIC_KEY = "ismetric";
+    private final String CHECKMARKINSIDE_KEY = "checkmarksinside";
     private final String EMPTY_CHECKMARKS = "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu";
     private SharedPreferences mPreferences;
     private String sharedPrefFile =
@@ -135,6 +136,7 @@ public class MainActivity extends AppCompatActivity  {
         if (id == R.id.action_clear_memory) {
             SharedPreferences.Editor preferencesEditor = mPreferences.edit();
             preferencesEditor.putString(CHECKMARK_KEY, EMPTY_CHECKMARKS);
+            preferencesEditor.putString(CHECKMARKINSIDE_KEY, EMPTY_CHECKMARKS);
             preferencesEditor.apply();
             AllAppData userModel = new ViewModelProvider(this).get(AllAppData.class);
             userModel.clickClear();

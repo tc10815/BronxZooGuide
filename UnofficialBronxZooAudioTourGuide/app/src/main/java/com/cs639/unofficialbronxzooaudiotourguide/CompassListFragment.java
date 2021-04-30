@@ -300,8 +300,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 BinomOrOtherItems.add(animals.get(i).getBinomialNomenclature());
                 imagesOfItems.add(animalimages[i]);
                 DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
-                locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
-                        + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
+                locationOfItems.add("");
                 checkboxstatusOfItem.add(View.INVISIBLE);
 
 
@@ -323,8 +322,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             namesOfItems.add(animalContainerStructures.get(i).getContainerName());
             BinomOrOtherItems.add("Structure: Tap for Animals Inside");
             DistanceOfItems.add(animalContainerStructures.get(i).getViewingPoints());
-            locationOfItems.add(animalContainerStructures.get(i).getViewingPoints().getLatitude()
-                    + " " + animalContainerStructures.get(i).getViewingPoints().getLongitude());
+            locationOfItems.add("");
             imagesOfItems.add(animalStructureImages[i]);
 
                 checkboxstatusOfItem.add(View.INVISIBLE);
@@ -332,8 +330,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         }
         for (int i = 0; i < structures.size(); i++) {
             namesOfItems.add(structures.get(i).getStructureName());
-            locationOfItems.add(structures.get(i).getViewingPoints().get(0).getLatitude()
-                    + " " + structures.get(i).getViewingPoints().get(0).getLongitude());
+            locationOfItems.add("");
             BinomOrOtherItems.add("Structure: Tap for History");
             DistanceOfItems.add(structures.get(i).getViewingPoints().get(0));
             imagesOfItems.add(structureImages[i]);
@@ -352,7 +349,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         }
         String s3[] = new String[locationOfItems.size()];
         for (int i = 0; i < locationOfItems.size(); i++) {
-            s3[i] = locationOfItems.get(i);
+            s3[i] = "";
         }
 
 
@@ -360,16 +357,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         String s4[] = new String[DistanceOfItems.size()];
 
         for (int i = 0; i < DistanceOfItems.size(); i++) {
-            Location itemLocation = DistanceOfItems.get(i);
-            String toAdd = "empty";
-            if(itemLocation != null && phoneLocation != null) {
-                toAdd = phoneLocation.distanceTo(itemLocation) + "";
-            }
-            if (phoneLocation != null) {
-                toAdd = phoneLocation.getLatitude() + " " + phoneLocation.getLongitude();
-            }
-
-            s4[i] = toAdd;
+            s4[i] = "";
         }
 
         //Using private var instead of return since different type. Not good code.
@@ -468,8 +456,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                     BinomOrOtherItems.add(animals.get(i).getBinomialNomenclature());
                     imagesOfItems.add(animalimages[i]);
                     DistanceOfItems.add(animals.get(i).getViewingPoints().get(0));
-                    locationOfItems.add(animals.get(i).getViewingPoints().get(0).getLatitude()
-                            + " " + animals.get(i).getViewingPoints().get(0).getLongitude());
+                    locationOfItems.add("");
 
                 }
             }
@@ -479,8 +466,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
                 namesOfItems.add(animalContainerStructures.get(i).getContainerName());
                 BinomOrOtherItems.add("Structure: Tap for Animals Inside");
                 DistanceOfItems.add(animalContainerStructures.get(i).getViewingPoints());
-                locationOfItems.add(animalContainerStructures.get(i).getViewingPoints().getLatitude()
-                        + " " + animalContainerStructures.get(i).getViewingPoints().getLongitude());
+                locationOfItems.add("");
                 imagesOfItems.add(animalStructureImages[i]);
 
             }
@@ -488,8 +474,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         for (int i = 0; i < structures.size(); i++) {
             if( filter.equals("") || structures.get(i).matchesFilter(filter) ) {
                 namesOfItems.add(structures.get(i).getStructureName());
-                locationOfItems.add(structures.get(i).getViewingPoints().get(0).getLatitude()
-                        + " " + structures.get(i).getViewingPoints().get(0).getLongitude());
+                locationOfItems.add("");
                 BinomOrOtherItems.add("Structure: Tap for History");
                 DistanceOfItems.add(structures.get(i).getViewingPoints().get(0));
                 imagesOfItems.add(structureImages[i]);
@@ -548,7 +533,7 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
         for(int it = 0; it < comparableItemList.size(); it++){
             newS1[it] = comparableItemList.get(it).getS1();
             newS2[it] = comparableItemList.get(it).getS2();
-            newS3[it] = comparableItemList.get(it).getD() + "";
+            newS3[it] = "";
             newImages[it] = comparableItemList.get(it).getI();
             newNewChecked[it] = comparableItemList.get(it).getChecked();
         }

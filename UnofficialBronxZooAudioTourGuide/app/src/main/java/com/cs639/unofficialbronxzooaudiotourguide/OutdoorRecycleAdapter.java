@@ -118,28 +118,35 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
 
                     if(phoneLocation != null && itemLocation != null){
                         double distance = phoneLocation.distanceTo(itemLocation);
-                        DecimalFormat df = new DecimalFormat("##");
-                        df.setRoundingMode(RoundingMode.DOWN);
-                        double longDiff =  itemLocation.getLongitude() - phoneLocation.getLongitude();
-                        double latDiff = itemLocation.getLatitude() - phoneLocation.getLatitude();
-                        double currentAngle = Math.toDegrees(myAppData.getAzimuth());
-                        double angle = Math.toDegrees(Math.atan2(longDiff, latDiff));
-                        double finalAngle = currentAngle - angle;
-                        if(finalAngle >= 180 ){
-                            finalAngle = finalAngle - 360;
-                        }
-                        if(finalAngle <= -180 ){
-                            finalAngle = finalAngle + 360;
-                        }
-                        String myAngle = ("");
-                        int myAngle2 = (int) finalAngle;
-                        imgArrow.setRotation(myAngle2 + 90);
-                        if(myAppData.isMetric()) {
-                            txtDistance.setText( df.format(distance) + " meters");
+                        if(distance > 40) {
+                            DecimalFormat df = new DecimalFormat("##");
+                            df.setRoundingMode(RoundingMode.DOWN);
+                            double longDiff =  itemLocation.getLongitude() - phoneLocation.getLongitude();
+                            double latDiff = itemLocation.getLatitude() - phoneLocation.getLatitude();
+                            double currentAngle = Math.toDegrees(myAppData.getAzimuth());
+                            double angle = Math.toDegrees(Math.atan2(longDiff, latDiff));
+                            double finalAngle = currentAngle - angle;
+                            imgArrow.setVisibility(View.VISIBLE);
+                            if(finalAngle >= 180 ){
+                                finalAngle = finalAngle - 360;
+                            }
+                            if(finalAngle <= -180 ){
+                                finalAngle = finalAngle + 360;
+                            }
+                            String myAngle = ("");
+                            int myAngle2 = (int) finalAngle;
+                            imgArrow.setRotation(myAngle2 + 90);
+
+                                if (myAppData.isMetric()) {
+                                    txtDistance.setText(df.format(distance) + " meters");
+                                } else {
+                                    distance = (float) (distance * 0.000621371);
+                                    df = new DecimalFormat("##.##");
+                                    txtDistance.setText(df.format(distance) + " miles");
+                                }
                         } else {
-                            distance = (float) (distance * 0.000621371);
-                            df = new DecimalFormat("##.##");
-                            txtDistance.setText(df.format(distance) +" miles");
+                            imgArrow.setVisibility(View.INVISIBLE);
+                            txtDistance.setText("You are here");
                         }
                         //txtLocation.setText((myAngle + " " + myAngle2));
                     }

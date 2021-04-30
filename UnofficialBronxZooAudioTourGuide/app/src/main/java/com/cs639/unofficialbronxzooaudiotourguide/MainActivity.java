@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity  {
     private double wayLatitude = 0.0, wayLongitude = 0.0;
     private LocationRequest locationRequest;
     private LocationCallback locationCallback;
+    private boolean isMetric;
     private final String CHECKMARK_KEY = "checkmarks";
     private final String ISMETRIC_KEY = "ismetric";
     private final String CHECKMARKINSIDE_KEY = "checkmarksinside";
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        isMetric = false;
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         locationRequest = LocationRequest.create();

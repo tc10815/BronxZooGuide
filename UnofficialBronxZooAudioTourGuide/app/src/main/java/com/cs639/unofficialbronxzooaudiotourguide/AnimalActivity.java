@@ -27,10 +27,11 @@ public class AnimalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal_screen);
         XMLDataGetter myData = new XMLDataGetter(this);
+
         //get the current intent
         Intent intent = getIntent();
         int animalNumber = intent.getIntExtra("animalnumber", 0);
-
+       
         myAnimal = myData.getAnimals().get(animalNumber);
         txtZooName = findViewById(R.id.txtAnimalZooName);
         txtBinom = findViewById(R.id.txtAnimalBinom);

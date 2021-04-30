@@ -55,6 +55,8 @@
                 android:id="@+id/rowOutsideDistanceTxt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="20dp"
                 android:text="My Distance from Phone"
                 android:textSize="14sp"
                 android:textStyle="italic"

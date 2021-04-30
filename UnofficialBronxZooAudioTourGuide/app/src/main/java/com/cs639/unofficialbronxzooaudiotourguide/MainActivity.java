@@ -131,9 +131,11 @@ public class MainActivity extends AppCompatActivity  {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.	
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        AllAppData userModel = new ViewModelProvider(this).get(AllAppData.class);
 
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         isMetric = mPreferences.getBoolean(ISMETRIC_KEY, false);
+        userModel.setMetric(isMetric);
         if(isMetric){
             menu.getItem(1).setTitle("Switch to miles");
         } else {
@@ -158,19 +160,17 @@ public class MainActivity extends AppCompatActivity  {
 
         }
         if (id == R.id.action_convert_to_metric) {
-            mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-            isMetric = mPreferences.getBoolean(ISMETRIC_KEY, false);
             AllAppData userModel = new ViewModelProvider(this).get(AllAppData.class);
-
+            isMetric = userModel.isMetric();
             if(isMetric){
-                item.setTitle("Switch to miles");
-                userModel.setMetric(true);
+                item.setTitle("Switch to meters");
+                userModel.setMetric(false);
                 SharedPreferences.Editor preferencesEditor = mPreferences.edit();
                 preferencesEditor.putBoolean(ISMETRIC_KEY, false);
                 preferencesEditor.apply();
             } else  {
-                item.setTitle("Switch to meters");
-                userModel.setMetric(false);
+                item.setTitle("Switch to miles");
+                userModel.setMetric(true);
                 SharedPreferences.Editor preferencesEditor = mPreferences.edit();
                 preferencesEditor.putBoolean(ISMETRIC_KEY, true);
                 preferencesEditor.apply();

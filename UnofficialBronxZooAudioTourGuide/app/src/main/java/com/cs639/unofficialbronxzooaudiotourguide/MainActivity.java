@@ -26,6 +26,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity  {
         });
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         DisplayMetrics myMetric = new DisplayMetrics();
         getDisplay().getRealMetrics(myMetric);
         viewModel.setScreenSize(myMetric.widthPixels);
@@ -125,6 +127,7 @@ public class MainActivity extends AppCompatActivity  {
         viewModel.setMetric(isMetric);
         DialogFragment newFragment = new StartLocationDialogFragment(this);
         newFragment.show(this.getSupportFragmentManager(), "Continue");
+        ((AppCompatActivity) this).getSupportActionBar().setTitle("Bronx Zoo Guide");
 
     }
     @Override

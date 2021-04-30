@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity  {
     private LocationRequest locationRequest;
     private LocationCallback locationCallback;
     private boolean isMetric;
+    private MenuItem metricMenuITem;
     private final String CHECKMARK_KEY = "checkmarks";
     private final String ISMETRIC_KEY = "ismetric";
     private final String CHECKMARKINSIDE_KEY = "checkmarksinside";
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         isMetric = false;
-        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
@@ -119,13 +120,25 @@ public class MainActivity extends AppCompatActivity  {
         viewModel.setStructures(myDataGetter.getStructures());
         viewModel.setAnimalContainerStructures(myDataGetter.getAnimalContainerStructures());
         viewModel.setContext(this);
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        isMetric = mPreferences.getBoolean(ISMETRIC_KEY, false);
+        viewModel.setMetric(isMetric);
         DialogFragment newFragment = new StartLocationDialogFragment(this);
         newFragment.show(this.getSupportFragmentManager(), "Continue");
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.	
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        isMetric = mPreferences.getBoolean(ISMETRIC_KEY, false);
+        if(isMetric){
+            menu.getItem(1).setTitle("Switch to miles");
+        } else {
+            menu.getItem(1).setTitle("Switch to meters");
+        }
         return true;
     }
     @Override
@@ -145,6 +158,23 @@ public class MainActivity extends AppCompatActivity  {
 
         }
         if (id == R.id.action_convert_to_metric) {
+            mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+            isMetric = mPreferences.getBoolean(ISMETRIC_KEY, false);
+            AllAppData userModel = new ViewModelProvider(this).get(AllAppData.class);
+
+            if(isMetric){
+                item.setTitle("Switch to miles");
+                userModel.setMetric(true);
+                SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+                preferencesEditor.putBoolean(ISMETRIC_KEY, false);
+                preferencesEditor.apply();
+            } else  {
+                item.setTitle("Switch to meters");
+                userModel.setMetric(false);
+                SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+                preferencesEditor.putBoolean(ISMETRIC_KEY, true);
+                preferencesEditor.apply();
+            }
 
         }
         return super.onOptionsItemSelected(item);

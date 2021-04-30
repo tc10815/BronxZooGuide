@@ -23,6 +23,7 @@ public class AllAppData extends ViewModel {
     private Animal currentlySelectedAnimal;
     private Structure currentlySelectedStructure;
     private CompassListFragment compassList;
+    private boolean isMetric;
     public Animal getCurrentlySelectedAnimal() {
         return currentlySelectedAnimal;
     }
@@ -176,5 +177,13 @@ public class AllAppData extends ViewModel {
         compassList.sortListByLocation(getCurrentPhoneLocation());
 
     }
+    public boolean isMetric() {
+        return isMetric;
+    }
+
+    public void setMetric(boolean metric) {
+        isMetric = metric;
+    }
+
 
 }

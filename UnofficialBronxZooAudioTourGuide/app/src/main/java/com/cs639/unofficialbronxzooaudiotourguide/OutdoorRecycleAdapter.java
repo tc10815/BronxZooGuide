@@ -25,6 +25,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 
 /**
  * The Recycle Adapter for use with outside Animals
@@ -111,7 +114,12 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
                     Location itemLocation = myAppData.getLocationOf(itemName);
                     Location phoneLocation = myAppData.getCurrentPhoneLocation();
 
+
+
                     if(phoneLocation != null && itemLocation != null){
+                        double distance = phoneLocation.distanceTo(itemLocation);
+                        DecimalFormat df = new DecimalFormat("##");
+                        df.setRoundingMode(RoundingMode.DOWN);
                         double longDiff =  itemLocation.getLongitude() - phoneLocation.getLongitude();
                         double latDiff = itemLocation.getLatitude() - phoneLocation.getLatitude();
                         double currentAngle = Math.toDegrees(myAppData.getAzimuth());
@@ -126,7 +134,13 @@ public class OutdoorRecycleAdapter extends RecyclerView.Adapter<OutdoorRecycleAd
                         String myAngle = ("");
                         int myAngle2 = (int) finalAngle;
                         imgArrow.setRotation(myAngle2 + 90);
-                        txtDistance.setText(phoneLocation.distanceTo(itemLocation) + "");
+                        if(myAppData.isMetric()) {
+                            txtDistance.setText( df.format(distance) + " meters");
+                        } else {
+                            distance = (float) (distance * 0.000621371);
+                            df = new DecimalFormat("##.##");
+                            txtDistance.setText(df.format(distance) +" miles");
+                        }
                         //txtLocation.setText((myAngle + " " + myAngle2));
                     }
                 }

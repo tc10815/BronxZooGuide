@@ -3,7 +3,7 @@
     <resources>
         <bestiary>
             <animal id="1">
-                <zooname>My Home Spot</zooname>
+                <zooname>Southern Pudu</zooname>
                 <commonname id="1">Chilean Pudu</commonname>
                 <binomialnomenclature>Pudu puda</binomialnomenclature>
                 <family>Cervidae</family>
@@ -54,8 +54,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.1514711</latitude>
-                        <longitude>-73.5473577</longitude>
+                        <latitude>40.848938</latitude>
+                        <longitude>-73.879588</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -77,8 +77,8 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="2">
-                <zooname>North</zooname>
-                <binomialnomenclature>North</binomialnomenclature>
+                <zooname>Giraffe</zooname>
+                <binomialnomenclature>Giraffa camelopardalis</binomialnomenclature>
                 <family>Giraffidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
@@ -119,8 +119,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>42.1514711</latitude>
-                        <longitude>-73.5473577</longitude>
+                        <latitude>40.847847</latitude>
+                        <longitude>-73.880372</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -140,7 +140,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="3">
-                <zooname>South</zooname>
+                <zooname>Common Ostrich</zooname>
                 <commonname id="1">African Ostrich</commonname>
                 <binomialnomenclature>Struthio camelus</binomialnomenclature>
                 <family>Struthionidae</family>
@@ -167,8 +167,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>40.1514711</latitude>
-                        <longitude>-73.5473577</longitude>
+                        <latitude>40.8477944</latitude>
+                        <longitude>-73.8804833</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -189,7 +189,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="4">
-                <zooname>East</zooname>
+                <zooname>African Wild Dog</zooname>
                 <binomialnomenclature>Lycaon pictus</binomialnomenclature>
                 <family>Lycaon pictus</family>
                 <class>Mammalia</class>
@@ -213,8 +213,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.1514711</latitude>
-                        <longitude>-72.5473577</longitude>
+                        <latitude>40.847455600000004</latitude>
+                        <longitude>-73.880674999999997</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -239,7 +239,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="5">
-                <zooname>West</zooname>
+                <zooname>Spotted Hyena</zooname>
                 <binomialnomenclature>Crocuta crocuta</binomialnomenclature>
                 <family>Crocuta crocuta</family>
                 <class>Mammalia</class>
@@ -263,8 +263,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.1514711</latitude>
-                        <longitude>-74.5473577</longitude>
+                        <latitude>40.847016699999998</latitude>
+                        <longitude>-73.880799999999994</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -289,7 +289,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="6">
-                <zooname>Tom's Tree</zooname>
+                <zooname>Grevy's Zebra</zooname>
                 <binomialnomenclature>Equus grevyi</binomialnomenclature>
                 <family>Equus grevyi</family>
                 <class>Mammalia</class>
@@ -313,8 +313,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.15133463050036</latitude>
-                        <longitude>-73.54742289270686</longitude>
+                        <latitude>40.846072200000002</latitude>
+                        <longitude>-73.879744400000007</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -339,7 +339,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="7">
-                <zooname>End of Stop sign Line</zooname>
+                <zooname>Slender-horned Gazelle</zooname>
                 <binomialnomenclature>Gazella leptoceros</binomialnomenclature>
                 <family>Gazella leptoceros</family>
                 <class>Mammalia</class>
@@ -363,8 +363,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.15078712509565</latitude>
-                        <longitude>-73.54704240854534</longitude>
+                        <latitude>40.845966699999998</latitude>
+                        <longitude>-73.878986100000006</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -439,8 +439,8 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="9">
-                <zooname>Stamford Parking Lot</zooname>
-                <binomialnomenclature>Stamford Parking Lot</binomialnomenclature>
+                <zooname>Okapi</zooname>
+                <binomialnomenclature>Okapia johnstoni</binomialnomenclature>
                 <family>Okapia johnstoni</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
@@ -463,8 +463,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.08093326856311</latitude>
-                        <longitude>-73.58040398547828</longitude>
+                        <latitude>40.847763899999997</latitude>
+                        <longitude>-73.881136100000006</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -489,7 +489,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="10">
-                <zooname>Greenwich Parking Lot</zooname>
+                <zooname>Red River Hog</zooname>
                 <binomialnomenclature>Potamochoerus porcus</binomialnomenclature>
                 <family>Potamochoerus porcus</family>
                 <class>Mammalia</class>
@@ -513,8 +513,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.08101065383457</latitude>
-                        <longitude>-73.59495670582913</longitude>
+                        <latitude>40.847730599999998</latitude>
+                        <longitude>-73.881280599999997</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -539,7 +539,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="11">
-                <zooname>The Dam in the Trail</zooname>
+                <zooname>De Brazza's Monkey</zooname>
                 <binomialnomenclature>Cercopithecus neglectus</binomialnomenclature>
                 <family>Cercopithecus neglectus</family>
                 <class>Mammalia</class>
@@ -563,8 +563,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.08308086991084</latitude>
-                        <longitude>-73.59251952700689</longitude>
+                        <latitude>40.847730599999998</latitude>
+                        <longitude>-73.881280599999997</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -589,7 +589,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="12">
-                <zooname>Trail Entrance</zooname>
+                <zooname>Lady Amherst's Pheasent</zooname>
                 <binomialnomenclature>Chrysolophus amherstiae</binomialnomenclature>
                 <family>Chrysolophus amherstiae</family>
                 <class>Aves</class>
@@ -613,8 +613,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.0814075191226</latitude>
-                        <longitude>-73.58247697834453</longitude>
+                        <latitude>40.848661100000001</latitude>
+                        <longitude>-73.881397199999995</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -639,7 +639,7 @@
                 <parentstructure>0</parentstructure>
             </animal>
             <animal id="13">
-                <zooname>50 North</zooname>
+                <zooname>Superb Starling</zooname>
                 <binomialnomenclature>Lamprotornis superbus</binomialnomenclature>
                 <family>Lamprotornis superbus</family>
                 <class>Aves</class>
@@ -663,8 +663,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.05884890568944</latitude>
-                        <longitude>-73.54449970731318</longitude>
+                        <latitude>40.848661100000001</latitude>
+                        <longitude>-73.881397199999995</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -1420,8 +1420,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.15179481466456</latitude>
-                        <longitude>-73.54719151215399</longitude>
+                        <latitude>40.848941699999997</latitude>
+                        <longitude>-73.880913899999996</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -3389,8 +3389,8 @@
                 </originalcontent>
                 <viewingpoints>
                     <viewingpoint id="1">
-                        <latitude>41.150851572281304</latitude>
-                        <longitude>-73.54666590496964</longitude>
+                        <latitude>40.848461100000002</latitude>
+                        <longitude>-73.876630599999999</longitude>
                     </viewingpoint>
                 </viewingpoints>
                 <readinglist>
@@ -4266,7 +4266,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Wolf%27s_mona_monkey#/media/File:Wolf's_Mona_Monkey.jpg
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>1</parentstructure>
             </animal>
             <animal id="85">
                 <zooname>Congo Peafowl</zooname>
@@ -4316,7 +4316,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Congo_peafowl#/media/File:Afropavo_congensis_-Antwerp_Zoo_-pair-8a.jpg
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>1</parentstructure>
             </animal>
             <animal id="86">
                 <zooname>Long-tailed Hornbill</zooname>
@@ -4366,7 +4366,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/White-crested_hornbill#/media/File:Tropicranus_albocristatus_-Central_Park_Zoo-6a-4c.jpg
                 </photocredit>
-                <parentstructure>3</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="87">
                 <zooname>Blue-Bellied Roller</zooname>
@@ -4416,7 +4416,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Blue-bellied_roller#/media/File:Blue-bellied_rollers_(Coracias_cyanogaster).jpg
                 </photocredit>
-                <parentstructure>3</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="88">
                 <zooname>Green Woodhoopoe</zooname>
@@ -4466,7 +4466,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Green_wood_hoopoe#/media/File:Green_wood_hoopoe_(Phoeniculus_purpureus_angolensis).jpg
                 </photocredit>
-                <parentstructure>3</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="89">
                 <zooname>Lowland Gorilla</zooname>
@@ -4518,7 +4518,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Western_lowland_gorilla#/media/File:WesternLowlandGorilla03.jpg
                 </photocredit>
-                <parentstructure>3</parentstructure>
+                <parentstructure>2</parentstructure>
             </animal>
             <animal id="90">
                 <zooname>Freckled Monitor</zooname>
@@ -4568,7 +4568,7 @@
                 <photocredit>
                     https://en.wikipedia.org/wiki/Black-headed_monitor#/media/File:Gillenibaumann.JPG
                 </photocredit>
-                <parentstructure>2</parentstructure>
+                <parentstructure>3</parentstructure>
             </animal>
             <animal id="91">
                 <zooname>Yellow Spiny-tailed Monitor</zooname>
@@ -4871,8 +4871,6 @@
                 </photocredit>
                 <parentstructure>3</parentstructure>
             </animal>
-
-
         </bestiary>
         <structures>
             <structure id="1">

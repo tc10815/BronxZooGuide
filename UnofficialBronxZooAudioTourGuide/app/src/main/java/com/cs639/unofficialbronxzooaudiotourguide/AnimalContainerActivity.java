@@ -1,6 +1,7 @@
 package com.cs639.unofficialbronxzooaudiotourguide;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -171,11 +173,18 @@ public class AnimalContainerActivity extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.IndoorRecyclerView);
-        String parentStructureName = parentStructures.get(indexRecived).getContainerName();
+        String parentStructureName = myData.getAnimalContainerStructures().get(indexRecived).getContainerName();
+        ActionBar mActionBar = getSupportActionBar();
+        mActionBar.setBackgroundDrawable(new ColorDrawable(Color.BLACK));
+        mActionBar.setDisplayShowTitleEnabled(false);
+        mActionBar.setDisplayShowTitleEnabled(true);
+        mActionBar.setTitle("Building: " + parentStructureName);
+        mActionBar.setDisplayShowTitleEnabled(true);
+        String addToTop = "";
         if(!filter.equals("")){
-            parentStructureName += " filtering results by '" + filter + "'";
+            addToTop += "filtering results by '" + filter + "'";
         }
-        txtTopText.setText(parentStructureName);
+        txtTopText.setText(addToTop);
 
         ArrayList<Animal> allAnimalsTemp = myData.getAnimals();
         Log.i("TOMDEBUG", "Here: " + allAnimalsTemp.size());

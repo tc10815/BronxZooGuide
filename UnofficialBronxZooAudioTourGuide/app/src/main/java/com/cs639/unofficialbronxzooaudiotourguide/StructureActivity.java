@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 public class StructureActivity extends AppCompatActivity {
     private Structure myStructure;
-    private TextView txtName;
     private TextView txtDesc;
 
     @Override
@@ -22,10 +21,7 @@ public class StructureActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int structureNumber = intent.getIntExtra("structurenumber", 0);
         myStructure = myData.getStructures().get(structureNumber);
-        txtName = findViewById(R.id.txtStructureName);
-        txtDesc = findViewById(R.id.txtStructureDesc);
+        ((AppCompatActivity) this).getSupportActionBar().setTitle(myStructure.getStructureName());
 
-        txtName.setText(myStructure.getStructureName());
-        txtDesc.setText(myStructure.getDescription().get(0));
     }
 }

@@ -75,7 +75,7 @@ Our app would offer a smarter interface than any of these three apps. By using G
 ## 5.	What technologies, APIs etc will you be using to develop this solution? Provide links and explanations.
 - Animal data will be stored locally and included in APK as an XML file
 - Images and audio files will be included in APK, although highly compressed
-- Some kind of tracking (probably Google Analytics)
-- A Map API of some kind (for compasses and/or map)
+- Google Analytics
+- Locations and electromagetic sensors
 - Sound Playing API...
 - Intents will be used to launch web browsers for sources and email if users want to submit information

@@ -423,11 +423,11 @@ public class CompassListFragment extends Fragment  implements SensorEventListene
             startActivity(intent);
         }
         if(isAnimalContainingStructure) {
-//            Intent intent = new Intent(rootView.getContext(), AnimalContainerActivity.class);
-//            setAnimalContainerCheck(checkboxId);
-//            intent.putExtra("parentstructure", idOfItem);
-//            intent.putExtra("filter", filter);
-//            startActivity(intent);
+            Intent intent = new Intent(rootView.getContext(), AnimalBuildingActivity.class);
+            setAnimalContainerCheck(checkboxId);
+            intent.putExtra("parentstructure", idOfItem);
+            intent.putExtra("filter", filter);
+            startActivity(intent);
         }
     }
 

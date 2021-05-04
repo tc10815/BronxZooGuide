@@ -2,6 +2,7 @@ package com.cs639.unofficialbronxzooaudiotourguide;
 
 import android.content.Context;
 import android.location.Location;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -21,25 +22,36 @@ public class BuildingRecycleAdapter extends RecyclerView.Adapter<BuildingRecycle
     CompassListFragment theParent;
     AllAppData myAppData;
     View rowView;
-    public  BuildingRecycleAdapter(Context ct, CompassListFragment myDad, AllAppData theAppData, String[] s1, String[] s2, String[] s3, int[] myimages, int[] myvisibility, int myWidth){
+    public  BuildingRecycleAdapter(Context ct, AllAppData theAppData, String[] s1, String[] s2, String[] s3, int[] myimages, int[] myvisibility){
         context = ct;
         data1 = s1;
         data2 = s2;
         images = myimages;
         visibility = myvisibility;
         myAppData = theAppData;
-        theParent = myDad;
     }
 
     @NonNull
     @Override
     public MyViewHolderBuilding onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.building_animal_row, parent, false);
+        rowView = parent;
         return null;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderBuilding holder, int position) {
-
+        holder.txtZooName.setText(data1[position]);
+        holder.txtBiNom.setText(data2[position]);
+        holder.imgAnimal.setImageResource(images[position]);
+        holder.imgCheck.setVisibility(visibility[position]);
+        holder.parentLayout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                myAppData.compassViewClicked(position);
+            }
+        });
     }
 
     @Override
@@ -56,7 +68,7 @@ public class BuildingRecycleAdapter extends RecyclerView.Adapter<BuildingRecycle
             txtZooName = itemView.findViewById(R.id.rowBuildingAnimalNameTxt);
             txtBiNom = itemView.findViewById(R.id.rowBuildingAnimalBiNomTxt);
             imgAnimal = itemView.findViewById(R.id.rowBuildingAnimalImg);
-            imgCheck = itemView.findViewById(R.id.imgCheckbox);
+            imgCheck = itemView.findViewById(R.id.imgBuildingCheckbox);
             parentLayout = itemView.findViewById(R.id.parentLayout);
             // Create the observer which updates the UI.
             final Observer<String> locationObserver = new Observer<String>() {

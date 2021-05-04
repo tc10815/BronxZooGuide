@@ -1,4 +1,4 @@
-# Unofficial Bronx Zoo Audio Tour
+#  Bronx Zoo Guide: An Unofficial Tour
 
 Many museums have cheap digital audio tours where you use an app or device where you enter numbers at stations to listen to more info about what you’re looking at. In NYC the Met (https://www.metmuseum.org/visit/audio-guide) and MoMA have great ones; also in France there are bunch of great ones in the Loire Valley.
 

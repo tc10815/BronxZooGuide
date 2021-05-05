@@ -20,10 +20,9 @@ public class BuildingRecycleAdapter extends RecyclerView.Adapter<BuildingRecycle
     String data1[], data2[];
     int images[], visibility[];
     Context context;
-    Activity theParent;
-    AllAppData myAppData;
+    AnimalBuildingActivity theParent;
     View rowView;
-    public  BuildingRecycleAdapter(Context ct, String[] s1, String[] s2, int[] myimages, int[] myvisibility, Activity myDad){
+    public  BuildingRecycleAdapter(Context ct, String[] s1, String[] s2, int[] myimages, int[] myvisibility, AnimalBuildingActivity myDad){
         context = ct;
         data1 = s1;
         data2 = s2;
@@ -47,12 +46,12 @@ public class BuildingRecycleAdapter extends RecyclerView.Adapter<BuildingRecycle
         holder.txtBiNom.setText(data2[position]);
         holder.imgAnimal.setImageResource(images[position]);
         holder.imgCheck.setVisibility(visibility[position]);
-//        holder.parentLayout.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//               // myAppData.compassViewClicked(position);
-//            }
-//        });
+        holder.parentLayout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                theParent.listClickedOn(position);
+            }
+        });
     }
 
     @Override
@@ -70,19 +69,7 @@ public class BuildingRecycleAdapter extends RecyclerView.Adapter<BuildingRecycle
             txtBiNom = itemView.findViewById(R.id.rowBuildingAnimalBiNomTxt);
             imgAnimal = itemView.findViewById(R.id.rowBuildingAnimalImg);
             imgCheck = itemView.findViewById(R.id.imgBuildingCheckbox);
-            parentLayout = itemView.findViewById(R.id.parentLayout);
-            // Create the observer which updates the UI.
-            final Observer<String> locationObserver = new Observer<String>() {
-                @Override
-                public void onChanged(@Nullable final String newLocation) {
-                    // Update the UI, in this case, a TextView.
-                    String itemName = txtZooName.getText().toString();
-                    Location itemLocation = myAppData.getLocationOf(itemName);
-                    Location phoneLocation = myAppData.getCurrentPhoneLocation();
-
-                }
-            };
-
+            parentLayout = itemView.findViewById(R.id.buildingLayout);
         }
     }
 }

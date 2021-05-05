@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +31,7 @@ public class AnimalBuildingActivity extends AppCompatActivity {
     private TextView txtInfoText;
     private int myStructureId;
     private RecyclerView recyclerView;
-    private ArrayList<Animal> animalsListed;
+    private ArrayList<Animal> animalsWorking;
     int images[] =
             {
                     R.drawable.a1,
@@ -134,13 +135,12 @@ public class AnimalBuildingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ArrayList<Animal> animalsListed = new ArrayList<Animal>();
         setContentView(R.layout.activity_animal_building);
         txtInfoText = findViewById(R.id.txtBuildingInfo);
         XMLDataGetter allData = new XMLDataGetter(this);
         ArrayList<AnimalContainerStructure> parentStructures = allData.getAnimalContainerStructures();
-        animalsListed = new ArrayList<Animal>();
         ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
-        Bundle myBundle = this.getIntent().getExtras();
         Intent myIntent = this.getIntent();
         myStructureId = myIntent.getIntExtra("parentstructure", 0);
         filter = myIntent.getStringExtra("filter");
@@ -160,7 +160,7 @@ public class AnimalBuildingActivity extends AppCompatActivity {
             addToTop += "filtering results by '" + filter + "'";
         }
         txtInfoText.setText(addToTop);
-        ArrayList<Animal> animalsWorking = allData.getAnimals();
+        animalsWorking = allData.getAnimals();
         for(int iter = 0; iter < animalsWorking.size(); iter++) {
             if (animalsWorking.get(iter).getParentStructure() == myStructureId + 2) {
                 if (filter.equals("") || animalsWorking.get(iter).matchesFilter(filter)) {
@@ -198,9 +198,26 @@ public class AnimalBuildingActivity extends AppCompatActivity {
         }
         Log.i("TOMDEBUG","SIZES ARE " + recycleData.length + " " + recycleData2.length + " " + imagesRecycleData.length);
         mAdapter = new BuildingRecycleAdapter(this, recycleData, recycleData2, imagesRecycleData, newNewChecked, this);
+        s1 = recycleData;
         myLinearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(myLinearLayoutManager);
         recyclerView.setAdapter(mAdapter);
 
     }
+
+    public void listClickedOn(int animalNumber) {
+        int animalToLaunch = animalNumber;
+        String animalName = s1[animalNumber];
+        for(int i = 0; i < animalsWorking.size(); i++){
+            if(animalsWorking.get(i).getZooName().equals(animalName)){
+                animalToLaunch = i;
+            }
+
+        }
+        Intent intent = new Intent(this, AnimalActivity.class);
+        //setAnimalCheck(idOfItem);
+        intent.putExtra("animalnumber", animalToLaunch);
+        startActivity(intent);
+    }
+
 }

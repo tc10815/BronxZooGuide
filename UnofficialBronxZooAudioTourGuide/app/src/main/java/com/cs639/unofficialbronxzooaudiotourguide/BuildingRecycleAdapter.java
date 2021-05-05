@@ -1,5 +1,6 @@
 package com.cs639.unofficialbronxzooaudiotourguide;
 
+import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
 import android.view.LayoutInflater;
@@ -19,16 +20,16 @@ public class BuildingRecycleAdapter extends RecyclerView.Adapter<BuildingRecycle
     String data1[], data2[];
     int images[], visibility[];
     Context context;
-    CompassListFragment theParent;
+    Activity theParent;
     AllAppData myAppData;
     View rowView;
-    public  BuildingRecycleAdapter(Context ct, AllAppData theAppData, String[] s1, String[] s2, String[] s3, int[] myimages, int[] myvisibility){
+    public  BuildingRecycleAdapter(Context ct, String[] s1, String[] s2, int[] myimages, int[] myvisibility, Activity myDad){
         context = ct;
         data1 = s1;
         data2 = s2;
         images = myimages;
         visibility = myvisibility;
-        myAppData = theAppData;
+        theParent = myDad;
     }
 
     @NonNull
@@ -37,7 +38,7 @@ public class BuildingRecycleAdapter extends RecyclerView.Adapter<BuildingRecycle
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.building_animal_row, parent, false);
         rowView = parent;
-        return null;
+        return new MyViewHolderBuilding(view);
     }
 
     @Override
@@ -46,17 +47,17 @@ public class BuildingRecycleAdapter extends RecyclerView.Adapter<BuildingRecycle
         holder.txtBiNom.setText(data2[position]);
         holder.imgAnimal.setImageResource(images[position]);
         holder.imgCheck.setVisibility(visibility[position]);
-        holder.parentLayout.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                myAppData.compassViewClicked(position);
-            }
-        });
+//        holder.parentLayout.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//               // myAppData.compassViewClicked(position);
+//            }
+//        });
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data1.length;
     }
 
     public class MyViewHolderBuilding extends RecyclerView.ViewHolder  {
@@ -81,9 +82,6 @@ public class BuildingRecycleAdapter extends RecyclerView.Adapter<BuildingRecycle
 
                 }
             };
-
-            // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
-            myAppData.getCurrentLocation().observe(theParent, locationObserver);
 
         }
     }

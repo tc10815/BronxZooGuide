@@ -22,6 +22,7 @@ public class AnimalActivity extends AppCompatActivity {
             "com.cs639.unofficialbronxzooaudiotourguide";
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +32,6 @@ public class AnimalActivity extends AppCompatActivity {
         String filter = myIntent.getStringExtra("filter");
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         String animalName = allData.getAnimals().get(myAnimalId).getZooName();
-        Log.i("TOMDEBUG", "Animal name is " + animalName);
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.setBackgroundDrawable(new ColorDrawable(Color.BLACK));
         mActionBar.setDisplayShowTitleEnabled(false);

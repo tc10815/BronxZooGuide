@@ -251,31 +251,7 @@ public class AnimalBuildingActivity extends AppCompatActivity {
 
     @Override
     protected void onRestart() {
-//        ArrayList<AnimalContainerStructure> parentStructures = allData.getAnimalContainerStructures();
-//        ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
         ArrayList<Animal> animalsListed = allData.getAnimals();
-//        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-//        checkmarkStr = mPreferences.getString(CHECKMARK_BUILDING_KEY, "uuuuuuuuuuuuuuuuu" +
-//                "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" +
-//                "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
-//
-//        animalsWorking = allData.getAnimals();
-//        for(int iter = 0; iter < animalsWorking.size(); iter++) {
-//            if (animalsWorking.get(iter).getParentStructure() == myStructureId + 2) {
-//                if (filter.equals("") || animalsWorking.get(iter).matchesFilter(filter)) {
-//                    animalsListed.add(animalsWorking.get(iter));
-//                    imagesOfItems.add(images[iter]);
-//                }
-//            }
-//        }
-//        int[] imagesRecycleData = new int[imagesOfItems.size()];
-//        String[] recycleData = new String[animalsListed.size()];
-//        String[] recycleData2 = new String[animalsListed.size()];
-//        for (int iter = 0; iter < animalsListed.size(); iter++){
-//            recycleData[iter] = animalsListed.get(iter).getZooName();
-//            recycleData2[iter] = animalsListed.get(iter).getBinomialNomenclature();
-//            imagesRecycleData[iter] = imagesOfItems.get(iter);
-//        }
         int[] newNewChecked = new int[s1.length];
         for(int it = 0; it < newNewChecked.length; it++){
             newNewChecked[it] = View.INVISIBLE;

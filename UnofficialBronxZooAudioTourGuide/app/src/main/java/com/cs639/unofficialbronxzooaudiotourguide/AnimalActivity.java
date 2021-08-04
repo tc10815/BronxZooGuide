@@ -44,15 +44,17 @@ public class AnimalActivity extends AppCompatActivity {
         mActionBar.setDisplayShowTitleEnabled(true);
 
         //Get different items in view
-        TextView txtNaturallocation = 
+        TextView txtNaturallocation = findViewById(R.id.txtNaturallocation);
+        TextView txtFamily = findViewById(R.id.txtFamily);
+        TextView txtClass = findViewById(R.id.txtClass);
+        TextView txtBinom = findViewById(R.id.txtBinomialNomenclature);
 
         for(int x = 0; x < myAnimals.size();x++){
             if ( myAnimals.get(x).getZooName().equals(animalName)){
-                Log.e("long", "name status: " + myAnimals.get(x).getZooName());
-                Log.e("long", "binom nom status: " + myAnimals.get(x).getBinomialNomenclature());
-                Log.e("long", "family status: " + myAnimals.get(x).getFamily());
-                Log.e("long", "class status: " + myAnimals.get(x).getAnimalClass());
-                Log.e("long", "concerveration status: " + myAnimals.get(x).getConservationStatus());
+                txtBinom.setText(myAnimals.get(x).getBinomialNomenclature());
+                txtFamily.setText(myAnimals.get(x).getFamily());
+                txtNaturallocation.setText(myAnimals.get(x).getNaturalLocation());
+                txtClass.setText(myAnimals.get(x).getAnimalClass());
             }
         }
     }

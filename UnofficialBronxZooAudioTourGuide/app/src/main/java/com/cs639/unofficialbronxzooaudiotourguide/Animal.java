@@ -66,6 +66,8 @@ public class Animal {
 
     public void setFamily(String family) {
         this.family = family;
+        Log.e("animalfamily", "family is set as " + family);
+
     }
 
     public String getAnimalClass() {

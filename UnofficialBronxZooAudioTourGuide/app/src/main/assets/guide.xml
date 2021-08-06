@@ -191,7 +191,7 @@
             <animal id="4">
                 <zooname>African Wild Dog</zooname>
                 <binomialnomenclature>Lycaon pictus</binomialnomenclature>
-                <family>Lycaon pictus</family>
+                <family>Canidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -241,7 +241,7 @@
             <animal id="5">
                 <zooname>Spotted Hyena</zooname>
                 <binomialnomenclature>Crocuta crocuta</binomialnomenclature>
-                <family>Crocuta crocuta</family>
+                <family>Hyaenidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -291,7 +291,7 @@
             <animal id="6">
                 <zooname>Grevy's Zebra</zooname>
                 <binomialnomenclature>Equus grevyi</binomialnomenclature>
-                <family>Equus grevyi</family>
+                <family>Equidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -341,7 +341,7 @@
             <animal id="7">
                 <zooname>Slender-horned Gazelle</zooname>
                 <binomialnomenclature>Gazella leptoceros</binomialnomenclature>
-                <family>Gazella leptoceros</family>
+                <family>Bovidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -391,7 +391,7 @@
             <animal id="8">
                 <zooname>Black-and-white colobus</zooname>
                 <binomialnomenclature>Colobus guereza</binomialnomenclature>
-                <family>Colobus guereza</family>
+                <family>Cercopithecidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -441,7 +441,7 @@
             <animal id="9">
                 <zooname>Okapi</zooname>
                 <binomialnomenclature>Okapia johnstoni</binomialnomenclature>
-                <family>Okapia johnstoni</family>
+                <family>Giraffidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -491,7 +491,7 @@
             <animal id="10">
                 <zooname>Red River Hog</zooname>
                 <binomialnomenclature>Potamochoerus porcus</binomialnomenclature>
-                <family>Potamochoerus porcus</family>
+                <family>Suidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -540,7 +540,7 @@
             </animal>
             <animal id="11">
                 <zooname>De Brazza's Monkey</zooname>
-                <binomialnomenclature>Cercopithecus neglectus</binomialnomenclature>
+                <binomialnomenclature>Cercopithecidae</binomialnomenclature>
                 <family>Cercopithecus neglectus</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
@@ -591,7 +591,7 @@
             <animal id="12">
                 <zooname>Lady Amherst's Pheasent</zooname>
                 <binomialnomenclature>Chrysolophus amherstiae</binomialnomenclature>
-                <family>Chrysolophus amherstiae</family>
+                <family>Phasianidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -641,7 +641,7 @@
             <animal id="13">
                 <zooname>Superb Starling</zooname>
                 <binomialnomenclature>Lamprotornis superbus</binomialnomenclature>
-                <family>Lamprotornis superbus</family>
+                <family>Sturnidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -691,7 +691,7 @@
             <animal id="14">
                 <zooname>Blue Whistling Thrush</zooname>
                 <binomialnomenclature>Myophonus caeruleus</binomialnomenclature>
-                <family>Myophonus caeruleus</family>
+                <family>Muscicapidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -741,8 +741,8 @@
             <animal id="15">
                 <zooname>Kenya Crested Guineafowl</zooname>
                 <binomialnomenclature>Guttera pucherani</binomialnomenclature>
-                <family>Guttera pucherani</family>
-                <class>Aves</class>
+                <family>Numididae</family>
+                <class>Aves</class>Guttera pucherani
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
                     open forest, woodland and forest-savanna mosaics in Sub-Saharan Africa
@@ -791,7 +791,7 @@
             <animal id="16">
                 <zooname>Azure-winged Magpie</zooname>
                 <binomialnomenclature>Cyanopica cyanus</binomialnomenclature>
-                <family>Cyanopica cyanus</family>
+                <family>Corvidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -842,7 +842,7 @@
             <animal id="17">
                 <zooname>Plush-crested Jay</zooname>
                 <binomialnomenclature>Cyanocorax chrysops</binomialnomenclature>
-                <family>Cyanocorax chrysops</family>
+                <family>Corvidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -892,7 +892,7 @@
             <animal id="18">
                 <zooname>Australian Magpie</zooname>
                 <binomialnomenclature>Gymnorhina tibicen</binomialnomenclature>
-                <family>Gymnorhina tibicen</family>
+                <family>Artamidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -942,7 +942,7 @@
             <animal id="19">
                 <zooname>Yellow-crested Cockatoo</zooname>
                 <binomialnomenclature>Cacatua sulphurea</binomialnomenclature>
-                <family>Cacatua sulphurea</family>
+                <family>Cacatuidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Critically Endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -993,7 +993,7 @@
             <animal id="20">
                 <zooname>Cabot's Tragopan</zooname>
                 <binomialnomenclature>Tragopan caboti</binomialnomenclature>
-                <family>Tragopan caboti</family>
+                <family>Phasianidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -1043,7 +1043,7 @@
             <animal id="21">
                 <zooname>Lord Derby's Parakeet</zooname>
                 <binomialnomenclature>Psittacula derbiana</binomialnomenclature>
-                <family>Psittacula derbiana</family>
+                <family>Psittaculidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Near Threatened</IUCNConservationStatus>
                 <naturallocation>
@@ -1095,7 +1095,7 @@
             <animal id="22">
                 <zooname>Swinhoe's Pheasant</zooname>
                 <binomialnomenclature>Lophura swinhoii</binomialnomenclature>
-                <family>Lophura swinhoii</family>
+                <family>Phasianidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Near Threatened</IUCNConservationStatus>
                 <naturallocation>
@@ -1145,7 +1145,7 @@
             <animal id="23">
                 <zooname>Red-legged Seriema</zooname>
                 <binomialnomenclature>Cariama cristata</binomialnomenclature>
-                <family>Cariama cristata</family>
+                <family>Cariamidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -1245,7 +1245,7 @@
             <animal id="25">
                 <zooname>Blue Magpie</zooname>
                 <binomialnomenclature>Urocissa erythroryncha</binomialnomenclature>
-                <family>Urocissa erythroryncha</family>
+                <family>Corvidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -1295,7 +1295,7 @@
             <animal id="26">
                 <zooname>Australian Magpie</zooname>
                 <binomialnomenclature>Gymnorhina tibicen</binomialnomenclature>
-                <family>Gymnorhina tibicen</family>
+                <family>Artamidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -1345,7 +1345,7 @@
             <animal id="27">
                 <zooname>Chilean Flamingo</zooname>
                 <binomialnomenclature>Phoenicopterus chilensis</binomialnomenclature>
-                <family>Phoenicopterus chilensis</family>
+                <family>Phoenicopteridae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Near Threatened</IUCNConservationStatus>
                 <naturallocation>
@@ -1395,7 +1395,7 @@
             <animal id="28">
                 <zooname>Canada Goose</zooname>
                 <binomialnomenclature>Branta canadensis</binomialnomenclature>
-                <family>Branta canadensis</family>
+                <family>Anatidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -1448,7 +1448,7 @@
             <animal id="29">
                 <zooname>White Rhinoceros</zooname>
                 <binomialnomenclature>Ceratotherium simum</binomialnomenclature>
-                <family>Ceratotherium simum</family>
+                <family>Rhinocerotidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Near threatened</IUCNConservationStatus>
                 <naturallocation>
@@ -1498,7 +1498,7 @@
             <animal id="30">
                 <zooname>California Sea Lion</zooname>
                 <binomialnomenclature>Zalophus californianus</binomialnomenclature>
-                <family>Zalophus californianus</family>
+                <family>Otariidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -1548,7 +1548,7 @@
             <animal id="31">
                 <zooname>Himalayan Monal</zooname>
                 <binomialnomenclature>Lophophorus impejanus</binomialnomenclature>
-                <family>Lophophorus impejanus</family>
+                <family>Phasianidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -1599,7 +1599,7 @@
             <animal id="32">
                 <zooname>White-crested Laughingthrush</zooname>
                 <binomialnomenclature>Garrulax leucolophus</binomialnomenclature>
-                <family>Garrulax leucolophus</family>
+                <family>Leiothrichidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -1649,7 +1649,7 @@
             <animal id="33">
                 <zooname>Black-faced Ibus</zooname>
                 <binomialnomenclature>Theristicus melanopis</binomialnomenclature>
-                <family>Theristicus melanopis</family>
+                <family>Threskiornithidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -1699,7 +1699,7 @@
             <animal id="34">
                 <zooname>Painted Turtle</zooname>
                 <binomialnomenclature>Chrysemys picta</binomialnomenclature>
-                <family>Chrysemys picta</family>
+                <family>Emydidae</family>
                 <class>Reptilia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -1749,7 +1749,7 @@
             <animal id="35">
                 <zooname>Red-eared Slider</zooname>
                 <binomialnomenclature>Trachemys scripta elegans</binomialnomenclature>
-                <family>Trachemys scripta elegans</family>
+                <family>Emydidae</family>
                 <class>Reptilia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -1798,7 +1798,7 @@
             </animal>
             <animal id="36">
                 <zooname>Common Musk Turtle</zooname>
-                <binomialnomenclature>Sternotherus odoratus</binomialnomenclature>
+                <binomialnomenclature>Kinosternidae</binomialnomenclature>
                 <family>Sternotherus odoratus</family>
                 <class>Reptilia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
@@ -1849,7 +1849,7 @@
             <animal id="37">
                 <zooname>Common Snapping Turtle</zooname>
                 <binomialnomenclature>Chelydra serpentina</binomialnomenclature>
-                <family>Chelydra serpentina</family>
+                <family>Chelydridae</family>
                 <class>Reptilia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -1900,7 +1900,7 @@
             <animal id="38">
                 <zooname>Giant Panda</zooname>
                 <binomialnomenclature>Ailuropoda melanoleuca</binomialnomenclature>
-                <family>Ailuropoda melanoleuca</family>
+                <family>Ursidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -1950,7 +1950,7 @@
             <animal id="39">
                 <zooname>American Black Bear</zooname>
                 <binomialnomenclature>Ursus americanus</binomialnomenclature>
-                <family>Ursus americanus</family>
+                <family>Ursidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2000,7 +2000,7 @@
             <animal id="40">
                 <zooname>Asian Black Bear</zooname>
                 <binomialnomenclature>Ursus thibetanus</binomialnomenclature>
-                <family>Ursus thibetanus</family>
+                <family>Ursidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -2052,7 +2052,7 @@
             <animal id="41">
                 <zooname>Spectacled Bear</zooname>
                 <binomialnomenclature>Tremarctos ornatus</binomialnomenclature>
-                <family>Tremarctos ornatus</family>
+                <family>Carnivora</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -2103,7 +2103,7 @@
             <animal id="42">
                 <zooname>Sun Bear</zooname>
                 <binomialnomenclature>Helarctos malayanus</binomialnomenclature>
-                <family>Helarctos malayanus</family>
+                <family>Ursidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -2152,7 +2152,7 @@
             <animal id="43">
                 <zooname>Sloth Bear</zooname>
                 <binomialnomenclature>Melursus ursinus</binomialnomenclature>
-                <family>Melursus ursinus</family>
+                <family>Ursidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -2202,7 +2202,7 @@
             <animal id="44">
                 <zooname>Brown Bear</zooname>
                 <binomialnomenclature>Ursus arctos</binomialnomenclature>
-                <family>Ursus arctos</family>
+                <family>Ursidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2255,7 +2255,7 @@
             <animal id="45">
                 <zooname>Polar Bear</zooname>
                 <binomialnomenclature>Ursus maritimus</binomialnomenclature>
-                <family>Ursus maritimus</family>
+                <family>Ursidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -2306,7 +2306,7 @@
             <animal id="46">
                 <zooname>American Bison</zooname>
                 <binomialnomenclature>Bison bison</binomialnomenclature>
-                <family>Bison bison</family>
+                <family>Bovidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Near Threatened</IUCNConservationStatus>
                 <naturallocation></naturallocation>
@@ -2354,7 +2354,7 @@
             <animal id="47">
                 <zooname>Blue Jay</zooname>
                 <binomialnomenclature>Cyanocitta cristata</binomialnomenclature>
-                <family>Cyanocitta cristata</family>
+                <family>Corvidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2405,7 +2405,7 @@
             <animal id="48">
                 <zooname>Northern Cardinal</zooname>
                 <binomialnomenclature>Cardinalis cardinalis</binomialnomenclature>
-                <family>Cardinalis cardinalis</family>
+                <family>Cardinalidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2456,7 +2456,7 @@
             <animal id="49">
                 <zooname>Downy Woodpecker</zooname>
                 <binomialnomenclature>Dryobates pubescens</binomialnomenclature>
-                <family>Dryobates pubescens</family>
+                <family>Picidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2506,7 +2506,7 @@
             <animal id="50">
                 <zooname>Northern Mockisgbird</zooname>
                 <binomialnomenclature>Mimus polyglottos</binomialnomenclature>
-                <family>Mimus polyglottos</family>
+                <family>Mimidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2556,7 +2556,7 @@
             <animal id="51">
                 <zooname>White-breast Nuthatch</zooname>
                 <binomialnomenclature>Sitta carolinensis</binomialnomenclature>
-                <family>Sitta carolinensis</family>
+                <family>Sittidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2606,7 +2606,7 @@
             <animal id="52">
                 <zooname>Ovenbird</zooname>
                 <binomialnomenclature>Seiurus aurocapilla</binomialnomenclature>
-                <family>Seiurus aurocapilla</family>
+                <family>Parulidae</family>
                 <class></class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2657,7 +2657,7 @@
             <animal id="53">
                 <zooname>Wood Thrush</zooname>
                 <binomialnomenclature>Hylocichla mustelina</binomialnomenclature>
-                <family>Hylocichla mustelina</family>
+                <family>Turdidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2708,7 +2708,7 @@
             <animal id="54">
                 <zooname>Baltimore Oriole</zooname>
                 <binomialnomenclature>Icterus galbula</binomialnomenclature>
-                <family>Icterus galbula</family>
+                <family>Icteridae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2761,7 +2761,7 @@
             <animal id="55">
                 <zooname>Black-and-white Warbler</zooname>
                 <binomialnomenclature>Mniotilta varia</binomialnomenclature>
-                <family>Mniotilta varia</family>
+                <family>Parulidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2812,7 +2812,7 @@
             <animal id="56">
                 <zooname>Gray Catbird</zooname>
                 <binomialnomenclature>Dumetella carolinensis</binomialnomenclature>
-                <family>Dumetella carolinensis</family>
+                <family>Mimidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -2861,10 +2861,10 @@
                 </photocredit>
                 <parentstructure>0</parentstructure>
             </animal>
-            <animal id="57">
+			<animal>
                 <zooname>White-naped crane</zooname>
                 <binomialnomenclature>Grus vipio</binomialnomenclature>
-                <family>Grus vipio</family>
+                <family>Gruidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -2914,7 +2914,7 @@
             <animal id="58">
                 <zooname>Dhole</zooname>
                 <binomialnomenclature>Cuon alpinus</binomialnomenclature>
-                <family>Cuon alpinus</family>
+                <family>Canidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -2964,7 +2964,7 @@
             <animal id="59">
                 <zooname>Ruddy Duck</zooname>
                 <binomialnomenclature>Oxyura jamaicensis</binomialnomenclature>
-                <family>Oxyura jamaicensis</family>
+                <family>Anatidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3014,7 +3014,7 @@
             <animal id="60">
                 <zooname>Canvasback</zooname>
                 <binomialnomenclature>Aythya valisineria</binomialnomenclature>
-                <family>Aythya valisineria</family>
+                <family>Anatidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3064,7 +3064,7 @@
             <animal id="61">
                 <zooname>Hooded Merganser</zooname>
                 <binomialnomenclature>Lophodytes cucullatus</binomialnomenclature>
-                <family>Lophodytes cucullatus</family>
+                <family>Anatidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3114,7 +3114,7 @@
             <animal id="62">
                 <zooname>Lesser Scaup</zooname>
                 <binomialnomenclature>Aythya affinis</binomialnomenclature>
-                <family>Aythya affinis</family>
+                <family>Anatidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3164,7 +3164,7 @@
             <animal id="63">
                 <zooname>Wood Duck</zooname>
                 <binomialnomenclature>Aix sponsa</binomialnomenclature>
-                <family>Aix sponsa</family>
+                <family>Anatidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3215,7 +3215,7 @@
             <animal id="64">
                 <zooname>Common Golden-eye</zooname>
                 <binomialnomenclature>Bucephala clangula</binomialnomenclature>
-                <family>Bucephala clangula</family>
+                <family>Anatidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3266,7 +3266,7 @@
             <animal id="65">
                 <zooname>Tiger</zooname>
                 <binomialnomenclature>Panthera tigris</binomialnomenclature>
-                <family>Panthera tigris</family>
+                <family>Felidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -3317,7 +3317,7 @@
             <animal id="66">
                 <zooname>Pere David's Deer</zooname>
                 <binomialnomenclature>Elaphurus davidianus</binomialnomenclature>
-                <family>Elaphurus davidianus</family>
+                <family>Cervidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Extinct In the Wild</IUCNConservationStatus>
                 <naturallocation>
@@ -3367,7 +3367,7 @@
             <animal id="67">
                 <zooname>Red Panda</zooname>
                 <binomialnomenclature>Ailurus fulgens</binomialnomenclature>
-                <family>Ailurus fulgens</family>
+                <family>Ailuridae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -3417,7 +3417,7 @@
             <animal id="68">
                 <zooname>Snow Leopard</zooname>
                 <binomialnomenclature>Panthera uncia</binomialnomenclature>
-                <family>Panthera uncia</family>
+                <family>Felidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -3468,7 +3468,7 @@
             <animal id="69">
                 <zooname>African Lion</zooname>
                 <binomialnomenclature>Panthera leo</binomialnomenclature>
-                <family>Panthera leo</family>
+                <family>Felidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -3519,7 +3519,7 @@
             <animal id="70">
                 <zooname>Marabou Stork</zooname>
                 <binomialnomenclature>Leptoptilos crumenifer</binomialnomenclature>
-                <family>Leptoptilos crumenifer</family>
+                <family>Ciconiidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3571,7 +3571,7 @@
             <animal id="71">
                 <zooname>Grey Crowned Crane</zooname>
                 <binomialnomenclature>Balearica regulorum</binomialnomenclature>
-                <family>Balearica regulorum</family>
+                <family>Gruidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -3621,7 +3621,7 @@
             <animal id="72">
                 <zooname>Blue-winged Goose</zooname>
                 <binomialnomenclature>Cyanochen cyanoptera</binomialnomenclature>
-                <family>Cyanochen cyanoptera</family>
+                <family>Anatidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -3671,7 +3671,7 @@
             <animal id="73">
                 <zooname>Nyala</zooname>
                 <binomialnomenclature>Tragelaphus angasii</binomialnomenclature>
-                <family>Tragelaphus angasii</family>
+                <family>Bovidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3719,7 +3719,7 @@
             <animal id="74">
                 <zooname>Indian Peafowl</zooname>
                 <binomialnomenclature>Pavo cristatus</binomialnomenclature>
-                <family>Pavo cristatus</family>
+                <family>Phasianidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3769,7 +3769,7 @@
             <animal id="75">
                 <zooname>Red-flanked Duiker</zooname>
                 <binomialnomenclature>Cephalophus rufilatus</binomialnomenclature>
-                <family>Cephalophus rufilatus</family>
+                <family>Bovidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3819,7 +3819,7 @@
             <animal id="76">
                 <zooname>Congo Tetra</zooname>
                 <binomialnomenclature>Phenacogrammus interruptus</binomialnomenclature>
-                <family>Phenacogrammus interruptus</family>
+                <family>Alestidae</family>
                 <class>Actinopterygii</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3869,7 +3869,7 @@
             <animal id="77">
                 <zooname>Decorus Catfish</zooname>
                 <binomialnomenclature>Synodontis decorus</binomialnomenclature>
-                <family>Synodontis decorus</family>
+                <family>Mochokidae</family>
                 <class>Actinopterygii</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3919,7 +3919,7 @@
             <animal id="78">
                 <zooname>Blunthead Cichlid</zooname>
                 <binomialnomenclature>Tropheus moorii</binomialnomenclature>
-                <family>Tropheus moorii</family>
+                <family>Cichlidae</family>
                 <class>Actinopterygii</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -3969,7 +3969,7 @@
             <animal id="79">
                 <zooname>Blue Neon Cichlid</zooname>
                 <binomialnomenclature>Paracyprichromis nigripinnis</binomialnomenclature>
-                <family>Paracyprichromis nigripinnis</family>
+                <family>Cichlidae</family>
                 <class>Actinopterygii</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -4019,7 +4019,7 @@
             <animal id="80">
                 <zooname>Humphead Cichlid</zooname>
                 <binomialnomenclature>Cyphotilapia frontosa</binomialnomenclature>
-                <family>Cyphotilapia frontosa</family>
+                <family>Cichlidae</family>
                 <class>Actinopterygii</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -4069,7 +4069,7 @@
             <animal id="81">
                 <zooname>African Lungfish</zooname>
                 <binomialnomenclature>Protopterus annectens</binomialnomenclature>
-                <family>Protopterus annectens</family>
+                <family>Lepidosirenidae</family>
                 <class>Sarcopterygii</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -4119,7 +4119,7 @@
             <animal id="82">
                 <zooname>White Spot Assassin Bug</zooname>
                 <binomialnomenclature>Platymeris biguttatus</binomialnomenclature>
-                <family>Platymeris biguttatus</family>
+                <family>Reduviidae</family>
                 <class>Insecta</class>
                 <IUCNConservationStatus>Unknown</IUCNConservationStatus>
                 <naturallocation>
@@ -4169,7 +4169,7 @@
             <animal id="83">
                 <zooname>Dwarf African Clawed Frog</zooname>
                 <binomialnomenclature>Hymenochirus boettgeri</binomialnomenclature>
-                <family>Hymenochirus boettgeri</family>
+                <family>Pipidae</family>
                 <class>Amphibia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -4219,7 +4219,7 @@
             </animal>
             <animal id="84">
                 <zooname>Wolf's Monkey</zooname>
-                <binomialnomenclature>Cercopithecus wolfi</binomialnomenclature>
+                <binomialnomenclature>Cercopithecidae</binomialnomenclature>
                 <family>Cercopithecus wolfi</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Near threatened</IUCNConservationStatus>
@@ -4271,7 +4271,7 @@
             <animal id="85">
                 <zooname>Congo Peafowl</zooname>
                 <binomialnomenclature>Afropavo congensis</binomialnomenclature>
-                <family>Afropavo congensis</family>
+                <family>Phasianidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -4321,7 +4321,7 @@
             <animal id="86">
                 <zooname>Long-tailed Hornbill</zooname>
                 <binomialnomenclature>Horizocerus albocristatus</binomialnomenclature>
-                <family>Horizocerus albocristatus</family>
+                <family>Bucerotidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least concern</IUCNConservationStatus>
                 <naturallocation>
@@ -4371,7 +4371,7 @@
             <animal id="87">
                 <zooname>Blue-Bellied Roller</zooname>
                 <binomialnomenclature>Coracias cyanogaster</binomialnomenclature>
-                <family>Coracias cyanogaster</family>
+                <family>Coraciidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -4421,7 +4421,7 @@
             <animal id="88">
                 <zooname>Green Woodhoopoe</zooname>
                 <binomialnomenclature>Phoeniculus purpureus</binomialnomenclature>
-                <family>Phoeniculus purpureus</family>
+                <family>Phoeniculidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -4471,7 +4471,7 @@
             <animal id="89">
                 <zooname>Lowland Gorilla</zooname>
                 <binomialnomenclature>Gorilla gorilla</binomialnomenclature>
-                <family>Gorilla gorilla</family>
+                <family>Hominidae</family>
                 <class>Mammalia</class>
                 <IUCNConservationStatus>Critically endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -4523,7 +4523,7 @@
             <animal id="90">
                 <zooname>Freckled Monitor</zooname>
                 <binomialnomenclature>Varanus tristis</binomialnomenclature>
-                <family>Varanus tristis</family>
+                <family>Varanidae</family>
                 <class>Reptilia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -4573,7 +4573,7 @@
             <animal id="91">
                 <zooname>Yellow Spiny-tailed Monitor</zooname>
                 <binomialnomenclature>Varanus acanthurus brachyurus</binomialnomenclature>
-                <family>Varanus acanthurus brachyurus</family>
+                <family>Varanidae</family>
                 <class>Reptilia</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
                 <naturallocation>
@@ -4623,7 +4623,7 @@
             <animal id="92">
                 <zooname>Blue Tree Monitor</zooname>
                 <binomialnomenclature>Varanus macraei</binomialnomenclature>
-                <family>Varanus macraei</family>
+                <family>Varanidae</family>
                 <class>Reptilia</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -4673,7 +4673,7 @@
             <animal id="93">
                 <zooname>Komodo Dragon</zooname>
                 <binomialnomenclature>Varanus komodoensis</binomialnomenclature>
-                <family>Varanus komodoensis</family>
+                <family>Varanidae</family>
                 <class>Reptilia</class>
                 <IUCNConservationStatus>Vulnerable</IUCNConservationStatus>
                 <naturallocation>
@@ -4722,7 +4722,7 @@
             </animal>
             <animal id="94">
                 <zooname>Zebra Finch</zooname>
-                <binomialnomenclature>Taeniopygia guttata</binomialnomenclature>
+                <binomialnomenclature>Estrildidae</binomialnomenclature>
                 <family>Taeniopygia guttata</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Least Concern</IUCNConservationStatus>
@@ -4774,7 +4774,7 @@
             <animal id="95">
                 <zooname>Java Sparrow</zooname>
                 <binomialnomenclature>Lonchura oryzivora</binomialnomenclature>
-                <family>Lonchura oryzivora</family>
+                <family>Estrildidae</family>
                 <class>Aves</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
                 <naturallocation>
@@ -4824,7 +4824,7 @@
             <animal id="96">
                 <zooname>Mertens' Water Monitor</zooname>
                 <binomialnomenclature>Varanus mertensi</binomialnomenclature>
-                <family>Varanus mertensi</family>
+                <family>Varanidae</family>
                 <class>Reptilia</class>
                 <IUCNConservationStatus>Endangered</IUCNConservationStatus>
                 <naturallocation>

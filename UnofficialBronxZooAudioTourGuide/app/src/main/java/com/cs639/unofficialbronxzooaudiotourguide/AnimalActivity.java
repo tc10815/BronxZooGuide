@@ -48,13 +48,15 @@ public class AnimalActivity extends AppCompatActivity {
         TextView txtFamily = findViewById(R.id.txtFamily);
         TextView txtClass = findViewById(R.id.txtClass);
         TextView txtBinom = findViewById(R.id.txtBinomialNomenclature);
+        TextView txtIUCNConservationStatus = findViewById(R.id.txtIUCNConservationStatus);
 
         for(int x = 0; x < myAnimals.size();x++){
             if ( myAnimals.get(x).getZooName().equals(animalName)){
-                txtBinom.setText(myAnimals.get(x).getBinomialNomenclature());
-                txtFamily.setText(myAnimals.get(x).getFamily());
-                txtNaturallocation.setText(myAnimals.get(x).getNaturalLocation());
-                txtClass.setText(myAnimals.get(x).getAnimalClass());
+                txtBinom.setText("Binomial Nomenclature: " + myAnimals.get(x).getBinomialNomenclature());
+                txtFamily.setText("Family: " + myAnimals.get(x).getFamily());
+                txtNaturallocation.setText("Natural Location: " + myAnimals.get(x).getNaturalLocation());
+                txtClass.setText("Class: " + myAnimals.get(x).getAnimalClass());
+                txtIUCNConservationStatus.setText("Converation Status: " + myAnimals.get(x).getConservationStatus());
             }
         }
     }

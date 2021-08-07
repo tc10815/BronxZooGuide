@@ -145,6 +145,7 @@ public class AnimalBuildingActivity extends AppCompatActivity {
         ArrayList<Integer> imagesOfItems = new ArrayList<Integer>();
         Intent myIntent = this.getIntent();
         myStructureId = myIntent.getIntExtra("parentstructure", 0);
+        Log.i("debugdebug","Structure Id is " + myStructureId);
         filter = myIntent.getStringExtra("filter");
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         checkmarkStr = mPreferences.getString(CHECKMARK_BUILDING_KEY, "uuuuuuuuuuuuuuuuu" +
@@ -165,7 +166,9 @@ public class AnimalBuildingActivity extends AppCompatActivity {
         }
         txtInfoText.setText(addToTop);
         animalsWorking = allData.getAnimals();
+        Log.i("debugdebug", "printing animals");
         for(int iter = 0; iter < animalsWorking.size(); iter++) {
+            Log.i("debugdebug", "animal: " + animalsWorking.get(iter).getZooName());
             if (animalsWorking.get(iter).getParentStructure() == myStructureId + 2) {
                 if (filter.equals("") || animalsWorking.get(iter).matchesFilter(filter)) {
                     animalsListed.add(animalsWorking.get(iter));

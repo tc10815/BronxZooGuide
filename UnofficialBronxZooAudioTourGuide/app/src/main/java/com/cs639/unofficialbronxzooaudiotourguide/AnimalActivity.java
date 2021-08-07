@@ -149,11 +149,11 @@ public class AnimalActivity extends AppCompatActivity {
         mActionBar.setDisplayShowTitleEnabled(true);
 
         //Get different items in view
-        TextView txtNaturallocation = findViewById(R.id.txtNaturallocation);
         TextView txtFamily = findViewById(R.id.txtFamily);
         TextView txtClass = findViewById(R.id.txtClass);
         TextView txtBinom = findViewById(R.id.txtBinomialNomenclature);
         TextView txtIUCNConservationStatus = findViewById(R.id.txtIUCNConservationStatus);
+        TextView txtBodyText = findViewById(R.id.txtBodyText);
         ImageView animalImage = findViewById(R.id.imgAnimalPic);
         Button btnWikipedia = findViewById(R.id.btnWikipedia);
         Button btnEol = findViewById(R.id.btnEol);
@@ -163,9 +163,19 @@ public class AnimalActivity extends AppCompatActivity {
             if ( myAnimals.get(x).getZooName().equals(animalName)){
                 txtBinom.setText("Binomial Nomenclature: " + myAnimals.get(x).getBinomialNomenclature());
                 txtFamily.setText("Family: " + myAnimals.get(x).getFamily());
-                txtNaturallocation.setText("Natural Location: " + myAnimals.get(x).getNaturalLocation());
                 txtClass.setText("Class: " + myAnimals.get(x).getAnimalClass());
                 txtIUCNConservationStatus.setText("Converation Status: " + myAnimals.get(x).getConservationStatus());
+                String bodyText = "";
+                ArrayList<String> body = myAnimals.get(x).getDescription();
+                String toPost = "Location: " + myAnimals.get(x).getNaturalLocation()
+                        .replace("\n", "").replace("\r", "")
+                        .replaceAll("\\s+", " ") + "\n\n";
+                for(int y = 0; y < body.size(); y++){
+                    bodyText += body.get(y);
+                    toPost += bodyText.replace("\n", "").replace("\r", "").replaceAll("\\s+", " ");
+                    toPost += "\n\n";
+                }
+                txtBodyText.setText(toPost);
                 wikipediaurl = myAnimals.get(x).getWikiLink();
                 eolurl = myAnimals.get(x).getEolLink();
                 redlisturl = myAnimals.get(x).getRedlistLink();

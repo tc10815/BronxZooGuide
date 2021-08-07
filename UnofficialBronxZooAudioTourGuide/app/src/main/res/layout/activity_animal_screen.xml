@@ -59,17 +59,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtClass" />
 
-        <TextView
-            android:id="@+id/txtNaturallocation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="#000000"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toStartOf="@+id/imgAnimalPic"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtIUCNConservationStatus" />
+
 
         <ImageView
             android:id="@+id/imgAnimalPic"
@@ -111,5 +101,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btnEol"
             app:layout_constraintTop_toBottomOf="@+id/imgAnimalPic" />
+
+        <EditText
+            android:id="@+id/txtBodyText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ellipsize="none"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEol" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
